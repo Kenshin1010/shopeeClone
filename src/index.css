@@ -1,10 +1,8 @@
 :root {
-  font-family: Helvetica Neue, Helvetica, Arial, 文泉驛正黑, WenQuanYi Zen Hei,
-    Hiragino Sans GB, 儷黑 Pro, LiHei Pro, Heiti TC, 微軟正黑體,
-    Microsoft JhengHei UI, Microsoft JhengHei, Inter, system-ui,
-    Avenir, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  color: rgba(0, 0, 0, .8);
+  font-family: 'Helvetica Neue', Helvetica, Arial, 文泉驛正黑, WenQuanYi Zen Hei, Hiragino Sans GB, 儷黑 Pro, LiHei Pro, Heiti TC, 微軟正黑體, Microsoft JhengHei UI, Microsoft JhengHei, sans-serif;
+  line-height: 1.2;
+  font-size: .875rem;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);

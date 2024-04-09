@@ -1,4 +1,3 @@
-import React from "react";
 import PathIcon from "../../assets/jsx-icon/PathIcon";
 import ChatIcon from "../../assets/jsx-icon/ChatIcon";
 import { Button, Stack, SxProps, Theme } from "@mui/material";
