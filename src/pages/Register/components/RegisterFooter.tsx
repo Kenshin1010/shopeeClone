@@ -633,6 +633,11 @@ function RegisterFooter() {
                     className="footer-vn-background"
                     sx={{
                       backgroundImage: `url(${"https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9765d68a8945750d.png"})`,
+                      backgroundPosition:
+                        "14.391143911439114% 99.41176470588235%",
+                      backgroundSize: "551.6666666666666% 477.77777777777777%",
+                      height: "2.8125rem",
+                      width: "7.5rem",
                     }}
                   ></Box>
                 </Link>
@@ -645,6 +650,11 @@ function RegisterFooter() {
                     className="footer-vn-background"
                     sx={{
                       backgroundImage: `url(${"https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9765d68a8945750d.png"})`,
+                      backgroundPosition:
+                        "14.391143911439114% 99.41176470588235%",
+                      backgroundSize: "551.6666666666666% 477.77777777777777%",
+                      height: "2.8125rem",
+                      width: "7.5rem",
                     }}
                   ></Box>
                 </Link>
@@ -660,6 +670,8 @@ function RegisterFooter() {
                       backgroundPosition:
                         "1.6286644951140066% 92.21556886227545%",
                       backgroundSize: "1379.1666666666667% 447.9166666666667%",
+                      height: "3rem",
+                      width: "3rem",
                     }}
                   ></Box>
                 </Link>
