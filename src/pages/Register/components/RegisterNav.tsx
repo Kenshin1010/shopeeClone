@@ -14,7 +14,7 @@ function RegisterNav() {
       <Stack direction={"row"} alignItems={"end"}>
         <img
           width={"200px"}
-          height={"39.25px"}
+          height={"40px"}
           src={shopeeLogo}
           alt="Shopee-Logo"
         />
@@ -38,9 +38,8 @@ function RegisterNav() {
           cursor: "pointer",
           fontSize: ".875rem",
           fontWeight: 500,
-          letterSpacing: "1px",
           textDecoration: "none",
-          lineHeight: 1.4,
+          lineHeight: "40px",
         }}
       >
         Bạn cần giúp đỡ?
