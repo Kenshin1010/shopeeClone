@@ -24,7 +24,7 @@ export const RegisterBody = () => {
     >
       <Box
         sx={{
-          backgroundImage: `url("public/sg.png")`,
+          backgroundImage: `url(${"src/assets/images/sg.png"})`,
           maxWidth: "1040px",
           height: "600px",
           margin: "0 auto",
