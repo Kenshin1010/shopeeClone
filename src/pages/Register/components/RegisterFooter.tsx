@@ -864,11 +864,11 @@ function RegisterFooter() {
             "& .css-w937ta-MuiGrid-root>.MuiGrid-item": {
               paddingTop: "none",
             },
-            margin: "30px 0",
-            padding: "20px 0",
+            margin: "0",
+            padding: "40px 0",
           }}
         >
-          <Grid item xs={12} sm={12}>
+          <Grid item xs={12} sm={12} sx={{"&.MuiGrid-root": {paddingTop:"0"}}}>
             <Stack
               direction={"row"}
               alignItems="center"
@@ -898,7 +898,7 @@ function RegisterFooter() {
               </Typography>
             </Stack>
           </Grid>
-          <Grid item xs={12} sm={12}>
+          <Grid item xs={12} sm={12} sx={{"&.MuiGrid-root": {paddingTop:"0"}}}>
             <Stack direction={"row"} sx={{ color: "rgba(0, 0, 0, .54)" }}>
               <Typography
                 variant="body1"
@@ -1001,8 +1001,8 @@ function RegisterFooter() {
             </Stack>
           </Grid>
         </Grid>
-        <Grid container spacing={2} sx={{padding: "2.625rem 0 2.3125rem"}}>
-          <Grid item xs={12}>
+        <Grid container spacing={2} sx={{padding: "2.625rem 0 2.3125rem", "& .MuiGrid-root": {paddingTop:"0"}}}>
+          <Grid item xs={12} sx={{"&.MuiGrid-root": {paddingTop:"0"}}}>
             <Box>
               <Stack
                 direction={"row"}
