@@ -13,8 +13,12 @@ import GoogleIcon from "../../../assets/jsx-icon/GoogleIcon";
 import FacebookIcon from "../../../assets/jsx-icon/FacebookIcon";
 import { Theme } from "@mui/system";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import QRCodeIcon from "../../../assets/jsx-icon/QRCodeIcon";
 
 export const RegisterBody = () => {
+  const location = useLocation();
+  console.log(location.pathname === "/register");
   return (
     <Box
       sx={{
@@ -56,7 +60,15 @@ function SignUpForm() {
         transform: "translateY(-50%)",
       }}
     >
-      <Box className="signup-header">
+      <Stack
+        direction={"row"}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+        className="signup-header"
+        sx={{
+          padding: "22px 30px",
+        }}
+      >
         <Typography
           variant="h2"
           className="signup-title"
@@ -65,12 +77,60 @@ function SignUpForm() {
             fontSize: "20px",
             color: "#222",
             lineHeight: "24px",
-            padding: "22px 30px",
           }}
         >
-          Đăng ký
+          {location.pathname === "/buyer/signup" ? "Đăng ký" : "Đăng nhập"}
         </Typography>
-      </Box>
+        {location.pathname === "/buyer/login" && (
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
+          >
+            <Box
+              sx={{
+                border: "2px solid #ffbf00",
+                borderRadius: "2px",
+                color: "#ffbf00",
+                fontSize: ".875rem",
+                fontWeight: "700",
+                marginRight: "1rem",
+                padding: ".6875rem .875rem",
+                position: "relative",
+                "&:after": {
+                  backgroundColor: "#fefaec",
+                  borderRight: "2px solid #ffbf00",
+                  borderTop: "2px solid #ffbf00",
+                  boxSizing: "border-box",
+                  // content: '',
+                  height: ".75rem",
+                  position: "absolute",
+                  right: "-.75rem",
+                  top: "50%",
+                  transform: "rotate(45deg) translateX(-50%)",
+                  width: ".75rem",
+                },
+              }}
+            >
+              Đăng nhập với mã QR
+            </Box>
+            <Button variant="outlined" startIcon={<QRCodeIcon />}
+            sx={{
+              "& .MuiButton-icon" : {
+                margin: "0",
+                padding: "0",
+                border: "none",
+              },
+              "&.MuiButtonBase-root" : {
+                minWidth: "0",
+                padding: "0",
+                margin: "0",
+                border: "none",
+              },
+            }}></Button>
+          </Stack>
+        )}
+      </Stack>
       <Box
         className="signup-form"
         sx={{

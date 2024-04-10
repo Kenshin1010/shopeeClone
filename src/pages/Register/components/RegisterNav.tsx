@@ -1,7 +1,11 @@
 import { Link, styled, Typography } from "@mui/material";
 import shopeeLogo from "../../../assets/images/shopee.svg";
 import { Stack } from "@mui/system";
+import { useLocation } from "react-router-dom";
+
 function RegisterNav() {
+  const location = useLocation();
+  console.log(location.pathname === "/buyer/signup");
   return (
     <FlexRowSpaceBetweenAlignCenter
       sx={{
@@ -29,7 +33,7 @@ function RegisterNav() {
             lineHeight: 1.4,
           }}
         >
-          Đăng ký
+          {location.pathname === "/buyer/signup" ? "Đăng ký" : "Đăng nhập"}
         </Typography>
       </Stack>
       <Link

@@ -1,5 +1,6 @@
 // import { useState } from "react";
 // import reactLogo from "./assets/react.svg";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import ChatBox from "./components/ChatBox/ChatBox";
 // import { Button } from "@mui/material";
@@ -37,9 +38,16 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
-      
-        <Register />
-        <ChatBox />
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/buyer/signup" element={<Register />} />
+          <Route path="/buyer/login" element={<Register />} />
+        </Routes>
+      </BrowserRouter>
+
+      {/* <Register /> */}
+      <ChatBox />
     </div>
   );
 }

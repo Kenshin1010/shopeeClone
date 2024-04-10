@@ -98,6 +98,59 @@ function RegisterFooter() {
     []
   );
 
+  const getLinkCountryBoxStyles = useMemo(
+    () => ({
+      "&:not(:last-child)": {
+        borderRight: ".5px solid rgba(0, 0, 0, .2)",
+      },
+      padding: "0 5px",
+      cursor: "pointer",
+    }),
+    []
+  );
+
+  const getLinkCountryTypographyStyles = useMemo(
+    () => ({
+      color: "rgba(0, 0, 0, .54)",
+      lineHeight: "1.5rem",
+      fontSize: "14px",
+      textDecoration: "none",
+      "&:hover": { color: "#ee4d2d" },
+    }),
+    []
+  );
+
+  const getPolicyBoxStyles = useMemo(
+    () => ({
+      "&:not(:last-child)": {
+        borderRight: "1px solid rgba(0, 0, 0, .09)",
+      },
+      padding: "0 1.5625rem",
+      fontSize: ".75rem",
+      textTransform: "uppercase",
+      cursor: "pointer",
+    }),
+    []
+  );
+
+  const getPolicyLinkStyles = useMemo(
+    () => ({
+      color: "rgba(0, 0, 0, .54)",
+      textDecoration: "none",
+    }),
+    []
+  );
+  
+  const getParagramTypographyStyles = useMemo(
+    () => ({
+                  textAlign: "center",
+                  width: "100%",
+                  color: "rgba(0, 0, 0, .65)",
+                  fontSize: ".75rem",
+                  lineHeight: "1.2rem",
+    }),
+    []
+  );
   return (
     <Box component={"footer"}>
       <Container sx={{ marginTop: "30px" }}>
@@ -803,98 +856,210 @@ function RegisterFooter() {
             </Grid>
           </Grid>
         </Grid>
-        <Grid container spacing={2} sx={{borderTop: ".5px solid rgba(0, 0, 0, .1)",
-        "& .css-w937ta-MuiGrid-root>.MuiGrid-item": {
-          paddingTop: "none",
-        },
-        margin:"30px 0",
-        padding:"20px 0"}}>
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            borderTop: ".5px solid rgba(0, 0, 0, .1)",
+            "& .css-w937ta-MuiGrid-root>.MuiGrid-item": {
+              paddingTop: "none",
+            },
+            margin: "30px 0",
+            padding: "20px 0",
+          }}
+        >
           <Grid item xs={12} sm={12}>
-            <Stack direction={"row"} alignItems="center" justifyContent={"start"} sx={{color: "rgba(25, 37, 55, 0.5)" }}>
-              <Link href="https://beian.miit.gov.cn/">粤ICP备17161890号</Link>
-              <Typography sx={{ marginLeft: "8px" }}>
+            <Stack
+              direction={"row"}
+              alignItems="center"
+              justifyContent={"start"}
+              sx={{ color: "rgba(25, 37, 55, 0.5)" }}
+            >
+              <Link
+                href="https://beian.miit.gov.cn/"
+                sx={{
+                  color: "rgba(25, 37, 55, 0.5)",
+                  fontSize: "14px",
+                  textDecoration: "none",
+                  "&:hover": { color: "#ee4d2d" },
+                }}
+              >
+                粤ICP备17161890号
+              </Link>
+              <Typography
+                sx={{
+                  marginLeft: "8px",
+                  fontSize: "14px",
+                  lineHeight: "1.5rem",
+                }}
+              >
                 Copyright © 2024 深圳虾皮信息技术有限责任公司. All rights
                 reserved.
               </Typography>
             </Stack>
           </Grid>
           <Grid item xs={12} sm={12}>
-            <Stack direction={"row"} sx={{color: "rgba(0, 0, 0, .54)"}}>
-              <Typography variant="body1" sx={{ marginRight: "8px" }}>Quốc gia &amp; Khu vực:</Typography>
-              <Box>
-                <Link href="https://shopee.sg">Singapore</Link>
+            <Stack direction={"row"} sx={{ color: "rgba(0, 0, 0, .54)" }}>
+              <Typography
+                variant="body1"
+                sx={{
+                  marginRight: "8px",
+                  fontSize: "14px",
+                  lineHeight: "1.5rem",
+                }}
+              >
+                Quốc gia &amp; Khu vực:
+              </Typography>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.sg"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  Singapore
+                </Link>
               </Box>
-              <Box>
-                <Link href="https://shopee.co.id">Indonesia</Link>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.co.id"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  Indonesia
+                </Link>
               </Box>
-              <Box>
-                <Link href="https://shopee.co.th">Thái Lan</Link>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.co.th"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  Thái Lan
+                </Link>
               </Box>
-              <Box>
-                <Link href="https://shopee.com.my">Malaysia</Link>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.com.my"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  Malaysia
+                </Link>
               </Box>
-              <Box>
-                <Link href="https://shopee.vn">Việt Nam</Link>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.vn"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  Việt Nam
+                </Link>
               </Box>
-              <Box>
-                <Link href="https://shopee.ph">Philippines</Link>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.ph"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  Philippines
+                </Link>
               </Box>
-              <Box>
-                <Link href="https://shopee.com.br">Brazil</Link>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.com.br"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  Brazil
+                </Link>
               </Box>
-              <Box>
-                <Link href="https://shopee.com.mx">México</Link>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.com.mx"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  México
+                </Link>
               </Box>
-              <Box>
-                <Link href="https://shopee.com.co">Colombia</Link>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.com.co"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  Colombia
+                </Link>
               </Box>
-              <Box>
-                <Link href="https://shopee.cl">Chile</Link>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.cl"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  Chile
+                </Link>
               </Box>
-              <Box>
-                <Link href="https://shopee.tw">Đài Loan</Link>
+              <Box sx={getLinkCountryBoxStyles}>
+                <Link
+                  href="https://shopee.tw"
+                  sx={getLinkCountryTypographyStyles}
+                >
+                  Đài Loan
+                </Link>
               </Box>
             </Stack>
           </Grid>
         </Grid>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{padding: "2.625rem 0 2.3125rem"}}>
           <Grid item xs={12}>
             <Box>
-              <Box>
-                <Box>
+              <Stack
+                direction={"row"}
+                alignContent={"center"}
+                justifyContent={"center"}
+                sx={{ marginBottom: "2.5rem", color: "rgba(0, 0, 0, .65)" }}
+              >
+                <Box sx={getPolicyBoxStyles}>
                   <Link
                     href="https://help.shopee.vn/portal/article/77244"
                     className="mG_GYE"
+                    sx={getPolicyLinkStyles}
                   >
-                    <Typography>Chính sách bảo mật</Typography>
+                    <Typography sx={{ fontSize: ".75rem" }}>
+                      Chính sách bảo mật
+                    </Typography>
                   </Link>
                 </Box>
-                <Box>
+                <Box sx={getPolicyBoxStyles}>
                   <Link
                     href="https://help.shopee.vn/portal/article/77245"
                     className="mG_GYE"
+                    sx={getPolicyLinkStyles}
                   >
-                    <Typography>Quy chế hoạt động</Typography>
+                    <Typography sx={{ fontSize: ".75rem" }}>
+                      Quy chế hoạt động
+                    </Typography>
                   </Link>
                 </Box>
-                <Box>
+                <Box sx={getPolicyBoxStyles}>
                   <Link
                     href="https://help.shopee.vn/portal/article/77250"
                     className="mG_GYE"
+                    sx={getPolicyLinkStyles}
                   >
-                    <Typography>Chính sách vận chuyển</Typography>
+                    <Typography sx={{ fontSize: ".75rem" }}>
+                      Chính sách vận chuyển
+                    </Typography>
                   </Link>
                 </Box>
-                <Box>
+                <Box sx={getPolicyBoxStyles}>
                   <Link
                     href="https://help.shopee.vn/portal/article/77251"
                     className="mG_GYE"
+                    sx={getPolicyLinkStyles}
                   >
-                    <Typography>CHÍNH SÁCH TRẢ HÀNG VÀ HOÀN TIỀN</Typography>
+                    <Typography sx={{ fontSize: ".75rem" }}>
+                      Chính sách trả hàng và hoàn tiền
+                    </Typography>
                   </Link>
                 </Box>
-              </Box>
-              <Box>
+              </Stack>
+              <Stack
+                direction={"row"}
+                alignContent={"center"}
+                justifyContent={"center"}
+              >
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
@@ -909,6 +1074,7 @@ function RegisterFooter() {
                       backgroundSize: "551.6666666666666% 477.77777777777777%",
                       height: "2.8125rem",
                       width: "7.5rem",
+                      margin: "0 1.25rem",
                     }}
                   ></Box>
                 </Link>
@@ -926,6 +1092,7 @@ function RegisterFooter() {
                       backgroundSize: "551.6666666666666% 477.77777777777777%",
                       height: "2.8125rem",
                       width: "7.5rem",
+                      margin: "0 1.25rem",
                     }}
                   ></Box>
                 </Link>
@@ -943,25 +1110,34 @@ function RegisterFooter() {
                       backgroundSize: "1379.1666666666667% 447.9166666666667%",
                       height: "3rem",
                       width: "3rem",
+                      margin: "0 1.25rem",
                     }}
                   ></Box>
                 </Link>
-              </Box>
-              <Typography>Công ty TNHH Shopee</Typography>
-              <Typography>
+              </Stack>
+              <Typography
+                sx={{
+                  marginBottom: "1.5625rem",
+                  marginTop: ".5rem",
+                  ...getParagramTypographyStyles,
+                }}
+              >
+                Công ty TNHH Shopee
+              </Typography>
+              <Typography sx={getParagramTypographyStyles}>
                 Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu
                 Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành phố Hà Nội, Việt
                 Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn
               </Typography>
-              <Typography>
+              <Typography sx={getParagramTypographyStyles}>
                 Chịu Trách Nhiệm Quản Lý Nội Dung: Nguyễn Đức Trí - Điện thoại
                 liên hệ: 024 73081221 (ext 4678)
               </Typography>
-              <Typography>
+              <Typography sx={getParagramTypographyStyles}>
                 Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch & Đầu tư TP Hà Nội
                 cấp lần đầu ngày 10/02/2015
               </Typography>
-              <Typography>
+              <Typography sx={getParagramTypographyStyles}>
                 © 2015 - Bản quyền thuộc về Công ty TNHH Shopee
               </Typography>
             </Box>
