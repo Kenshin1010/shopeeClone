@@ -41,6 +41,7 @@ function App() {
 
       <BrowserRouter>
         <Routes>
+          <Route element={<Register />} index={true}/>
           <Route path="/buyer/signup" element={<Register />} />
           <Route path="/buyer/login" element={<Register />} />
         </Routes>
