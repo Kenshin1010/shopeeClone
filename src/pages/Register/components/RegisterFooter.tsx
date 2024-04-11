@@ -11,7 +11,7 @@ import {
 import { useMemo } from "react";
 
 function RegisterFooter() {
-  const typographyStylesH6 = useMemo(
+  const typographyStylesH6 = 
     () => ({
       color: "rgba(0, 0, 0, 0.87)",
       fontSize: ".75rem",
@@ -19,9 +19,7 @@ function RegisterFooter() {
       marginTop: "1.25rem",
       marginBottom: "1.25rem",
       textAlign: "left",
-    }),
-    []
-  );
+    });
 
   const getLinkTypographyStyles = useMemo(
     () => ({
@@ -69,7 +67,7 @@ function RegisterFooter() {
     []
   );
 
-  const imageFooter = useMemo(
+  const imageFooter = 
     () => ({
       backgroundColor: "#fff",
       borderRadius: ".125rem", // Assuming you want 4px rounded corners
@@ -81,11 +79,9 @@ function RegisterFooter() {
       overflow: "hidden",
       padding: ".25rem",
       width: "3.75rem",
-    }),
-    []
-  );
+    });
 
-  const imageFooterApp = useMemo(
+  const imageFooterApp = 
     () => ({
       backgroundColor: "#fff",
       borderRadius: "2px", // Adjusted for 2px rounded corners
@@ -94,33 +90,27 @@ function RegisterFooter() {
       marginBottom: ".5rem",
       padding: ".25rem",
       width: "76px",
-    }),
-    []
-  );
+    });
 
-  const getLinkCountryBoxStyles = useMemo(
+  const getLinkCountryBoxStyles = 
     () => ({
       "&:not(:last-child)": {
         borderRight: ".5px solid rgba(0, 0, 0, .2)",
       },
       padding: "0 5px",
       cursor: "pointer",
-    }),
-    []
-  );
+    });
 
-  const getLinkCountryTypographyStyles = useMemo(
+  const getLinkCountryTypographyStyles = 
     () => ({
       color: "rgba(0, 0, 0, .54)",
       lineHeight: "1.5rem",
       fontSize: "14px",
       textDecoration: "none",
       "&:hover": { color: "#ee4d2d" },
-    }),
-    []
-  );
+    });
 
-  const getPolicyBoxStyles = useMemo(
+  const getPolicyBoxStyles = 
     () => ({
       "&:not(:last-child)": {
         borderRight: "1px solid rgba(0, 0, 0, .09)",
@@ -129,28 +119,23 @@ function RegisterFooter() {
       fontSize: ".75rem",
       textTransform: "uppercase",
       cursor: "pointer",
-    }),
-    []
-  );
+    });
 
-  const getPolicyLinkStyles = useMemo(
+  const getPolicyLinkStyles = 
     () => ({
       color: "rgba(0, 0, 0, .54)",
       textDecoration: "none",
-    }),
-    []
-  );
+    });
   
-  const getParagramTypographyStyles = useMemo(
+  const getParagramTypographyStyles = 
     () => ({
                   textAlign: "center",
                   width: "100%",
                   color: "rgba(0, 0, 0, .65)",
                   fontSize: ".75rem",
                   lineHeight: "1.2rem",
-    }),
-    []
-  );
+    });
+    
   return (
     <Box component={"footer"}>
       <Container sx={{ marginTop: "30px" }}>
