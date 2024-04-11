@@ -14,13 +14,13 @@ import {
   Typography,
 } from "@mui/material";
 import { Theme } from "@mui/system";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
+import EyeClose from "../../../assets/jsx-icon/EyeClose";
+import EyeOpen from "../../../assets/jsx-icon/EyeOpen";
 import FacebookIcon from "../../../assets/jsx-icon/FacebookIcon";
 import GoogleIcon from "../../../assets/jsx-icon/GoogleIcon";
 import QRCodeIcon from "../../../assets/jsx-icon/QRCodeIcon";
-import EyeOpen from "../../../assets/jsx-icon/EyeOpen";
-import EyeClose from "../../../assets/jsx-icon/EyeClose";
 
 export const RegisterBody = () => {
   const location = useLocation();
@@ -54,20 +54,20 @@ export const RegisterBody = () => {
 
 function SignUpForm() {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
-  console.log("phoneNumber", phoneNumber);
-
   const [password, setPassword] = useState<string>("");
-  console.log("password", password);
 
   const [isValidatePhoneNumberFormLogin, setIsValidatePhoneNumberFormLogin] = useState<boolean>(true);
   const [isValidatePasswordFormLogin, setIsValidatePasswordFormLogin] = useState<boolean>(true);
-  const [isValidateFormLogin, setIsValidateFormLogin] = useState<boolean>(true);
-  console.log("isValidatePhoneNumberFormLogin", isValidatePhoneNumberFormLogin);
-  console.log("isValidatePasswordFormLogin", isValidatePasswordFormLogin);
-  console.log("isValidateFormLogin", isValidateFormLogin);
+  const [isValidateFormLogin, setIsValidateFormLogin] = useState<boolean>(false);
+  useEffect(() => {
+    if (location.pathname === "/buyer/login") {
+      setIsValidateFormLogin(phoneNumber !== "" && password !== "");
+    } else if (location.pathname === "/buyer/signup") {
+      setIsValidateFormLogin(phoneNumber !== "");
+    }
+  }, [location.pathname, phoneNumber, password]);
 
   const [showPassword, setShowPassword] = React.useState(false);
-  console.log("setShowPassword", setShowPassword);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -330,11 +330,9 @@ function SignUpForm() {
               },
             }}
             onClick={() => {
-              if (phoneNumber === "" || password === "") {
-                setIsValidateFormLogin(false);
-              }
+              
             }}
-            disabled={(phoneNumber === "" || password === "") ? true : false}
+            disabled={!isValidateFormLogin}
           >
             {location.pathname === "/buyer/signup" ? "Tiếp theo" : "Đăng nhập"}
           </Button>
