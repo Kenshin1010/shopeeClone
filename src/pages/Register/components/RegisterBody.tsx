@@ -240,7 +240,7 @@ function SignUpForm() {
                 }
               }}
             />
-            {!isValidateFormLogin && (
+            {!isValidatePhoneNumberFormLogin && (
               <FormHelperText
                 sx={{
                   textAlign: "left",
@@ -296,7 +296,7 @@ function SignUpForm() {
                 }
               />
 
-              {!isValidateFormLogin && (
+              {!isValidatePasswordFormLogin && (
                 <FormHelperText
                   sx={{
                     textAlign: "left",
