@@ -484,7 +484,9 @@ function SignUpForm() {
           ? "Bạn đã có tài khoản? "
           : "Bạn mới biết đến Shopee? "}
         <Link
-          href="/buyer/login?next=https%3A%2F%2Fshopee.vn%2FNh%25C3%25A0-S%25C3%25A1ch-Online-cat.11036863"
+          href={location.pathname === "/buyer/signup"
+          ? "/buyer/login"
+          : "/buyer/signup"}
           underline="none"
           sx={{
             color: "#ee4d2d",
