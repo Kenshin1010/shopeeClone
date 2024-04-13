@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import ChatBox from "./components/ChatBox/ChatBox";
 // import { Button } from "@mui/material";
+import HomePage from "./pages/HomePage/HomePage";
 import Register from "./pages/Register/Register";
 
 function App() {
@@ -41,13 +42,13 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route element={<Register />} index={true}/>
+          <Route path="/" element={<HomePage />} index={true}/>
+          <Route path="/shopee" element={<HomePage />} />
           <Route path="/buyer/signup" element={<Register />} />
           <Route path="/buyer/login" element={<Register />} />
         </Routes>
       </BrowserRouter>
 
-      {/* <Register /> */}
       <ChatBox />
     </div>
   );

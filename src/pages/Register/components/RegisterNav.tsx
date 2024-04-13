@@ -16,12 +16,14 @@ function RegisterNav() {
       }}
     >
       <Stack direction={"row"} alignItems={"end"}>
-        <img
-          width={"200px"}
-          height={"40px"}
-          src={shopeeLogo}
-          alt="Shopee-Logo"
-        />
+        <Link rel="stylesheet" href="/shopee" sx={{ cursor: "pointer" }}>
+          <img
+            width={"200px"}
+            height={"40px"}
+            src={shopeeLogo}
+            alt="Shopee-Logo"
+          />
+        </Link>
         <Typography
           sx={{
             color: "#222",
@@ -30,13 +32,14 @@ function RegisterNav() {
             letterSpacing: "1px",
             bottom: 0,
             transform: "translateX(-30px)",
-            lineHeight: 1.4,
+            lineHeight: 1.8,
           }}
         >
           {location.pathname === "/buyer/signup" ? "Đăng ký" : "Đăng nhập"}
         </Typography>
       </Stack>
       <Link
+        href="https://help.shopee.vn/vn/s"
         sx={{
           color: "#ee4d2d",
           cursor: "pointer",
@@ -53,6 +56,7 @@ function RegisterNav() {
 }
 
 export default RegisterNav;
+
 export const FlexRowSpaceBetweenAlignCenter = styled("div")({
   display: "flex",
   flexDirection: "row",

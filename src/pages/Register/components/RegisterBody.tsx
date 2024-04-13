@@ -315,7 +315,7 @@ function SignUpForm() {
           <Button
             variant="contained"
             sx={{
-              bgcolor: "#f3826c",
+              bgcolor: "#ee4d2d",
               color: "#fff",
               width: "100%",
               maxHeight: "40px",
@@ -326,7 +326,14 @@ function SignUpForm() {
               marginBottom:
                 location.pathname === "/buyer/signup" ? "1.875rem" : "0",
               "&:hover": {
-                backgroundColor: "#ee4d2d",
+                bgcolor: "#ee4d2d",
+              },
+              "&.Mui-disabled": {
+                pointerEvents: "unset", // allow :hover styles to be triggered
+                cursor: "not-allowed", // and custom cursor can be defined without :hover state
+                bgcolor: "#ee4d2d",
+                opacity: ".7",
+                color:"#fff",
               },
             }}
             onClick={() => {
