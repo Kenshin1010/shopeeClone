@@ -4,6 +4,7 @@ import {
   Button,
   Container,
   FormControl,
+  InputAdornment,
   Link,
   List,
   ListItem,
@@ -17,14 +18,15 @@ import {
 } from "@mui/material";
 import { useMemo, useState } from "react";
 import shopeeLogo from "../../../assets/images/shopee2.svg";
+import ArrowDownIcon from "../../../assets/jsx-icon/ArrowDownIcon";
 import HelpCenterIcon from "../../../assets/jsx-icon/HelpCenterIcon";
-import IconArrowDown from "../../../assets/jsx-icon/IconArrowDown";
 import NotificationIcon from "../../../assets/jsx-icon/NotificationIcon";
+import SearchIcon from "../../../assets/jsx-icon/SearchIcon";
 import ShopeeAvatar from "../../../assets/jsx-icon/ShopeeAvatar";
 import StardustPopover from "../../../assets/jsx-icon/StardustPopover";
 import StardustPopoverTarget from "../../../assets/jsx-icon/StardustPopoverTarget";
-import ShopeeSearchbarIcon from "../../../assets/jsx-icon/ShopeeSearchbarIcon";
-import CartDrawer from "../../../assets/jsx-icon/CartDrawer";
+import { lineHeight, minWidth } from "@mui/system";
+
 const options = ["Trong Nhà Sách Online", "Trong Shopee"];
 function HomeNav() {
   const [selectedValue, setSelectedValue] = useState("");
@@ -39,9 +41,9 @@ function HomeNav() {
       background: "linear-gradient(-180deg, #f53d2d, #f63)",
       transition:
         "transform .2s cubic-bezier(.4,0,.2,1), linear .2s cubic-bezier(.4,0,.2,1)",
-      "&:hover": {
-        transform: "scale(1.02)",
-      },
+      //   "&:hover": {
+      //     transform: "scale(1.02)",
+      //   },
       visibility: "visible",
       lineHeight: "1.2",
     }),
@@ -149,6 +151,7 @@ function HomeNav() {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "end",
     height: "2.125rem",
     listStyle: "none",
     margin: "0",
@@ -157,6 +160,10 @@ function HomeNav() {
   });
 
   const getListItemNavbarLinkStyles = () => ({
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "end",
     position: "relative",
     color: "currentColor",
     fontSize: ".875rem",
@@ -170,6 +177,10 @@ function HomeNav() {
   });
 
   const getLinkListItemNavbarStyles = () => ({
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "end",
     color: "currentColor",
     padding: "6px 0",
     textDecoration: "none",
@@ -180,10 +191,12 @@ function HomeNav() {
 
   const getTypographyListItemNavbarStyles = useMemo(
     () => ({
+      minWidth: "max-content",
+      display: "flex",
       alignItems: "center",
+      justifyContent: "end",
       color: "#fff",
       textDecoration: "none",
-      display: "flex",
       fontSize: ".8125rem",
       fontWeight: "300",
       textTransform: "capitalize",
@@ -218,16 +231,118 @@ function HomeNav() {
     cursor: "pointer",
   });
 
-  const shopeeSearchbarStyles = () => ({
-    "--focus-indicator-spacing": "3px",
-    alignItems: "stretch",
-    background: "#fff",
-    borderRadius: "2px",
-    boxSizing: "border-box",
+  const shopeeSearchbarStyles = useMemo(
+    () => ({
+      borderRadius: "2px",
+      boxSizing: "border-box",
+      "--focus-indicator-spacing": "3px",
+      backgroundColor: "#fff",
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      width: "100%",
+    }),
+    []
+  );
+
+  const getInputStyles = useMemo(
+    () => ({
+      positions: "relative",
+      backgroundColor: "#fff",
+      border: "none",
+      borderBlockColor: "none",
+      outline: "none",
+      maxHeight: "40px",
+      padding: 0,
+      flex: "1",
+      // padding: "0 .625rem",
+      "& .MuiInputBase-input": {
+        padding: ".75rem",
+        lineHeight: "20px",
+        border: "none",
+        borderBlockColor: "none",
+        outline: "none",
+      },
+      "& .MuiInputBase-input:focus": { outline: "none" },
+      fontSize: ".875rem",
+      borderRadius: "2px",
+      boxShadows: "inset 0 2px 0 rgba(0, 0, 0, .02)",
+      boxSizing: "border-box",
+      overflow: "hidden",
+
+      cursor: "text",
+      "& .MuiInputBase-root": {
+        height: "40px",
+        borderRadius: "2px",
+        border: "none",
+        borderBlockColor: "none",
+        outline: "none",
+      },
+      "& .MuiInputBase-root:focus": { outline: "none" },
+
+      "& .MuiOutlinedInput-root": { lineHeight: "20px", fontSize: ".875rem" },
+      "& .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+        {
+          borderColor: "rgba(0, 0, 0, 0.87)",
+          borderWidth: "1px",
+        },
+      "&.Mui-focused.MuiOutlinedInput-notchedOutline": {
+        borderColor: "rgba(0, 0, 0, 0.87)",
+        borderWidth: "1px",
+      },
+
+      "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+        border: "1px solid #fff",
+        borderBlockColor: "none",
+        outline: "none",
+      },
+
+      "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline:focus": {
+        border: "1px solid rgba(0, 0, 0, 0.87)",
+      },
+    }),
+    []
+  );
+
+  const shopeeSearchBarSelectorStyles = () => ({
     display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    color: "rgba(0, 0, 0, .87)",
+    cursor: "pointer",
     height: "2.5rem",
-    justifyContent: "space-between",
-    padding: ".1875rem",
+    lineHeight: "2.5rem",
+    maxWidth: "9.375rem",
+    position: "relative",
+    userSelect: "none",
+  });
+
+  const shopeeSearchBarSelectorTriggerStyles = () => ({
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    border: "0",
+    borderLeft: "1px solid rgba(0, 0, 0, .09)",
+    boxSizing: "border-box",
+    height: "75%",
+    lineHeight: "1.25rem",
+    overflow: "hidden",
+    paddingLeft: ".9375rem",
+    paddingRight: ".625rem",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+    width: "100%",
+    cursor: "pointer",
+  });
+
+  const optionSelectMenuItemStyles = () => ({
+    fontWeight: "normal",
+    display: "block",
+    minHeight: "1.2em",
+    padding: "0px 2px 1px",
+    whiteSpace: "nowrap",
   });
 
   return (
@@ -485,41 +600,59 @@ function HomeNav() {
           <Box
             sx={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
+              alignItems: "center",
               justifyContent: "flex-start",
               position: "relative",
               width: "840px",
+              height: "41px",
             }}
           >
             <FormControl
+              component={"form"}
+              role="search"
+              autoComplete="off"
               sx={{
-                role: "search",
-                autoComplete: "off",
+                position: "relative",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+                flex: "1",
+                height: "41px",
                 boxShadow: "0 0.125rem 0.25rem rgba(0,0,0,.09)",
                 width: "100%",
-                ...shopeeSearchbarStyles,
               }}
             >
-              <Box>
-                <Box>
-                  <TextField
+              <Box
+                className={"shopee-searchbar__main"}
+                sx={shopeeSearchbarStyles}
+              >
+                <TextField
                   id="filled-search"
-                  label="Search field"
                   type="search"
-                  variant="filled"
-                    aria-label="Tìm trong Nhà Sách Online"
-                    inputProps={{ maxLength: 128 }}
-                    placeholder="Tìm trong Nhà Sách Online"
-                    autoComplete="off"
-                    aria-autocomplete="list"
-                    aria-controls="shopee-searchbar-listbox"
-                    aria-expanded="false"
-                    role="combobox"
-                    value=""
-                  />
-                </Box>
-                <Box sx={{ pointerEvents: "auto" }}>
+                  inputProps={{ maxLength: 128 }}
+                  placeholder="Tìm trong Nhà Sách Online"
+                  autoComplete="off"
+                  role="combobox"
+                  value=""
+                  fullWidth // Optional: Set to true for full-width input
+                  aria-autocomplete="list"
+                  aria-controls="shopee-searchbar-listbox"
+                  aria-expanded="false"
+                  sx={{
+                    ...getInputStyles,
+                  }}
+                />
+                <Box
+                  className="shopee-searchbar-selector"
+                  sx={{
+                    pointerEvents: "auto",
+                    ...shopeeSearchBarSelectorStyles,
+                  }}
+                >
                   <Button
+                    className="shopee-searchbar-selector__trigger"
                     role="combobox"
                     aria-controls="radix-19"
                     aria-expanded="false"
@@ -527,11 +660,19 @@ function HomeNav() {
                     dir="ltr"
                     data-state="closed"
                     aria-label=""
+                    sx={shopeeSearchBarSelectorTriggerStyles}
                   >
-                    <Typography sx={{ pointerEvents: "none" }}>
+                    <Typography
+                      sx={{
+                        pointerEvents: "none",
+                        textTransform: "none",
+                        font: "inherit",
+                        color: "#000",
+                      }}
+                    >
                       Trong Nhà Sách Online
                     </Typography>
-                    <IconArrowDown />
+                    <ArrowDownIcon />
                   </Button>
                   <Select
                     value={selectedValue} // Set an initial value
@@ -551,7 +692,7 @@ function HomeNav() {
                     }}
                   >
                     {options.map((option) => (
-                      <MenuItem key={option} value={option}>
+                      <MenuItem value={option} sx={optionSelectMenuItemStyles}>
                         {option}
                       </MenuItem>
                     ))}
@@ -559,90 +700,97 @@ function HomeNav() {
                 </Box>
               </Box>
               <Button
-                type="button"
-                variant="outlined"
-                startIcon={<ShopeeSearchbarIcon />}
-              ></Button>
+                sx={{
+                  background: "linear-gradient(-180deg, #f53d2d, #f63)",
+                  width: "60px",
+                  height: "34px",
+                  padding: "0 15px",
+                  minWidth: "60px",
+                  maxWidth: "190px",
+                }}
+              >
+                <SearchIcon />
+              </Button>
             </FormControl>
             <Box>
-              <Box>
+              {/* <Box>
                 <Link
                   aria-hidden="false"
-                  href="/search?keyword=%C3%A1o%202%20d%C3%A2y"
+                  href="/search?keyword=v%C3%B5%20ph%E1%BB%A5c%20karate%20rikaido"
                 >
                   Võ Phục Karate Rikaido
                 </Link>
                 <Link
                   aria-hidden="false"
-                  href="/search?keyword=%C3%A1o%20ph%C3%B4ng%20nam"
+                  href="/search?keyword=kotoro%20wa"
                 >
                   Kotoro Wa
                 </Link>
                 <Link
                   aria-hidden="false"
-                  href="/search?keyword=set%20%C3%A1o%20ki%E1%BB%83u"
+                  href="/search?keyword=v%C3%B5%20ph%E1%BB%A5c%20karate"
                 >
                   Võ Phục Karate
                 </Link>
                 <Link
                   aria-hidden="false"
-                  href="/search?keyword=ch%C3%A2n%20v%C3%A1y%20jean"
+                  href="/search?keyword=m%C3%A0n%20h%C3%ACnh%20dell%20n5050"
                 >
                   Màn Hình DELL N5050
                 </Link>
                 <Link
                   aria-hidden="false"
-                  href="/search?keyword=chi%E1%BA%BFu%20%C4%91i%E1%BB%81u%20ho%C3%A0"
+                  href="/search?keyword=ai%20tr%C3%AD%20tu%E1%BB%87%20nh%C3%A2n%20t%E1%BA%A1o"
                 >
                   Ai Trí Tuệ Nhân Tạo
                 </Link>
-                <Link aria-hidden="false" href="/search?keyword=hasaki">
+                <Link aria-hidden="false" href="/search?keyword=naraka%20bladepoint">
                     Naraka Bladepoint
                 </Link>
-                <Link aria-hidden="false" href="/search?keyword=k%C3%ADnh">
+                <Link aria-hidden="false" href="/search?keyword=b%C3%BAt%20th%C6%B0%20ph%C3%A1p">
                 Bút Thư Pháp
                 </Link>
-                <Link aria-hidden="false" href="/search?keyword=m%C5%A9">
+                <Link aria-hidden="false" href="/search?keyword=alone%204">
                 Alone 4
                 </Link>
                 <Link
                   aria-hidden="false"
-                  href="/search?keyword=m%C5%A9%20b%E1%BA%A3o%20hi%E1%BB%83m"
+                  href="/search?keyword=s%C3%A1ch%20thanh%20l%C3%BD"
                 >
                   Sách Thanh Lý
                 </Link>
-                <Link aria-hidden="false" href="/search?keyword=t%C3%BAi">
+                <Link aria-hidden="false" href="/search?keyword=m%C3%B4%20h%C3%ACnh%20l%C3%BD%20c%E1%BA%A3nh%20lung">
                 Mô Hình Lý Cảnh Lung
                 </Link>
                 <Link
                   aria-hidden="false"
-                  href="/search?keyword=b%C3%ACnh%20n%C6%B0%E1%BB%9Bc"
+                  href="/search?keyword=simon"
                 >
                   Simon
                 </Link>
                 <Link
                   aria-hidden="false"
-                  href="/search?keyword=qu%E1%BA%A7n%20jean%20nam"
+                  href="/search?keyword=%C4%91ai%20karate"
                 >
                   Đai Karate
                 </Link>
                 <Link
                   aria-hidden="true"
-                  href="/search?keyword=kh%E1%BA%A9u%20trang%205d"
+                  href="/search?keyword=kanji%20look%20and%20learn"
                 >
                   Kanji Look And Learn
                 </Link>
                 <Link
                   aria-hidden="true"
-                  href="/search?keyword=ch%C3%A2n%20v%C3%A1y%20d%C3%A0i"
+                  href="/search?keyword=v%C6%B0%C6%A1ng%20kh%C3%AD%20r%E1%BB%ABng%20s%C3%A2u"
                 >
-                  Kính
+                  Vương Khí Rừng Sâu
                 </Link>
                 <Link aria-hidden="true" href="/search?keyword=sticker">
                   Sticker
                 </Link>
-                <Link aria-hidden="true" href="/search?keyword=tai%20nghe">
-                  Tai Nghe
+                <Link aria-hidden="true" href="/search?keyword=qu%E1%BA%A1t%20t%E1%BA%A3n%20nhi%E1%BB%87t%20laptop">
+                    Quạt Tản Nhiệt Laptop
                 </Link>
                 <Link
                   aria-hidden="true"
@@ -652,9 +800,9 @@ function HomeNav() {
                 </Link>
                 <Link
                   aria-hidden="true"
-                  href="/search?keyword=qu%E1%BA%A7n%20jean%20%E1%BB%91ng%20r%E1%BB%99ng"
+                  href="/search?keyword=n%C3%B3i%20ti%E1%BA%BFng%20anh%20nh%C6%B0%20gi%C3%B3"
                 >
-                  Quần Jean Ống Rộng
+                  Nói Tiếng Anh Như Gió
                 </Link>
                 <Link aria-hidden="true" href="/search?keyword=lovito">
                   Lovito
@@ -664,26 +812,26 @@ function HomeNav() {
                 </Link>
                 <Link
                   aria-hidden="true"
-                  href="/search?keyword=%C3%A1o%20kho%C3%A1c%20nam"
+                  href="/search?keyword=s%C3%A1ch%20vi%E1%BB%87t"
                 >
-                  Áo Khoác Nam
+                  Sách Việt
                 </Link>
                 <Link
                   aria-hidden="true"
-                  href="/search?keyword=%C4%91%E1%BB%93%20%C4%83n%20v%E1%BA%B7t"
+                  href="/search?keyword=tr%E1%BA%A5n%20qu%E1%BB%91c%20th%E1%BA%A7n%20k%C3%ADch%20ho%C3%A0n%20m%E1%BB%B9"
                 >
-                  Đồ Ăn Vặt
+                  Trấn Quốc Thần Kích Hoàn Mỹ
                 </Link>
                 <Link
                   aria-hidden="true"
-                  href="/search?keyword=qu%E1%BA%A1t%20c%E1%BA%A7m%20tay"
+                  href="/search?keyword=m%C3%B4%20h%C3%ACnh%20t%E1%BA%A7n%20th%E1%BB%9Di%20minh%20nguy%E1%BB%87t"
                 >
-                  Quạt Cầm Tay
+                  Mô Hình Tần Thời Minh Nguyệt
                 </Link>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
-          <Box>
+          {/* <Box>
             <Box>
               <Box>
                 <Box>
@@ -697,7 +845,7 @@ function HomeNav() {
                 </Box>
               </Box>
             </Box>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>

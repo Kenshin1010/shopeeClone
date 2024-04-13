@@ -77,7 +77,7 @@ function SignUpForm() {
     event.preventDefault();
   };
 
-  const getInputStyles = useMemo(
+const getInputStyles = useMemo(
     () => ({
       maxHeight: "41px",
       padding: 0,
