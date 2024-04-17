@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Container,
-  createTheme,
   FormControl,
   InputAdornment,
   Link,
@@ -13,7 +12,7 @@ import {
   Stack,
   TextField,
   Toolbar,
-  Typography,
+  Typography
 } from "@mui/material";
 import { useMemo } from "react";
 import shopeeLogo from "../../../assets/images/shopee2.svg";
@@ -28,17 +27,17 @@ import StardustPopoverTarget from "../../../assets/jsx-icon/StardustPopoverTarge
 
 const optionsSearchList = ["Trong Nhà Sách Online", "Trong Shopee"];
 function HomeNav() {
-  const theme = createTheme({
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 600,
-        md: 960,
-        lg: 1280,
-        xl: 1920,
-      },
-    },
-  });
+  // const theme = createTheme({
+  //   breakpoints: {
+  //     values: {
+  //       xs: 0,
+  //       sm: 600,
+  //       md: 960,
+  //       lg: 1280,
+  //       xl: 1920,
+  //     },
+  //   },
+  // });
 
   const topShopeeContainerStyles = useMemo(
     () => ({

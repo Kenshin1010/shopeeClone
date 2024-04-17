@@ -1,6 +1,6 @@
-import PathIcon from "../../assets/jsx-icon/PathIcon";
-import ChatIcon from "../../assets/jsx-icon/ChatIcon";
 import { Button, Stack, SxProps, Theme } from "@mui/material";
+import ChatIcon from "../../assets/jsx-icon/ChatIcon";
+import PathIcon from "../../assets/jsx-icon/PathIcon";
 
 function ChatBox() {
   return (
@@ -12,7 +12,7 @@ function ChatBox() {
         position: "fixed",
         top: "92%",
         right: ".625rem",
-        cusor: "pointer",
+        cursor: "pointer",
         width: "6.25rem",
         padding: ".75rem",
         borderRadius: ".1875rem",
@@ -22,6 +22,23 @@ function ChatBox() {
         },
       }}
     >
+      {/* <Box
+        sx={{
+          background: "#ee4d2d",
+          border: "1px solid #f6f6f6",
+          borderRadius: "9px",
+          color: "#fff",
+          fontSize: "12px",
+          height: "18px",
+          overflow: "hidden",
+          padding: "1px 5px",
+          position: "absolute",
+          right: "-4px",
+          top: "-9px",
+        }}
+      >
+        1
+      </Box> */}
       <Button
         variant="text"
         startIcon={<PathIcon />}
