@@ -130,13 +130,16 @@ function HomeSliderImage() {
           height: "100%",
           position: "relative",
           overflow: "hidden",
+           '& .react-slideshow-container button': {
+            marginTop: "168px",
+           }
         }}
       >
-        <Slide>
+        <Slide cssClass="">
           {slideImages.map((slideImage, index) => (
             <Box key={index}>
               <Box
-                style={{
+                sx={{
                   ...BoxStyle,
                   backgroundImage: `url(${slideImage.url})`,
                   ...ButtonStyle,
