@@ -12,7 +12,7 @@ import {
   Stack,
   TextField,
   Toolbar,
-  Typography
+  Typography,
 } from "@mui/material";
 import { useMemo } from "react";
 import shopeeLogo from "../../../assets/images/shopee2.svg";
@@ -750,12 +750,11 @@ function HomeNav() {
                 />
               </Box>
             </Link>
-            <Stack 
-            direction={"column"}
-            alignItems={"center"}
-            justifyContent={"flex-start"}
+            <Stack
+              direction={"column"}
+              alignItems={"center"}
+              justifyContent={"flex-start"}
               sx={{
-                
                 position: "relative",
                 visibility: "visible",
                 // height: "41px",

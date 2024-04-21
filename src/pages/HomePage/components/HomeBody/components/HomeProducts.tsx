@@ -3,20 +3,30 @@ import {
   Button,
   Checkbox,
   Container,
+  FormControl,
   FormControlLabel,
   FormGroup,
+  InputLabel,
   Link,
+  MenuItem,
+  Paper,
+  Select,
+  SelectChangeEvent,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import ArrowDownIcon from "../../../../../assets/jsx-icon/ArrowDownIcon";
-import IconDownArrowRightFilled from "../jsx-icon/IconDownArrowRightFilled";
-import RatingStar from "../jsx-icon/RatingStar";
-import RatingStarColored from "../jsx-icon/RatingStarColored";
-import SearchFilter from "../jsx-icon/SearchFilter";
-import ShopeeCategoryList from "../jsx-icon/ShopeeCategoryList";
+import ArrowLeftSmall from "../../jsx-icon/ArrowLeftSmall";
+import ArrowRightSmall from "../../jsx-icon/ArrowRightSmall";
+import DownArrowRightFilled from "../../jsx-icon/DownArrowRightFilled";
+import RatingStar from "../../jsx-icon/RatingStar";
+import RatingStarColored from "../../jsx-icon/RatingStarColored";
+import SearchFilter from "../../jsx-icon/SearchFilter";
+import ShopeeCategoryList from "../../jsx-icon/ShopeeCategoryList";
+import ArrowLeft from "../../jsx-icon/ArrowLeft";
+import ArrowRight from "../../jsx-icon/ArrowRight";
 
 function HomeProducts() {
   const shopeeCategoryListBoxLinkStyle = useMemo(
@@ -270,20 +280,207 @@ function HomeProducts() {
     lineHeight: "17px",
   };
 
+  const [price, setPrice] = React.useState("");
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setPrice(event.target.value);
+  };
+
+  const shopeeSortBarStyle = {
+    fontWeight: "400",
+    background: "rgba(0, 0, 0, .03)",
+    padding: ".8125rem 1.25rem",
+    borderRadius: "2px",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  };
+
+  const productFieldSetStyle = {
+    marginInlineStart: "2px",
+    marginInlineEnd: "2px",
+    // paddingBlockStart: ".35em",
+    paddingInlineStart: ".75em",
+    paddingInlineEnd: ".75em",
+    // paddingBlockEnd: ".625em",
+    minInlineSize: "min-content",
+    // borderWidth: "2px",
+    // borderStyle: "groove",
+    // borderColor: "rgb(192, 192, 192)",
+    // borderImage: "initial",
+    // border: "1px solid silver",
+    // margin: "0 2px",
+    // padding: ".35em .625em .75em",
+  };
+
+  const shopeeSortByOptionStyle = {
+    display: "flex",
+    alignItems: "stretch",
+    flex: "1",
+    gridGap: ".625rem",
+    gap: ".625rem",
+    justifyContent: "flex-start",
+  };
+
+  const shopeeSortByOptionGroupStyle = {
+    display: "flex",
+    gridGap: ".625rem",
+    gap: ".625rem",
+    marginLeft: ".625rem",
+    // boxShadow: "none",
+  };
+
+  const shopeeButtonSortByOption = {
+    color: "rgba(0, 0, 0, .8)",
+    boxShadow: "0 1px 1px 0 rgba(0,0,0,.02)",
+    height: "2.125rem",
+    lineHeight: "2.125rem",
+    borderRadius: "2px",
+    border: "0",
+    overflow: "visible",
+    outline: "0",
+    cursor: "pointer",
+    userSelect: "none",
+    position: "relative",
+    display: "flex",
+    minWidth: "5.625rem",
+    alignItems: "center",
+    justifyContent: "center",
+    textTransform: "capitalize",
+    padding: "0 .9375rem",
+    backgroundColor: "#fff",
+    whiteSpace: "nowrap",
+  };
+
+  const shopeePriceSelectStyle = {
+    textAlign: "left",
+    cursor: "pointer",
+    border: "0",
+    borderRadius: "2px",
+    height: "2.125rem",
+    lineHeight: "2.125rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    position: "relative",
+    boxSizing: "border-box",
+    minWidth: "12.5rem",
+    background: "#fff",
+    transition: "border-color .1s ease",
+    paddingLeft: ".75rem",
+    boxShadow: "0 1px 1px 0 rgba(0,0,0,.02)",
+  };
+
+  // const shopeeSearchItemResult = {
+  //   margin: "1.25rem 0 3.75rem",
+  // };
+
+  const shopeePageController = {
+    margin: "1.25rem 0 3.75rem",
+    position: "relative",
+    overflow: "visible",
+    outline: "0",
+    color: "rgba(0, 0, 0, .4)",
+    minWidth: "2.5rem",
+    height: "1.875rem",
+    border: "0",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  };
+
+  const shopeeIconButton = {
+    pointerEvents: "none",
+    // border: "1px solid rgba(0, 0, 0, .54)",
+    backgroundColor: "transparent",
+    padding: "0",
+    // outline: "none",
+    cursor: "pointer",
+    border: "0",
+    fontSize: ".875rem",
+    fontWeight: "300",
+    lineHeight: "1",
+    letterSpacing: "0",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "background-color .1s cubic-bezier(.4,0,.6,1)",
+    textDecoration: "none",
+    position: "relative",
+    overflow: "visible",
+    outline: "0",
+    color: "rgba(0, 0, 0, .4)",
+    minWidth: "2.5rem",
+    height: "1.875rem",
+  };
+
+  const shopeeButtonSolid = {
+    color: "#fff",
+    padding: "0",
+    minWidth: "2.5rem",
+    textAlign: "center",
+    height: "1.875rem",
+    fontSize: "1.25rem",
+    marginLeft: ".9375rem",
+    marginRight: ".9375rem",
+    textDecoration: "none",
+  };
+
+  const shopeeButtonSolidPrimary = {
+    position: "relative",
+    overflow: "visible",
+    outline: "0",
+    background: "#ee4d2d",
+  };
+
+  const shopeeButtonNoOutline = {
+    position: "relative",
+    overflow: "visible",
+    // outline: "0",
+    padding: ".3125rem .4375rem",
+    color: "rgba(0, 0, 0, .8)",
+    backgroundColor: "transparent",
+    outline: "none",
+    cursor: "pointer",
+    border: "0",
+    // fontSize: ".875rem",
+    fontWeight: "300",
+    lineHeight: "1",
+    letterSpacing: "0",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "background-color .1s cubic-bezier(.4,0,.6,1)",
+    textDecoration: "none",
+  };
+
+  const shopeeSVGIcon = {
+    verticalAlign: "middle",
+    display: "inline-block",
+    height: "1em",
+    width: "1em",
+    fill: "currentColor",
+    position: "relative",
+    overflowClipMargin: "content-box",
+    overflow: "hidden",
+  };
+
   return (
     <Box className={"HomeProducts"}>
       <Container
         sx={{
           display: "flex",
           flexDirection: "row",
-          alignItems: "center",
+          alignItems: "start",
           justifyContent: "space-between",
           flexWrap: "wrap",
           marginTop: "1.875rem",
           marginLeft: "auto",
           marginRight: "auto",
           width: "1200px",
-          "& .MuiContainer-root": {
+          "&.MuiContainer-root": {
             padding: "0",
           },
           textAlign: "left",
@@ -369,7 +566,7 @@ function HomeProducts() {
                         justifyContent: "center",
                       }}
                     >
-                      <IconDownArrowRightFilled />
+                      <DownArrowRightFilled />
                     </Box>
                     Nhà Sách Online
                   </Link>
@@ -397,7 +594,7 @@ function HomeProducts() {
                         ...iconDownArrowRightFilledStyle,
                       }}
                     >
-                      <IconDownArrowRightFilled />
+                      <DownArrowRightFilled />
                     </Box>
                     Sách Tiếng Việt
                   </Link>
@@ -415,7 +612,7 @@ function HomeProducts() {
                         ...iconDownArrowRightFilledStyle,
                       }}
                     >
-                      <IconDownArrowRightFilled />
+                      <DownArrowRightFilled />
                     </Box>
                     Sách ngoại văn
                   </Link>
@@ -433,7 +630,7 @@ function HomeProducts() {
                         ...iconDownArrowRightFilledStyle,
                       }}
                     >
-                      <IconDownArrowRightFilled />
+                      <DownArrowRightFilled />
                     </Box>
                     Gói Quà
                   </Link>
@@ -451,7 +648,7 @@ function HomeProducts() {
                         ...iconDownArrowRightFilledStyle,
                       }}
                     >
-                      <IconDownArrowRightFilled />
+                      <DownArrowRightFilled />
                     </Box>
                     Bút viết
                   </Link>
@@ -469,7 +666,7 @@ function HomeProducts() {
                         ...iconDownArrowRightFilledStyle,
                       }}
                     >
-                      <IconDownArrowRightFilled />
+                      <DownArrowRightFilled />
                     </Box>
                     Dụng cụ học sinh &amp; văn phòng
                   </Link>
@@ -531,7 +728,7 @@ function HomeProducts() {
                                 ...iconDownArrowRightFilledStyle,
                               }}
                             >
-                              <IconDownArrowRightFilled />
+                              <DownArrowRightFilled />
                             </Box>
                             Màu, Họa Cụ và Đồ Thủ Công
                           </Link>
@@ -549,7 +746,7 @@ function HomeProducts() {
                                 ...iconDownArrowRightFilledStyle,
                               }}
                             >
-                              <IconDownArrowRightFilled />
+                              <DownArrowRightFilled />
                             </Box>
                             Sổ và Giấy Các Loại
                           </Link>
@@ -567,7 +764,7 @@ function HomeProducts() {
                                 ...iconDownArrowRightFilledStyle,
                               }}
                             >
-                              <IconDownArrowRightFilled />
+                              <DownArrowRightFilled />
                             </Box>
                             Quà Lưu Niệm
                           </Link>
@@ -585,7 +782,7 @@ function HomeProducts() {
                                 ...iconDownArrowRightFilledStyle,
                               }}
                             >
-                              <IconDownArrowRightFilled />
+                              <DownArrowRightFilled />
                             </Box>
                             Nhạc cụ và phụ kiện âm nhạc
                           </Link>
@@ -1128,7 +1325,7 @@ function HomeProducts() {
               </Box>
             </Box>
             <Button
-              className="shopee-button-solid shopee-button-solid--primary FAYSqk"
+              className="shopee-button-solid shopee-button-solid--primary"
               sx={{
                 margin: "1.25rem 0 0",
                 ...shopeeButtonSolidStyle,
@@ -1557,7 +1754,7 @@ function HomeProducts() {
             )}
           </Box>
           <Button
-            className="shopee-button-solid shopee-button-solid--primary dkvbeL"
+            className="shopee-button-solid shopee-button-solid--primary"
             sx={{
               margin: "1.25rem 0 0",
               ...shopeeButtonSolidStyle,
@@ -1567,8 +1764,296 @@ function HomeProducts() {
             Xóa tất cả
           </Button>
         </Stack>
-        <Stack role={"main"} className={shopee-filter-products}>
-          
+
+        {/* main filter products list */}
+        <Stack
+          role={"main"}
+          className={"shopee-filter-products"}
+          direction={"row"}
+          alignItems={"start"}
+          justifyContent={"space-between"}
+          sx={{
+            flex: "1",
+            // width: "0", minWidth: "0"
+          }}
+        >
+          <Paper
+            component={"section"}
+            aria-label=""
+            className="shopee-search-item-result"
+            elevation={0}
+            sx={{
+              flex: "1",
+            }}
+          >
+            <Box
+              component={"fieldset"}
+              className="shopee-sort-bar"
+              sx={{
+                border: "0px",
+                ...shopeeSortBarStyle,
+                ...productFieldSetStyle,
+              }}
+            >
+              <Box
+                component={"legend"}
+                sx={{
+                  display: "none",
+                  border: "0",
+                  padding: "0",
+                  paddingInlineStart: "2px",
+                  paddingInlineEnd: "2px",
+                  unicodeBidi: "isolate",
+                  borderWidth: "initial",
+                  borderStyle: "none",
+                  borderColor: "initial",
+                  borderImage: "initial",
+                }}
+              ></Box>
+              <Box
+                className="shopee-sort-bar__label"
+                sx={{
+                  color: "#555",
+                  margin: "0 .3125rem 0 0",
+                }}
+              >
+                Sắp xếp theo
+              </Box>
+              <Box
+                className="shopee-sort-by-options"
+                sx={{ ...shopeeSortByOptionStyle }}
+              >
+                <Box
+                  component={"section"}
+                  className="shopee-sort-by-options__option-group"
+                  sx={{ ...shopeeSortByOptionGroupStyle }}
+                >
+                  <Button
+                    aria-label=""
+                    aria-pressed="true"
+                    className="shopee-sort-by-options__option shopee-sort-by-options__option--selected"
+                    sx={{
+                      ...shopeeButtonSortByOption,
+                      backgroundColor: "rgb(238, 77, 45)",
+                      color: "#fff",
+                    }}
+                  >
+                    <Typography aria-hidden="true">Phổ biến</Typography>
+                  </Button>
+                  <Button
+                    aria-label=""
+                    aria-pressed="false"
+                    className="shopee-sort-by-options__option"
+                    sx={{
+                      ...shopeeButtonSortByOption,
+                    }}
+                  >
+                    <Typography aria-hidden="true">Mới nhất</Typography>
+                  </Button>
+                  <Button
+                    aria-label=""
+                    aria-pressed="false"
+                    className="shopee-sort-by-options__option"
+                    sx={{
+                      ...shopeeButtonSortByOption,
+                    }}
+                  >
+                    <Typography aria-hidden="true">Bán chạy</Typography>
+                  </Button>
+                </Box>
+                <Box>
+                  <Box sx={{ pointerEvents: "auto" }}>
+                    <FormControl
+                      sx={{
+                        m: "1",
+                      }}
+                      size="small"
+                    >
+                      <InputLabel
+                        id="demo-select-small-label"
+                        sx={{
+                          "&.MuiFormLabel-root": {
+                            lineHeigh: "1rem",
+                          },
+                        }}
+                      >
+                        Giá
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        value={price}
+                        onChange={handleChange}
+                        sx={{
+                          "& .MuiSelect-nativeInput": {
+                            position: "relative",
+                          },
+                          "& .MuiSelect-select": {
+                            padding: "0",
+                          },
+                          ...shopeePriceSelectStyle,
+                        }}
+                      >
+                        <MenuItem value={"Giá: Thấp đến cao"}>
+                          Giá: Thấp đến cao
+                        </MenuItem>
+                        <MenuItem value={"Giá: Cao đến thấp"}>
+                          Giá: Cao đến thấp
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
+                    {/* <SortPriceSelect /> */}
+                  </Box>
+                </Box>
+              </Box>
+              <Stack
+                direction={"row"}
+                alignItems={"center"}
+                justifyContent={"space-between"}
+                className="shopee-mini-page-controller"
+              >
+                <Box
+                  className="shopee-mini-page-controller__state"
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Typography
+                    className="shopee-mini-page-controller__current"
+                    sx={{ color: "#ee4d2d" }}
+                  >
+                    1
+                  </Typography>
+                  /
+                  <Typography className="shopee-mini-page-controller__total">
+                    17
+                  </Typography>
+                </Box>
+                <Link
+                  aria-disabled="true"
+                  aria-label=""
+                  className="shopee-button-outline shopee-button-outline--disabled shopee-mini-page-controller__prev-btn"
+                  href="/"
+                >
+                  <Box>
+                    <ArrowLeftSmall />
+                  </Box>
+                </Link>
+                <Link
+                  aria-disabled="false"
+                  aria-label=""
+                  className="shopee-button-outline shopee-mini-page-controller__next-btn"
+                  href="/Nhà-Sách-Online-cat.11036863?is_from_login=true&amp;page=1&amp;ratingFilter=4&amp;sortBy=pop"
+                >
+                  <Box>
+                    <ArrowRightSmall />
+                  </Box>
+                </Link>
+              </Stack>
+            </Box>
+            <Box sx={{ marginTop: "2.5rem" }}>
+              <Box
+                component={"nav"}
+                aria-label=""
+                className="shopee-page-controller"
+                role="navigation"
+                sx={{ ...shopeePageController }}
+              >
+                <Link
+                  aria-disabled="true"
+                  aria-label=""
+                  className="shopee-icon-button shopee-icon-button--left shopee-icon-button--disabled"
+                  href="/"
+                  sx={{
+                    ...shopeeIconButton,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      textAlign: "right",
+                      marginRight: ".9375rem",
+                      ...shopeeSVGIcon,
+                    }}
+                  >
+                    <ArrowLeft />
+                  </Box>
+                </Link>
+                <Link
+                  aria-current="true"
+                  aria-label=""
+                  className="shopee-button-solid shopee-button-solid--primary"
+                  href="/Nhà-Sách-Online-cat.11036863?is_from_login=true&amp;page=0&amp;ratingFilter=4&amp;sortBy=pop"
+                  sx={{
+                    backgroundColor: "rgb(238, 77, 45)",
+                    ...shopeeButtonSolid,
+                    ...shopeeButtonSolidPrimary,
+                  }}
+                >
+                  1
+                </Link>
+                <Link
+                  aria-label=""
+                  className="shopee-button-no-outline"
+                  href="/Nhà-Sách-Online-cat.11036863?is_from_login=true&amp;page=1&amp;ratingFilter=4&amp;sortBy=pop"
+                  sx={{ ...shopeeButtonSolid, ...shopeeButtonNoOutline }}
+                >
+                  2
+                </Link>
+                <Link
+                  aria-label=""
+                  className="shopee-button-no-outline"
+                  href="/Nhà-Sách-Online-cat.11036863?is_from_login=true&amp;page=2&amp;ratingFilter=4&amp;sortBy=pop"
+                  sx={{ ...shopeeButtonSolid, ...shopeeButtonNoOutline }}
+                >
+                  3
+                </Link>
+                <Link
+                  aria-label=""
+                  className="shopee-button-no-outline"
+                  href="/Nhà-Sách-Online-cat.11036863?is_from_login=true&amp;page=3&amp;ratingFilter=4&amp;sortBy=pop"
+                  sx={{ ...shopeeButtonSolid, ...shopeeButtonNoOutline }}
+                >
+                  4
+                </Link>
+                <Link
+                  aria-label=""
+                  className="shopee-button-no-outline"
+                  href="/Nhà-Sách-Online-cat.11036863?is_from_login=true&amp;page=4&amp;ratingFilter=4&amp;sortBy=pop"
+                  sx={{ ...shopeeButtonSolid, ...shopeeButtonNoOutline }}
+                >
+                  5
+                </Link>
+                <Link
+                  className="shopee-button-no-outline shopee-button-no-outline--non-click"
+                  sx={{ ...shopeeButtonSolid, ...shopeeButtonNoOutline }}
+                >
+                  ...
+                </Link>
+                <Link
+                  aria-disabled="false"
+                  aria-label=""
+                  className="shopee-icon-button shopee-icon-button--right"
+                  href="/Nhà-Sách-Online-cat.11036863?is_from_login=true&amp;page=1&amp;ratingFilter=4&amp;sortBy=pop"
+                  sx={{
+                    ...shopeeIconButton,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      textAlign: "left",
+                      marginLeft: ".9375rem",
+                      ...shopeeSVGIcon,
+                    }}
+                  >
+                    <ArrowRight />
+                  </Box>
+                </Link>
+              </Box>
+            </Box>
+          </Paper>
         </Stack>
       </Container>
     </Box>
