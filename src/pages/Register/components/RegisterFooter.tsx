@@ -11,15 +11,14 @@ import {
 import { useMemo } from "react";
 
 function RegisterFooter() {
-  const typographyStylesH6 = 
-    () => ({
-      color: "rgba(0, 0, 0, 0.87)",
-      fontSize: ".75rem",
-      fontWeight: 700,
-      marginTop: "1.25rem",
-      marginBottom: "1.25rem",
-      textAlign: "left",
-    });
+  const typographyStylesH6 = () => ({
+    color: "rgba(0, 0, 0, 0.87)",
+    fontSize: ".75rem",
+    fontWeight: 700,
+    marginTop: "1.25rem",
+    marginBottom: "1.25rem",
+    textAlign: "left",
+  });
 
   const getLinkTypographyStyles = useMemo(
     () => ({
@@ -40,102 +39,86 @@ function RegisterFooter() {
     []
   );
 
-  const getLinkStyles = useMemo(
-    () => ({
-      textDecoration: "none",
-    }),
-    []
-  );
+  const getLinkStyles = {
+    textDecoration: "none",
+  };
 
-  const listItemClases = useMemo(
-    () => ({
-      padding: "0",
-      paddingBottom: ".5rem",
-    }),
-    []
-  );
+  const listItemClases = {
+    padding: "0",
+    paddingBottom: ".5rem",
+  };
 
-  const linkClases = useMemo(
-    () => ({
-      display: "flex",
-      flexDirection: "row",
-      alignContent: "center",
-      justifyContent: "start",
-      width: "100%",
-      height: "16px",
-    }),
-    []
-  );
+  const linkClases = {
+    display: "flex",
+    flexDirection: "row",
+    alignContent: "center",
+    justifyContent: "start",
+    width: "100%",
+    height: "16px",
+  };
 
-  const imageFooter = 
-    () => ({
-      backgroundColor: "#fff",
-      borderRadius: ".125rem", // Assuming you want 4px rounded corners
-      boxShadow: "0 1px 1px rgba(0, 0, 0, .2)",
-      boxSizing: "border-box",
-      height: "1.875rem",
-      marginBottom: ".5rem",
-      marginRight: ".5rem",
-      overflow: "hidden",
-      padding: ".25rem",
-      width: "3.75rem",
-    });
+  const imageFooter = () => ({
+    backgroundColor: "#fff",
+    borderRadius: ".125rem", // Assuming you want 4px rounded corners
+    boxShadow: "0 1px 1px rgba(0, 0, 0, .2)",
+    boxSizing: "border-box",
+    height: "1.875rem",
+    marginBottom: ".5rem",
+    marginRight: ".5rem",
+    overflow: "hidden",
+    padding: ".25rem",
+    width: "3.75rem",
+  });
 
-  const imageFooterApp = 
-    () => ({
-      backgroundColor: "#fff",
-      borderRadius: "2px", // Adjusted for 2px rounded corners
-      boxShadow: "0 1px 1px rgba(0, 0, 0, .2)",
-      height: "1.5rem",
-      marginBottom: ".5rem",
-      padding: ".25rem",
-      width: "76px",
-    });
+  const imageFooterApp = () => ({
+    backgroundColor: "#fff",
+    borderRadius: "2px", // Adjusted for 2px rounded corners
+    boxShadow: "0 1px 1px rgba(0, 0, 0, .2)",
+    height: "1.5rem",
+    marginBottom: ".5rem",
+    padding: ".25rem",
+    width: "76px",
+  });
 
-  const getLinkCountryBoxStyles = 
-    () => ({
-      "&:not(:last-child)": {
-        borderRight: ".5px solid rgba(0, 0, 0, .2)",
-      },
-      padding: "0 5px",
-      cursor: "pointer",
-    });
+  const getLinkCountryBoxStyles = () => ({
+    "&:not(:last-child)": {
+      borderRight: ".5px solid rgba(0, 0, 0, .2)",
+    },
+    padding: "0 5px",
+    cursor: "pointer",
+  });
 
-  const getLinkCountryTypographyStyles = 
-    () => ({
-      color: "rgba(0, 0, 0, .54)",
-      lineHeight: "1.5rem",
-      fontSize: "14px",
-      textDecoration: "none",
-      "&:hover": { color: "#ee4d2d" },
-    });
+  const getLinkCountryTypographyStyles = () => ({
+    color: "rgba(0, 0, 0, .54)",
+    lineHeight: "1.5rem",
+    fontSize: "14px",
+    textDecoration: "none",
+    "&:hover": { color: "#ee4d2d" },
+  });
 
-  const getPolicyBoxStyles = 
-    () => ({
-      "&:not(:last-child)": {
-        borderRight: "1px solid rgba(0, 0, 0, .09)",
-      },
-      padding: "0 1.5625rem",
-      fontSize: ".75rem",
-      textTransform: "uppercase",
-      cursor: "pointer",
-    });
+  const getPolicyBoxStyles = () => ({
+    "&:not(:last-child)": {
+      borderRight: "1px solid rgba(0, 0, 0, .09)",
+    },
+    padding: "0 1.5625rem",
+    fontSize: ".75rem",
+    textTransform: "uppercase",
+    cursor: "pointer",
+  });
 
-  const getPolicyLinkStyles = 
-    () => ({
-      color: "rgba(0, 0, 0, .54)",
-      textDecoration: "none",
-    });
-  
-  const getParagramTypographyStyles = 
-    () => ({
-                  textAlign: "center",
-                  width: "100%",
-                  color: "rgba(0, 0, 0, .65)",
-                  fontSize: ".75rem",
-                  lineHeight: "1.2rem",
-    });
-    
+  const getPolicyLinkStyles = () => ({
+    color: "rgba(0, 0, 0, .54)",
+    textDecoration: "none",
+  });
+
+  const getParagramTypographyStyles = () => ({
+    textAlign: "center",
+    width: "100%",
+    color: "rgba(0, 0, 0, .65)",
+    fontSize: ".75rem",
+    lineHeight: "1.2rem",
+  });
+
   return (
     <Box component={"footer"}>
       <Container sx={{ marginTop: "30px" }}>
@@ -853,7 +836,12 @@ function RegisterFooter() {
             padding: "40px 0",
           }}
         >
-          <Grid item xs={12} sm={12} sx={{"&.MuiGrid-root": {paddingTop:"0"}}}>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            sx={{ "&.MuiGrid-root": { paddingTop: "0" } }}
+          >
             <Stack
               direction={"row"}
               alignItems="center"
@@ -883,7 +871,12 @@ function RegisterFooter() {
               </Typography>
             </Stack>
           </Grid>
-          <Grid item xs={12} sm={12} sx={{"&.MuiGrid-root": {paddingTop:"0"}}}>
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            sx={{ "&.MuiGrid-root": { paddingTop: "0" } }}
+          >
             <Stack direction={"row"} sx={{ color: "rgba(0, 0, 0, .54)" }}>
               <Typography
                 variant="body1"
@@ -986,8 +979,15 @@ function RegisterFooter() {
             </Stack>
           </Grid>
         </Grid>
-        <Grid container spacing={2} sx={{padding: "2.625rem 0 2.3125rem", "& .MuiGrid-root": {paddingTop:"0"}}}>
-          <Grid item xs={12} sx={{"&.MuiGrid-root": {paddingTop:"0"}}}>
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            padding: "2.625rem 0 2.3125rem",
+            "& .MuiGrid-root": { paddingTop: "0" },
+          }}
+        >
+          <Grid item xs={12} sx={{ "&.MuiGrid-root": { paddingTop: "0" } }}>
             <Box>
               <Stack
                 direction={"row"}
