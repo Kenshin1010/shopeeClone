@@ -6,6 +6,7 @@ import ChatBox from "./components/ChatBox/ChatBox";
 // import { Button } from "@mui/material";
 import HomePage from "./pages/HomePage/HomePage";
 import Register from "./pages/Register/Register";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -42,8 +43,9 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} index={true}/>
+          <Route path="/" element={<HomePage />} index={true} />
           <Route path="/shopee" element={<HomePage />} />
+          <Route path="/detail" element={<ProductDetail />} />
           <Route path="/buyer/signup" element={<Register />} />
           <Route path="/buyer/login" element={<Register />} />
         </Routes>

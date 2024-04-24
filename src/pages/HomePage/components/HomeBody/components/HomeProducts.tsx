@@ -477,8 +477,6 @@ function HomeProducts() {
   };
 
   const ListItemSearchResult = {
-    height: "338px",
-    maxHeight: "338px",
     overflow: "visible",
     boxSizing: "border-box",
     margin: ".3125rem 0",
@@ -495,6 +493,10 @@ function HomeProducts() {
   };
 
   const BoxProductStyle = {
+    // width: "188px",
+    maxWidth: "188px",
+    // height: "338px",
+    maxHeight: "338px",
     textDecoration: "none",
     color: "rgba(0, 0, 0, .87)",
     boxShadow: "0 0.0625rem 0.125rem 0 rgba(0,0,0,.1)",
@@ -827,6 +829,9 @@ function HomeProducts() {
     maxWidth: "100%",
     transition: "all .1s cubic-bezier(.4,0,.6,1)",
     flex: "0 1 auto",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
   };
 
   const pricePercentDiscountAlign = {
@@ -2475,7 +2480,7 @@ function HomeProducts() {
                       sx={{
                         m: "1",
                         "& .MuiFormLabel-root": {
-                          lineHeigh: "1rem",
+                          lineHeight: "1rem",
                         },
                         display: "flex",
                         flexDirection: "row",
@@ -2487,14 +2492,14 @@ function HomeProducts() {
                       <InputLabel
                         id="demo-select-small-label"
                         sx={{
-                          "& .MuiFormLabel-root-MuiInputLabel-root": {
-                            lineHeigh: "1rem",
+                          "&.MuiFormLabel-root-MuiInputLabel-root": {
+                            lineHeight: "1rem",
                           },
                           display: "flex",
                           flexDirection: "row",
                           alignItems: "center",
                           justifyContent: "space-between",
-                          lineHeigh: "1rem",
+                          maxWidth: "100%",
                         }}
                       >
                         Giá
@@ -2589,7 +2594,7 @@ function HomeProducts() {
                 }}
               >
                 <Grid container item xs={12} sm={12} md={12} spacing={0}>
-                  <Grid item xs={12} sm={6} md={2.4}>
+                  <Grid item xs={6} sm={4} md={2.4}>
                     <ListItem
                       className="shopee-search-item-result__item"
                       data-sqe="item"
@@ -2599,7 +2604,7 @@ function HomeProducts() {
                     >
                       <Link
                         data-sqe="link"
-                        href="/Sách-Điều-Kỳ-Diệu-Của-Tiệm-Tạp-Hóa-Namiya-i.441515460.23929647696?sp_atk=8e76e6e9-b671-42c1-9f87-beea850bf711&amp;xptdk=8e76e6e9-b671-42c1-9f87-beea850bf711"
+                        href="/Sách-Điều-Kỳ-Diệu-Của-Tiệm-Tạp-Hóa-Namiya-(Higashino-Keigo)-i.175767544.6205418939?sp_atk=93b5be50-e25c-4c71-a2db-35d6b4001fb7&amp;xptdk=93b5be50-e25c-4c71-a2db-35d6b4001fb7"
                         sx={{ ...LinkProductStyle }}
                       >
                         <Box sx={{ height: "100%" }}>
@@ -2621,8 +2626,8 @@ function HomeProducts() {
                                   }}
                                 >
                                   <img
-                                    alt="Sách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya"
-                                    src="https://down-vn.img.susercontent.com/file/vn-11134211-23030-1y5lili3aiov19_tn"
+                                    alt="Sách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya (Higashino Keigo)"
+                                    src="https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lmedrzmd9k2ncf_tn.webp"
                                     width="188px"
                                     height="188px"
                                   />
@@ -2636,8 +2641,8 @@ function HomeProducts() {
                                   <Box
                                     className="type-text-style"
                                     sx={{
-                                      ...TypeTextMallStyle,
                                       ...TypeTextPositionStyle,
+                                      ...TypeTextMallStyle,
                                       color: "rgb(208, 1, 27)",
                                     }}
                                   >
@@ -2680,7 +2685,8 @@ function HomeProducts() {
                                     className="product-name"
                                     sx={{ ...productNameStyle }}
                                   >
-                                    Sách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya
+                                    SSách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya
+                                    (Higashino Keigo)
                                   </ListItemText>
                                 </Box>
                                 <Stack
@@ -2755,6 +2761,12 @@ function HomeProducts() {
                                       -20%
                                     </Typography>
                                   </Box>
+                                  {/* <Box>
+                                    <img
+                                      src="https://deo.shopeemobile.com/shopee/modules-federation/live/0/shopee__item-card-standard-v2/0.1.13/pc/0c5d2726cbd71c93c23d.svg"
+                                      alt="cod-icon"
+                                    />
+                                  </Box> */}
                                 </Box>
                               </Box>
                               <Stack
@@ -2912,7 +2924,7 @@ function HomeProducts() {
                                     </Stack>
                                   </Box>
                                 </Stack>
-                                <Box sx={shopeeSoldStyle}>Đã bán 699</Box>
+                                <Box sx={shopeeSoldStyle}>Đã bán 5,6k</Box>
                               </Stack>
                               <Stack
                                 direction={"row"}
@@ -2944,7 +2956,7 @@ function HomeProducts() {
                       </Link>
                     </ListItem>
                   </Grid>
-                  <Grid item xs={12} sm={6} md={2.4}>
+                  <Grid item xs={6} sm={4} md={2.4}>
                     <ListItem
                       className="shopee-search-item-result__item"
                       data-sqe="item"
@@ -3317,7 +3329,7 @@ function HomeProducts() {
                       </Link>
                     </ListItem>
                   </Grid>
-                  <Grid item xs={12} sm={6} md={2.4}>
+                  <Grid item xs={6} sm={4} md={2.4}>
                     <ListItem
                       className="shopee-search-item-result__item"
                       data-sqe="item"
@@ -3701,7 +3713,7 @@ function HomeProducts() {
                       </Link>
                     </ListItem>
                   </Grid>
-                  <Grid item xs={12} sm={6} md={2.4}>
+                  <Grid item xs={6} sm={4} md={2.4}>
                     <ListItem
                       className="shopee-search-item-result__item"
                       data-sqe="item"
@@ -4105,7 +4117,7 @@ function HomeProducts() {
                       </Link>
                     </ListItem>
                   </Grid>
-                  <Grid item xs={12} sm={6} md={2.4}>
+                  <Grid item xs={6} sm={4} md={2.4}>
                     <ListItem
                       className="shopee-search-item-result__item"
                       data-sqe="item"
@@ -4452,7 +4464,7 @@ function HomeProducts() {
                       </Link>
                     </ListItem>
                   </Grid>
-                  <Grid item xs={12} sm={6} md={2.4}>
+                  <Grid item xs={6} sm={4} md={2.4}>
                     <ListItem
                       className="shopee-search-item-result__item"
                       data-sqe="item"
@@ -4781,7 +4793,7 @@ function HomeProducts() {
                       </Link>
                     </ListItem>
                   </Grid>
-                  <Grid item xs={12} sm={6} md={2.4}>
+                  <Grid item xs={6} sm={4} md={2.4}>
                     <ListItem
                       className="shopee-search-item-result__item"
                       data-sqe="item"
@@ -5176,7 +5188,7 @@ function HomeProducts() {
                       </Link>
                     </ListItem>
                   </Grid>
-                  <Grid item xs={12} sm={6} md={2.4}>
+                  <Grid item xs={6} sm={4} md={2.4}>
                     <ListItem
                       className="shopee-search-item-result__item"
                       data-sqe="item"
@@ -5548,7 +5560,7 @@ function HomeProducts() {
                       </Link>
                     </ListItem>
                   </Grid>
-                  <Grid item xs={12} sm={6} md={2.4}>
+                  <Grid item xs={6} sm={4} md={2.4}>
                     <ListItem
                       className="shopee-search-item-result__item"
                       data-sqe="item"
@@ -6009,6 +6021,18 @@ function HomeProducts() {
           </Paper>
         </Stack>
       </Container>
+      <Box
+        sx={{
+          // "&:after": {
+          width: "100%",
+          height: "4px",
+          backgroundColor: "#fff",
+          borderTop: "4px solid #ee4d2d",
+          color: "rgba(0, 0, 0, .54)",
+          minWidth: "75rem",
+          // },
+        }}
+      ></Box>
     </Box>
   );
 }
