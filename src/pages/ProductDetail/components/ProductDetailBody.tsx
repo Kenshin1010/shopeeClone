@@ -1,21 +1,19 @@
-import { Box, Button, Link, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Breadcrumbs,
+  Button,
+  Link,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React from "react";
+import ArrowRight from "../../HomePage/components/jsx-icon/ArrowRight";
+import AddQuantity from "./jsx-icon/AddQuantity";
+import Heart from "./jsx-icon/Heart";
+import StardustIconShopee from "./jsx-icon/StardustIconShopee";
+import SubtractQuantity from "./jsx-icon/Subtract\bQuantity";
 
 function ProductDetailBody() {
-  const productDetailFreeShippingReturnPolicy = {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifySelf: "start",
-    flexWrap: "nowrap",
-  };
-
-  const productDetailFreeShippingReturnPolicyImage = {
-    marginRight: ".75rem",
-    height: "3.125rem",
-    width: "3.125rem",
-  };
-
   const productDetailLinkShop = {
     // color: "rgba(0, 0, 0, .87)",
     color: "#05a",
@@ -25,14 +23,508 @@ function ProductDetailBody() {
     cursor: "pointer",
   };
 
-  const productDetailArrowStyle = {
+  function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+    event.preventDefault();
+    console.info("You clicked a breadcrumb.");
+  }
+  const breadcrumbs = [
+    <Link
+      underline="hover"
+      key="1"
+      color="inherit"
+      href="/"
+      onClick={handleClick}
+      sx={productDetailLinkShop}
+    >
+      Shopee
+    </Link>,
+    <Link
+      underline="hover"
+      key="2"
+      color="inherit"
+      href="/Nhà-Sách-Online-cat.11036863"
+      onClick={handleClick}
+      sx={productDetailLinkShop}
+    >
+      Nhà Sách Online
+    </Link>,
+    <Link
+      underline="hover"
+      key="3"
+      color="inherit"
+      href="/Sách-Tiếng-Việt-cat.11036863.11108503"
+      onClick={handleClick}
+      sx={productDetailLinkShop}
+    >
+      Sách Tiếng Việt
+    </Link>,
+    <Link
+      underline="hover"
+      key="4"
+      color="inherit"
+      href="/Văn-Học-Giả-Tưởng-cat.11036863.11108503.11108521"
+      onClick={handleClick}
+      sx={productDetailLinkShop}
+    >
+      Văn Học Giả Tưởng
+    </Link>,
+    <Typography
+      key="3"
+      color="text.primary"
+      sx={{
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
+        color: "rgba(0, 0, 0, .87)",
+        fontSize: "13px",
+      }}
+    >
+      Sách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya (Higashino Keigo)
+    </Typography>,
+  ];
+  const productDetailFreeShippingReturnPolicy = {
+    // display: "flex",
+    // flexDirection: "row",
+    // alignItems: "center",
+    // justifySelf: "start",
+    flexWrap: "nowrap",
+  };
+
+  const productDetailFreeShippingReturnPolicyImage = {
+    marginRight: ".75rem",
+    height: "3.125rem",
+    width: "3.125rem",
+  };
+
+  const productDetailCardStyle = {
+    background: "#fff",
+    borderRadius: "3px",
+    boxShadow: "0 1px 1px 0 rgba(0, 0, 0, .05)",
+  };
+
+  const productDetailH1Style = {
+    height: "1px",
+    margin: "0",
+    overflow: "hidden",
+    position: "absolute",
+    whiteSpace: "nowrap",
+    width: "1px",
+    zIndex: "-1000",
+    display: "block",
+    fontSize: "2rem",
+    marginBlockStart: "0.83em",
+    marginBlockEnd: "0.83em",
+    marginInlineStart: "0px",
+    marginInlineEnd: "0px",
+    fontWeight: "bold",
+    unicodeBidi: "isolate",
+  };
+
+  const productDetailImageBox = {
+    flexShrink: "0",
+    padding: "15px",
+    width: "480px",
+  };
+
+  const productDetailH2Style = {
+    height: "1px",
+    width: "1px",
+    margin: "0",
+    overflow: "hidden",
+    position: "absolute",
+    whiteSpace: "nowrap",
+    zIndex: "-1000",
+    display: "block",
+    fontSize: "1.5em",
+    marginBlockStart: "0.83em",
+    marginBlockEnd: "0.83em",
+    marginInlineStart: "0px",
+    marginInlineEnd: "0px",
+    fontWeight: "bold",
+    unicodeBidi: "isolate",
+  };
+
+  const productDetailH3Style = {
+    alignItems: "center",
+    color: "#757575",
+    flexShrink: "0",
+    fontSize: "inherit",
+    fontWeight: "400",
+    margin: "0",
+    textTransform: "capitalize",
+    width: "110px",
+  };
+
+  const productDetailImageListStyle = {
+    boxSizing: "border-box",
+    display: "inline-block",
+    padding: "5px",
+    width: "20%",
+  };
+
+  const productDetailImageListBoxStyle = {
+    position: "relative",
+  };
+
+  const productDetailShopeeImageContainerStyle = {
+    paddingBottom: "100%",
+    position: "relative",
+    width: "100%",
+  };
+
+  const productDetailImageIconVideoStyle = {
+    height: "32px",
+    width: "32px",
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    border: "0",
+    transform: "translate3d(-16px, -16px, 0)",
+    overflowClipMargin: "content-box",
+    overflow: "clip",
+  };
+
+  const productDetailShopeeImageStyle = {
+    objectFit: "contain",
+    objectPosition: "center",
+    position: "absolute",
+    height: "100%",
+    width: "100%",
+    left: "0",
+    top: "0",
+    border: "0",
+    overflowClipMargin: "content-box",
+    overflow: "clip",
+  };
+
+  const shopeeIconButtonImageStyle = {
+    // backgroundColor: "transparent",
+    // border: "1px solid rgba(0, 0, 0, .54)",
+    padding: "0",
+    alignItems: "center",
+    border: "0",
+    cursor: "pointer",
+    display: "flex",
+    fontSize: ".875rem",
+    fontWeight: "300",
+    justifyContent: "center",
+    letterSpacing: "0",
+    lineHeight: "1",
+    outline: "none",
+    transition: "background-color .1s cubic-bezier(.4,0,.6,1)",
+    backgroundColor: "rgba(0, 0, 0, .2) !important",
+    color: "#fff",
+    height: "40px",
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    width: "20px",
+    // border: "0 !important",
+  };
+
+  const shopeeAddSubtractButtonStyle = {
+    "&:first-child": {
+      borderBottomRightRadius: "0",
+      borderTopRightRadius: "0",
+    },
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "transparent",
+    // border: "0",
+    border: "1px solid rgba(0, 0, 0, .09)",
+    borderRadius: "2px",
+    color: "rgba(0, 0, 0, .8)",
+    cursor: "pointer",
+    fontSize: ".875rem",
+    fontWeight: "300",
+    height: "32px",
+    lineHeight: "1",
+    letterSpacing: "0",
+    outline: "none",
+    transition: "background-color .1s cubic-bezier(.4,0,.6,1)",
+    width: "32px",
+  };
+
+  const shopeeAddSubtractIconStyle = {
+    flexShrink: "0",
+    fontSize: "10px",
     height: "10px",
     width: "10px",
-    margin: "0 5px",
+    overflow: "hidden",
+    display: "inline-block",
+    // height: "1em",
+    // width: "1em",
+    fill: "currentColor",
+    position: "relative",
   };
+
+  const shopeeProductDetailTextBoxStyle = {
+    color: "#222",
+    fontSize: "16px",
+  };
+
+  const spriteProductSharingButtonStyle = {
+    position: "relative",
+    margin: "0",
+    marginLeft: "5px",
+    height: "25px",
+    width: "25px",
+    minWidth: "0",
+    padding: "0",
+    border: "0",
+    outline: "0",
+    overflow: "visible",
+    backgroundColor: "initial",
+    backgroundImage:
+      "url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/391e34e8438d2795.png)",
+    backgroundSize: "100%",
+    cursor: "pointer",
+    textTransform: "none",
+    color: "inherit",
+    font: "inherit",
+  };
+
+  const productDetailTitleStyle = {
+    textOverflow: "ellipsis",
+    fontSize: "20px",
+    fontWeight: "500",
+    lineHeight: "24px",
+    margin: "0",
+    maxHeight: "48px",
+    maxWidth: "665px",
+    overflow: "hidden",
+    overflowWrap: "break-word",
+    // verticalAlign: "sub",
+  };
+
+  const productDetailButtonStyle = {
+    display: "flex",
+    alignItems: "center",
+    backgroundColor: "transparent",
+    border: "0",
+    cursor: "pointer",
+    padding: "0 15px",
+    "&:first-child": {
+      paddingLeft: "0",
+    },
+    // borderRight: "1px solid rgba(0, 0, 0, .14)",
+    textTransform: "none",
+    overflow: "visible",
+    color: "inherit",
+    font: "inherit",
+    margin: "0",
+  };
+
+  const themeOfsStyle = {
+    borderBottom: "1px solid #555",
+    color: "#222",
+    fontSize: "1rem",
+    marginRight: "5px",
+    paddingBottom: "1px",
+  };
+
+  const themeOfs = {
+    borderBottomColor: "#d0011b",
+    color: "#d0011b",
+  };
+
+  const themeOfsText = {
+    marginRight: "5px",
+    padding: "4px 0",
+    color: "#767676",
+    fontSize: ".875rem",
+    textTransform: "capitalize",
+  };
+
+  const themeStarBoxStyle = {
+    marginRight: "1px",
+    position: "relative",
+  };
+
+  const themeStarLitStyle = {
+    height: "100%",
+    left: "0",
+    overflow: "hidden",
+    position: "absolute",
+    top: "0",
+    zIndex: "1",
+  };
+
+  const themeStarLitImage = {
+    backgroundImage:
+      "url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/44c46951c46c5a5e8129.svg)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    height: "14px",
+    width: "14px",
+  };
+
+  const themeStarUnlitImage = {
+    backgroundImage:
+      "url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/76bc916eeb1487a396ef.svg)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    height: "14px",
+    width: "14px",
+  };
+
+  const productDetailTransportStyle = {
+    alignItems: "center",
+    color: "#222",
+    display: "flex",
+    marginBottom: "25px",
+    marginLeft: "-4px",
+    marginTop: "-4px",
+    padding: "4px",
+    fontSize: "14px",
+    lineHeight: "17px",
+  };
+
+  // const productDetailTransportImageStyle = {
+  //   marginLeft: "5px",
+  //   border: "0",
+  //   pointerEvents: "none",
+  //   overflowClipMargin: "content-box",
+  //   overflow: "clip",
+  //   verticalAlign: "middle",
+  // };
+
+  const shopeeBtnSizeL = {
+    maxWidth: "250px",
+    minWidth: "80px",
+    height: "48px",
+    padding: "0 20px",
+    marginRight: "15px",
+  };
+
+  const shopeeBtnSizeS = {
+    height: "34px",
+    maxWidth: "190px",
+    minWidth: "60px",
+    padding: "0 15px",
+  };
+
+  const shopeeBtn = {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    borderRadius: "2px",
+    boxShadow: "0 1px 1px 0 rgba(0, 0, 0, .09)",
+    boxSizing: "border-box",
+    cursor: "pointer",
+    fontSize: "14px",
+    outline: "0",
+    textTransform: "capitalize",
+  };
+
+  const shopeeBtnInline = {
+    display: "inline-flex",
+  };
+
+  const shopeeBtnTinted = {
+    background: "rgba(208, 1, 27, .08)",
+    boxShadow: "0 1px 1px 0 rgba(0, 0, 0, .03)",
+    border: "1px solid #d0011b",
+    color: "#d0011b",
+    position: "relative",
+  };
+
+  const shopeeBtnSolidPrimary = {
+    background: "#d0011b",
+    color: "#fff",
+    position: "relative",
+    "&:hover": {
+      background: "rgba(208, 1, 27,.9)",
+      color: "#fff",
+    },
+  };
+
+  const shopeeBtnLight = {
+    background: "#fff",
+    border: "1px solid rgba(0, 0, 0, .09)",
+    boxShadow: "0 1px 1px 0 rgba(0, 0, 0, .03)",
+    color: "#555",
+    outline: "0",
+    overflow: "visible",
+    position: "relative",
+  };
+
+  const shopeeBtnLightLink = {
+    color: "#555",
+    textDecoration: "none",
+  };
+
+  const PoliciesSpecialOffers = {
+    justifySelf: "start",
+    fontSize: "16px",
+    minWidth: "0",
+  };
+
+  const shopeeDrawerProductDetail = {
+    outline: "0",
+    overflow: "visible",
+    position: "relative",
+    minWidth: "0",
+  };
+
+  const shopeeDrawerProductDetailItem = {
+    color: "#4a4a4a",
+    cursor: "help",
+    fontSize: "16px",
+    overflow: "hidden",
+    width: "100%",
+  };
+
+  const shopeeDrawerProductDetailItemImage = {
+    flexShrink: "0",
+    marginRight: "5px",
+    height: "18px",
+    width: "18px",
+    border: "0",
+    overflowClipMargin: "content-box",
+    overflow: "clip",
+  };
+
+  const shopeeDrawerProductDetailItemText = {
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+  };
+
+  const shopeeOperationalInformationBox = {
+    cursor: "default",
+    outline: "0",
+    overflow: "visible",
+    position: "relative",
+    width: "100%",
+  };
+
+  const shopeeOperationalInformationLabel = {
+    color: "rgba(0, 0, 0, .4)",
+    marginRight: "12px",
+    textTransform: "capitalize",
+    fontSize: "14px",
+  };
+
+  const shopeeOperationalInformationText = {
+    color: "#d0011b",
+    textAlign: "right",
+    whiteSpace: "nowrap",
+    fontSize: "14px",
+  };
+
   return (
-    <Box className="ProductDetailBody" sx={{ marginTop: "125px" }}>
-      <Box sx={{ transition: "margin-top .3s cubic-bezier(.4,0,.2,1)" }}>
+    <Box className="ProductDetailBody">
+      <Box
+        sx={{
+          marginTop: "125px",
+          transition: "margin-top .3s cubic-bezier(.4,0,.2,1)",
+        }}
+      >
         <Box className="page-product page-product--mall">
           <Box
             className="tracking-impression-placeholder"
@@ -53,479 +545,1024 @@ function ProductDetailBody() {
               width: "1200px",
             }}
           >
-            <Box
-              className="flex items-center page-product__breadcrumb"
-              sx={{
-                height: "1rem",
+            <Stack spacing={1} sx={{ marginTop: "calc(119px+1.25rem)" }}>
+              <Breadcrumbs
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  height: "1rem",
+                  lineHeight: "16px",
+                  whiteSpace: "nowrap",
+                }}
+                separator={<ArrowRight />}
+                aria-label="breadcrumb"
+              >
+                {breadcrumbs}
+              </Breadcrumbs>
+            </Stack>
+            <section
+              className="product-briefing card"
+              style={{
                 marginTop: "1.25rem",
-                whiteSpace: "nowrap",
-                alignItems: "center",
+                padding: "0",
                 display: "flex",
+                flexDirection: "row",
+                alignItems: "start",
+                justifyContent: "space-between",
+                ...productDetailCardStyle,
               }}
             >
-              <Link href="/" sx={productDetailLinkShop}>
-                Shopee
-              </Link>
-              <img
-                alt="icon arrow right"
-                src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/966fbe37fe1c72e3f2dd.svg"
-                style={{ ...productDetailArrowStyle }}
-              />
-              <Link
-                href="/Nhà-Sách-Online-cat.11036863"
-                sx={productDetailLinkShop}
-              >
-                Nhà Sách Online
-              </Link>
-              <img
-                alt="icon arrow right"
-                src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/966fbe37fe1c72e3f2dd.svg"
-                style={{ ...productDetailArrowStyle }}
-              />
-              <Link
-                href="/Sách-Tiếng-Việt-cat.11036863.11108503"
-                sx={productDetailLinkShop}
-              >
-                Sách Tiếng Việt
-              </Link>
-              <img
-                alt="icon arrow right"
-                src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/966fbe37fe1c72e3f2dd.svg"
-                style={{ ...productDetailArrowStyle }}
-              />
-              <Link
-                href="/Văn-Học-Giả-Tưởng-cat.11036863.11108503.11108521"
-                sx={productDetailLinkShop}
-              >
-                Văn Học Giả Tưởng
-              </Link>
-              <img
-                alt="icon arrow right"
-                src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/966fbe37fe1c72e3f2dd.svg"
-                style={{ ...productDetailArrowStyle }}
-              />
               <Typography
-                sx={{
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                  color: "rgba(0, 0, 0, .87)",
-                  fontSize: "13px",
-                }}
+                component={"h1"}
+                sx={{ ...productDetailH1Style, flexBasis: "100%" }}
               >
                 Sách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya (Higashino Keigo)
               </Typography>
-            </Box>
-            <section
-              className="product-briefing flex card"
-              style={{ marginTop: "1.25rem", padding: "0" }}
-            >
-              <h1 className="Bf9ap6">
-                Sách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya (Higashino Keigo)
-              </h1>
               <Box></Box>
-              <section className="TFDXyQ">
-                <h2 className="Bf9ap6">Product Image Section</h2>
-                <Box className="flex flex-column">
-                  <Box className="TMw1ot">
-                    <Box className="xxW0BG">
-                      <Box className="HJ5l1F" sx={{ display: "block" }}>
-                        <Box className="shopee-image-placeholder CCU0Uo">
-                          <svg
-                            enable-background="new 0 0 54 61"
-                            viewBox="0 0 54 61"
-                            role="img"
-                            className="stardust-icon stardust-icon-shopee icon-shopee-tiny"
+              <section style={productDetailImageBox}>
+                <Typography component={"h2"} sx={productDetailH2Style}>
+                  Product Image Section
+                </Typography>
+                <Stack direction={"column"}>
+                  <Box sx={{ position: "relative" }}>
+                    <Box sx={{ position: "relative" }}>
+                      <Box sx={{ position: "relative", display: "block" }}>
+                        <Box
+                          className="shopee-image-placeholder"
+                          sx={{
+                            backgroundColor: "#fafafa",
+                            fontSize: "3.8125rem",
+                            paddingTop: "100%",
+                            position: "relative",
+                            width: "100%",
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              color: "rgba(0, 0, 0, .05)",
+                              fontSize: "inherit",
+                              left: "50%",
+                              position: "absolute",
+                              top: "50%",
+                              transform: "translate(-50%, -50%)",
+                            }}
                           >
-                            <path
-                              stroke="none"
-                              d="M35.67,44.95 C35.34,47.70 33.67,49.91 31.09,51.01 C29.65,51.63 27.72,51.96 26.19,51.85 C23.81,51.76 21.57,51.18 19.50,50.12 C18.77,49.74 17.67,48.99 16.82,48.28 C16.61,48.10 16.58,47.99 16.73,47.78 C16.80,47.67 16.94,47.46 17.25,47.01 C17.71,46.34 17.76,46.26 17.81,46.18 C17.96,45.96 18.19,45.94 18.42,46.12 C18.45,46.14 18.45,46.14 18.47,46.16 C18.50,46.19 18.50,46.19 18.59,46.26 C18.68,46.33 18.74,46.37 18.76,46.39 C20.99,48.13 23.58,49.13 26.20,49.24 C29.84,49.19 32.46,47.55 32.93,45.03 C33.44,42.27 31.27,39.88 27.02,38.54 C25.69,38.13 22.33,36.78 21.71,36.42 C18.80,34.71 17.44,32.47 17.64,29.71 C17.93,25.88 21.49,23.03 25.98,23.01 C27.98,23.01 29.99,23.42 31.91,24.23 C32.60,24.52 33.81,25.18 34.23,25.50 C34.47,25.68 34.52,25.88 34.38,26.11 C34.31,26.24 34.18,26.44 33.91,26.87 L33.91,26.87 C33.55,27.44 33.54,27.46 33.46,27.59 C33.32,27.80 33.15,27.82 32.90,27.66 C30.84,26.28 28.55,25.58 26.04,25.53 C22.91,25.59 20.57,27.45 20.42,29.99 C20.38,32.28 22.09,33.95 25.80,35.22 C33.33,37.64 36.21,40.48 35.67,44.95 M26.37,5.43 C31.27,5.43 35.27,10.08 35.46,15.90 L17.29,15.90 C17.47,10.08 21.47,5.43 26.37,5.43 M51.74,17.00 C51.74,16.39 51.26,15.90 50.66,15.90 L50.64,15.90 L38.88,15.90 C38.59,8.21 33.10,2.08 26.37,2.08 C19.64,2.08 14.16,8.21 13.87,15.90 L2.07,15.90 C1.48,15.91 1.01,16.40 1.01,17.00 C1.01,17.03 1.01,17.05 1.01,17.08 L1.00,17.08 L2.68,54.14 C2.68,54.25 2.69,54.35 2.69,54.46 C2.69,54.48 2.70,54.50 2.70,54.53 L2.70,54.60 L2.71,54.61 C2.96,57.19 4.83,59.26 7.38,59.36 L7.38,59.37 L44.80,59.37 C44.81,59.37 44.83,59.37 44.85,59.37 C44.87,59.37 44.88,59.37 44.90,59.37 L44.98,59.37 L44.98,59.36 C47.57,59.29 49.67,57.19 49.89,54.58 L49.89,54.58 L49.90,54.54 C49.90,54.51 49.90,54.49 49.90,54.46 C49.90,54.39 49.91,54.33 49.91,54.26 L51.74,17.05 L51.74,17.05 C51.74,17.04 51.74,17.02 51.74,17.00"
-                            ></path>
-                          </svg>
+                            <StardustIconShopee />
+                          </Box>
                         </Box>
-                        <Box className="center Oj2Oo7">
-                          <img
-                            className="PhxDN7"
-                            src="https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lmedrzmd9k2ncf_tn"
-                          />
-                          <video
-                            data-dashjs-player="true"
-                            className="tpgcVs"
-                            // autoplay=""
+                        <Stack
+                          direction={"row"}
+                          alignItems={"center"}
+                          justifyContent={"center"}
+                          sx={{
+                            height: "100%",
+                            left: "0",
+                            position: "absolute",
+                            top: "0",
+                            width: "100%",
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              ...productDetailShopeeImageStyle,
+                              height: "1px",
+                              width: "1px",
+                              opacity: "0",
+                            }}
+                          >
+                            <img
+                              src="https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lmedrzmd9k2ncf_tn"
+                              style={{
+                                height: "1px",
+                                width: "1px",
+                                opacity: "0",
+                                position: "absolute",
+                              }}
+                            />
+                          </Box>
+                          <Box
+                            component={"video"}
+                            autoPlay
+                            sx={{
+                              maxHeight: "100%",
+                              width: "100%",
+                              display: "inline-block",
+                              verticalAlign: "initial",
+                              objectFit: "contain",
+                              overflowClipMargin: "content-box",
+                              overflow: "clip",
+                            }}
                             poster="https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lmedrzmd9k2ncf_tn"
-                            webkit-playsinline="webkit-playsinline"
+                            // webkit-playsinline="webkit-playsinline"
                             src="https://cvf.shopee.vn/file/60dea3c1f5d8d22555d23feb2423954a"
                             data-video="0"
-                          ></video>
+                          ></Box>
+                        </Stack>
+                        <Box
+                          sx={{
+                            ...productDetailImageIconVideoStyle,
+                            height: "80px",
+                            width: "80px",
+                            transform: "translate3d(-40px, -40px, 0)",
+                          }}
+                        >
+                          <img
+                            alt="icon video replay"
+                            src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/5e1da1405ecbc74f70fa.svg"
+                            style={{ height: "80px", width: "80px" }}
+                          />
                         </Box>
-                        <img
-                          alt="icon video replay"
-                          className="_PPt_v"
-                          src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/5e1da1405ecbc74f70fa.svg"
-                        />
                       </Box>
-                      <img
-                        alt=""
-                        className="WgnznX"
-                        src="https://down-vn.img.susercontent.com/file/vn-50009109-41988b329ed6650c252d8644e36de2a8"
-                      />
-                    </Box>
-                  </Box>
-                  <Box className="airUhU">
-                    <Box className="UBG7wZ">
-                      <Box className="jA1mTx">
-                        <Box className="SarUkj shopee-image-container">
-                          <picture>
-                            <img
-                              className="IMAW1w"
-                              src="https://down-vn.img.susercontent.com/file/4d5a5aeb9c230eace8098cde7195d42f_tn"
-                            />
-                          </picture>
-                        </Box>
+                      <Box sx={productDetailShopeeImageStyle}>
                         <img
                           alt=""
-                          className="WgnznX"
                           src="https://down-vn.img.susercontent.com/file/vn-50009109-41988b329ed6650c252d8644e36de2a8"
                         />
-                        <img
-                          alt="icon video play"
-                          className="NYFAyb"
-                          src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/160486046c4b1eafcb63.svg"
-                        />
-                        <Box className="wOzCmT thumbnail-selected-mask"></Box>
                       </Box>
                     </Box>
-                    <Box className="UBG7wZ">
-                      <Box className="jA1mTx">
-                        <Box className="SarUkj shopee-image-container">
+                  </Box>
+                  <Box
+                    sx={{
+                      margin: "5px -5px",
+                      position: "relative",
+                    }}
+                  >
+                    <Box sx={{ ...productDetailImageListStyle }}>
+                      <Box sx={productDetailImageListBoxStyle}>
+                        <Box
+                          className="shopee-image-container"
+                          sx={productDetailShopeeImageContainerStyle}
+                        >
                           <picture>
-                            <img
-                              className="IMAW1w"
-                              src="https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lmedrzmd9k2ncf_tn"
-                            />
+                            <Box sx={productDetailShopeeImageStyle}>
+                              <img src="https://down-vn.img.susercontent.com/file/4d5a5aeb9c230eace8098cde7195d42f_tn" />
+                            </Box>
+                          </picture>
+                        </Box>
+                        <Box sx={productDetailShopeeImageStyle}>
+                          <img
+                            alt=""
+                            src="https://down-vn.img.susercontent.com/file/vn-50009109-41988b329ed6650c252d8644e36de2a8"
+                          />
+                        </Box>
+                        <Box sx={productDetailImageIconVideoStyle}>
+                          <img
+                            alt="icon video play"
+                            src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/160486046c4b1eafcb63.svg"
+                          />
+                        </Box>
+                        <Box className="thumbnail-selected-mask"></Box>
+                      </Box>
+                    </Box>
+                    <Box sx={{ ...productDetailImageListStyle }}>
+                      <Box sx={productDetailImageListBoxStyle}>
+                        <Box
+                          className="shopee-image-container"
+                          sx={productDetailShopeeImageContainerStyle}
+                        >
+                          <picture>
+                            <Box sx={productDetailShopeeImageStyle}>
+                              <img src="https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lmedrzmd9k2ncf_tn" />
+                            </Box>
                           </picture>
                         </Box>
                         <Box className="thumbnail-selected-mask"></Box>
                       </Box>
                     </Box>
-                    <Box className="UBG7wZ">
-                      <Box className="jA1mTx">
-                        <Box className="SarUkj shopee-image-container">
+                    <Box sx={{ ...productDetailImageListStyle }}>
+                      <Box sx={productDetailImageListBoxStyle}>
+                        <Box
+                          className="shopee-image-container"
+                          sx={productDetailShopeeImageContainerStyle}
+                        >
                           <picture>
-                            <img
-                              className="IMAW1w"
-                              src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmgzyx3xcbfjd4_tn"
-                            />
+                            <Box sx={productDetailShopeeImageStyle}>
+                              <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmgzyx3xcbfjd4_tn" />
+                            </Box>
                           </picture>
                         </Box>
                         <Box className="thumbnail-selected-mask"></Box>
                       </Box>
                     </Box>
-                    <Box className="UBG7wZ">
-                      <Box className="jA1mTx">
-                        <Box className="SarUkj shopee-image-container">
+                    <Box sx={{ ...productDetailImageListStyle }}>
+                      <Box sx={productDetailImageListBoxStyle}>
+                        <Box
+                          className="shopee-image-container"
+                          sx={productDetailShopeeImageContainerStyle}
+                        >
                           <picture>
-                            <img
-                              className="IMAW1w"
-                              src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmgzyx3xdpzzb7_tn"
-                            />
+                            <Box sx={productDetailShopeeImageStyle}>
+                              <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmgzyx3xdpzzb7_tn" />
+                            </Box>
                           </picture>
                         </Box>
                         <Box className="thumbnail-selected-mask"></Box>
                       </Box>
                     </Box>
-                    <Box className="UBG7wZ">
-                      <Box className="jA1mTx">
-                        <Box className="SarUkj shopee-image-container">
+                    <Box sx={{ ...productDetailImageListStyle }}>
+                      <Box sx={productDetailImageListBoxStyle}>
+                        <Box
+                          className="shopee-image-container"
+                          sx={productDetailShopeeImageContainerStyle}
+                        >
                           <picture>
-                            <img
-                              className="IMAW1w"
-                              src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmgzyx3xf4kf4f_tn"
-                            />
+                            <Box sx={productDetailShopeeImageStyle}>
+                              <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lmgzyx3xf4kf4f_tn" />
+                            </Box>
                           </picture>
                         </Box>
                         <Box className="thumbnail-selected-mask"></Box>
                       </Box>
                     </Box>
-                    <Button className="shopee-icon-Button nVAzDy CAvqYR">
+                    <Button
+                      className="shopee-icon-Button"
+                      sx={{
+                        ...shopeeIconButtonImageStyle,
+                        left: "5px",
+                      }}
+                    >
                       <img
                         alt="icon arrow left bold"
                         src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/be6abcdf029c79bbafd9.svg"
                       />
                     </Button>
-                    <Button className="shopee-icon-Button nVAzDy lWmpR1">
+                    <Button
+                      className="shopee-icon-Button"
+                      sx={{
+                        ...shopeeIconButtonImageStyle,
+                        right: "5px",
+                      }}
+                    >
                       <img
                         alt="icon arrow right bold"
                         src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/8120e456c268426c4054.svg"
                       />
                     </Button>
                   </Box>
-                </Box>
-                <Box
-                  className="flex justify-center items-center"
-                  sx={{ marginTop: "15px" }}
+                </Stack>
+                <Stack
+                  direction={"row"}
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                  sx={{ marginTop: "15px", height: "25px" }}
                 >
-                  <Box className="flex items-center idmlsn">
-                    <Box className="rhG6k7">Chia sẻ:</Box>
+                  <Stack
+                    direction={"row"}
+                    alignItems={"center"}
+                    justifyContent={"center"}
+                    sx={{
+                      padding: "0 30px",
+                    }}
+                  >
+                    <Box sx={shopeeProductDetailTextBoxStyle}>Chia sẻ:</Box>
                     <Button
-                      className="sprite-product-sharing sprite-product-sharing-fm Vo8Ebs"
+                      className="sprite-product-sharing sprite-product-sharing-fm"
                       aria-label="Share on Messenger"
+                      sx={{
+                        ...spriteProductSharingButtonStyle,
+                        backgroundPosition: "0 -100%",
+                        height: "25px",
+                        width: "25px",
+                        minWidth: "0",
+                      }}
                     ></Button>
                     <Button
-                      className="sprite-product-sharing sprite-product-sharing-fb Vo8Ebs"
+                      className="sprite-product-sharing sprite-product-sharing-fb"
                       aria-label="Share on Facebook"
+                      sx={{
+                        ...spriteProductSharingButtonStyle,
+                        backgroundPosition: "0 0",
+                      }}
                     ></Button>
                     <Button
-                      className="sprite-product-sharing sprite-product-sharing-pinterest Vo8Ebs"
+                      className="sprite-product-sharing sprite-product-sharing-pinterest"
                       aria-label="Share on Pinterest"
+                      sx={{
+                        ...spriteProductSharingButtonStyle,
+                        backgroundPosition: "0 -300%",
+                      }}
                     ></Button>
                     <Button
-                      className="sprite-product-sharing sprite-product-sharing-twitter Vo8Ebs"
+                      className="sprite-product-sharing sprite-product-sharing-twitter"
                       aria-label="Share on Twitter"
+                      sx={{
+                        ...spriteProductSharingButtonStyle,
+                        backgroundPosition: "0 -400%",
+                      }}
                     ></Button>
-                  </Box>
-                  <Box className="flex items-center feDSnr">
-                    <Button className="w2JMKY">
-                      <svg width="24" height="20" className="vgMiJB">
-                        <path
-                          d="M19.469 1.262c-5.284-1.53-7.47 4.142-7.47 4.142S9.815-.269 4.532 1.262C-1.937 3.138.44 13.832 12 19.333c11.559-5.501 13.938-16.195 7.469-18.07z"
-                          stroke="#FF424F"
-                          stroke-width="1.5"
-                          fill="none"
-                          fill-rule="evenodd"
-                          stroke-linejoin="round"
-                        ></path>
-                      </svg>
-                      <Box className="rhG6k7">Đã thích (1,5k)</Box>
+                  </Stack>
+                  <Stack
+                    direction={"row"}
+                    alignItems={"center"}
+                    justifyContent={"center"}
+                    sx={{
+                      flex: "1",
+                      borderLeft: "1px solid rgba(0, 0, 0, .09)",
+                    }}
+                  >
+                    <Button
+                      sx={{
+                        backgroundColor: "transparent",
+                        border: "0",
+                        display: "flex",
+                        outline: "0",
+                        overflow: "visible",
+                        position: "relative",
+                        cursor: "pointer",
+                        textTransform: "none",
+                        color: "inherit",
+                        font: "inherit",
+                        margin: "0",
+                        height: "22px",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          marginRight: "10px",
+                        }}
+                      >
+                        <Heart />
+                      </Box>
+                      <Box sx={shopeeProductDetailTextBoxStyle}>
+                        Đã thích (1,5k)
+                      </Box>
                     </Button>
-                  </Box>
-                </Box>
+                  </Stack>
+                </Stack>
               </section>
-              <section className="flex flex-auto i9t0tr">
-                <h2 className="Bf9ap6">Product Information Section</h2>
-                <Box className="flex-auto flex-column DXQgih">
-                  <Box className="WBVL_7">
-                    <img
-                      alt="mall inline badge"
-                      className="fclWZr"
-                      src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/40a453875daccf8cc324.svg"
-                    />
-                    <Typography>
+              <section
+                style={{
+                  flex: "1 0 auto",
+                  width: "0",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "start",
+                  justifyContent: "start",
+                }}
+              >
+                <Typography component={"h2"} sx={productDetailH2Style}>
+                  Product Information Section
+                </Typography>
+                <Stack
+                  direction={"column"}
+                  sx={{
+                    boxSizing: "border-box",
+                    padding: "1.25rem 2.1875rem 0 1.25rem",
+                    width: "100%",
+                    flex: "1 1 auto",
+                  }}
+                >
+                  <Stack
+                    direction={"row"}
+                    alignItems={"center"}
+                    justifyContent={"start"}
+                    sx={productDetailTitleStyle}
+                  >
+                    <Box
+                      sx={{
+                        ...productDetailTitleStyle,
+                        display: "inline",
+                        marginRight: "8px",
+                        border: "0",
+                        overflowClipMargin: "content-box",
+                        overflow: "clip",
+                        // lineHeight: "24px",
+                        // height: "24px",
+                      }}
+                    >
+                      <img
+                        alt="mall inline badge"
+                        src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/40a453875daccf8cc324.svg"
+                      />
+                    </Box>
+                    <Typography sx={productDetailTitleStyle}>
                       Sách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya (Higashino
                       Keigo)
                     </Typography>
-                  </Box>
-                  <Box className="flex asFzUa">
-                    <Button className="flex e2p50f">
-                      <Box className="F9RHbS dQEiAI">5.0</Box>
-                      <Box className="x1i_He">
-                        <Box className="T1549_">
-                          <Box className="sAOZ6s">
-                            <Box className="ZDu7mK" sx={{ width: "100%" }}>
-                              <Box className="R6CPBG"></Box>
+                  </Stack>
+                  <Stack
+                    direction={"row"}
+                    alignItems={"center"}
+                    justifyContent={"start"}
+                    sx={{
+                      marginTop: ".625rem",
+                      minHeight: "1.55rem",
+                      position: "relative",
+                    }}
+                  >
+                    <Button sx={productDetailButtonStyle}>
+                      <Box sx={{ ...themeOfsStyle, ...themeOfs }}>5.0</Box>
+                      <Box sx={themeOfsText}>
+                        <Box
+                          sx={{
+                            position: "relative",
+                            display: "inline-flex",
+                          }}
+                        >
+                          <Box sx={themeStarBoxStyle}>
+                            <Box sx={{ ...themeStarLitStyle, width: "100%" }}>
+                              <Box sx={themeStarLitImage}></Box>
                             </Box>
-                            <Box className="VAir_o"></Box>
+                            <Box sx={themeStarUnlitImage}></Box>
                           </Box>
-                          <Box className="sAOZ6s">
-                            <Box className="ZDu7mK" sx={{ width: "100%" }}>
-                              <Box className="R6CPBG"></Box>
+                          <Box sx={themeStarBoxStyle}>
+                            <Box sx={{ ...themeStarLitStyle, width: "100%" }}>
+                              <Box sx={themeStarLitImage}></Box>
                             </Box>
-                            <Box className="VAir_o"></Box>
+                            <Box sx={themeStarUnlitImage}></Box>
                           </Box>
-                          <Box className="sAOZ6s">
-                            <Box className="ZDu7mK" sx={{ width: "100%" }}>
-                              <Box className="R6CPBG"></Box>
+                          <Box sx={themeStarBoxStyle}>
+                            <Box sx={{ ...themeStarLitStyle, width: "100%" }}>
+                              <Box sx={themeStarLitImage}></Box>
                             </Box>
-                            <Box className="VAir_o"></Box>
+                            <Box sx={themeStarUnlitImage}></Box>
                           </Box>
-                          <Box className="sAOZ6s">
-                            <Box className="ZDu7mK" sx={{ width: "100%" }}>
-                              <Box className="R6CPBG"></Box>
+                          <Box sx={themeStarBoxStyle}>
+                            <Box sx={{ ...themeStarLitStyle, width: "100%" }}>
+                              <Box sx={themeStarLitImage}></Box>
                             </Box>
-                            <Box className="VAir_o"></Box>
+                            <Box sx={themeStarUnlitImage}></Box>
                           </Box>
-                          <Box className="sAOZ6s">
-                            <Box className="ZDu7mK" sx={{ width: "95.3898%" }}>
-                              <Box className="R6CPBG"></Box>
+                          <Box sx={themeStarBoxStyle}>
+                            <Box
+                              sx={{ ...themeStarLitStyle, width: "95.3898%" }}
+                            >
+                              <Box sx={themeStarLitImage}></Box>
                             </Box>
-                            <Box className="VAir_o"></Box>
+                            <Box sx={themeStarUnlitImage}></Box>
                           </Box>
                         </Box>
                       </Box>
                     </Button>
-                    <Button className="flex e2p50f">
-                      <Box className="F9RHbS">2,4k</Box>
-                      <Box className="x1i_He">đánh giá</Box>
+                    <Button sx={productDetailButtonStyle}>
+                      <Box sx={{ ...themeOfsStyle }}>2,4k</Box>
+                      <Box sx={themeOfsText}>đánh giá</Box>
                     </Button>
-                    <Box className="flex mnzVGI">
-                      <Box className="AcmPRb">5,6k</Box>
-                      <Box className="aleSBU">đã bán</Box>
-                    </Box>
-                    <Button className="YysGiT">Tố cáo</Button>
-                  </Box>
-                  <Box sx={{ marginTop: "10px" }}>
-                    <Box className="flex flex-column">
-                      <Box className="flex flex-column CWiSMQ">
-                        <section
-                          className="flex items-center"
-                          aria-live="polite"
-                        >
-                          <h2 className="Bf9ap6">Price Section</h2>
-                          <Box className="flex items-center QAc7_y">
-                            <Box className="qg2n76">₫105.000</Box>
-                            <Box className="flex items-center">
-                              <Box className="G27FPf">₫84.000</Box>
-                              <Box className="o_z7q9">20% giảm</Box>
-                            </Box>
-                          </Box>
-                        </section>
+                    <Stack
+                      direction={"row"}
+                      alignItems={"center"}
+                      justifyContent={"start"}
+                      sx={{
+                        // borderLeft: "1px solid rgba(0, 0, 0, .14)",
+                        alignItems: "center",
+                        padding: "0 15px",
+                      }}
+                    >
+                      <Box sx={{ ...themeOfsStyle, borderBottom: "none" }}>
+                        5,6k
                       </Box>
-                    </Box>
+                      <Box sx={themeOfsText}>đã bán</Box>
+                    </Stack>
+                    <Button
+                      sx={{
+                        background: "none",
+                        border: "unset",
+                        fontSize: "14px",
+                        marginLeft: "auto",
+                        color: "rgba(0, 0, 0, .54)",
+                        textTransform: "none",
+                      }}
+                    >
+                      Tố cáo
+                    </Button>
+                  </Stack>
+                  <Box
+                    sx={{
+                      marginTop: "10px",
+                      visibility: "visible",
+                      cursor: "default",
+                    }}
+                  >
+                    <Stack
+                      direction={"column"}
+                      alignItems={"start"}
+                      justifyContent={"start"}
+                    >
+                      <Stack
+                        direction={"column"}
+                        alignItems={"start"}
+                        justifyContent={"start"}
+                        sx={{ background: "#fafafa", padding: "15px 20px" }}
+                      >
+                        <section
+                          aria-live="polite"
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            justifyContent: "start",
+                          }}
+                        >
+                          <Typography
+                            component={"h2"}
+                            sx={productDetailH2Style}
+                          >
+                            Price Section
+                          </Typography>
+                          <Stack
+                            direction={"row"}
+                            alignItems={"center"}
+                            justifyContent={"start"}
+                            sx={{
+                              flexBasis: "625px",
+                              flexWrap: "wrap",
+                              minHeight: "2.25rem",
+                              width: "625px",
+                            }}
+                          >
+                            <Box
+                              sx={{
+                                color: "#929292",
+                                fontSize: "1rem",
+                                marginRight: "10px",
+                                textDecoration: "line-through",
+                              }}
+                            >
+                              ₫105.000
+                            </Box>
+                            <Stack
+                              direction={"row"}
+                              alignItems={"center"}
+                              justifyContent={"start"}
+                            >
+                              <Box
+                                sx={{
+                                  color: "#d0011b",
+                                  fontSize: "1.875rem",
+                                  fontWeight: "500",
+                                }}
+                              >
+                                ₫84.000
+                              </Box>
+                              <Box
+                                sx={{
+                                  backgroundColor: "#d0011b",
+                                  // background: "#ee4d2d",
+                                  borderRadius: "2px",
+                                  color: "#fff",
+                                  fontSize: ".75rem",
+                                  fontWeight: "600",
+                                  lineHeight: "1",
+                                  marginLeft: "15px",
+                                  padding: "2px 4px",
+                                  textTransform: "uppercase",
+                                  whiteSpace: "nowrap",
+                                }}
+                              >
+                                20% giảm
+                              </Box>
+                            </Stack>
+                          </Stack>
+                        </section>
+                      </Stack>
+                    </Stack>
                   </Box>
-                  <Box className="at_ZtL">
-                    <Box className="flex flex-column">
-                      <section className="flex KIoPj6 uVwYBh">
-                        <h3 className="Dagtcd">Vận chuyển</h3>
-                        <Box className="CWIkAx oqSQTf">
-                          <Box className="flex"></Box>
-                          <Box className="wigEZ0">
+                  <Box
+                    sx={{
+                      marginTop: "1.5625rem",
+                      padding: "0 1.25rem",
+                    }}
+                  >
+                    <Stack
+                      direction={"column"}
+                      alignItems={"start"}
+                      justifyContent={"start"}
+                    >
+                      <section
+                        style={{
+                          ...productDetailTransportStyle,
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "start",
+                          justifyContent: "start",
+                          // alignItems: "flex-start",
+                          maxWidth: "625px",
+                        }}
+                      >
+                        <Typography
+                          component={"h3"}
+                          sx={{ ...productDetailH3Style, textAlign: "left" }}
+                        >
+                          Vận chuyển
+                        </Typography>
+                        <Box
+                          sx={{
+                            height: "auto",
+                            opacity: "1",
+                            transition:
+                              "height .5s cubic-bezier(.4,0,.2,1), opacity .5s cubic-bezier(.4,0,.2,1)",
+                            width: "515px",
+                          }}
+                        >
+                          <Stack></Stack>
+                          <Box
+                            sx={{
+                              display: "grid",
+                              gridTemplateColumns: "auto 1fr",
+                            }}
+                          >
                             <img
                               src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/d9e992985b18d96aab90.png"
                               height="20"
-                              className="Fy4A_Q"
+                              style={{
+                                gridRow: "1",
+                                marginBottom: "12px",
+                                justifySelf: "center",
+                                gridColumn: "1",
+                                border: "0",
+                                overflowClipMargin: "content-box",
+                                overflow: "clip",
+                              }}
                             />
-                            <Box className="ohuenU">
-                              <Box className="nDYwZC">
-                                <Box>Miễn phí vận chuyển</Box>
+                            <Box
+                              sx={{
+                                gridColumn: "2",
+                                marginLeft: "7px",
+                                gridRow: "1",
+                                marginBottom: "12px",
+                              }}
+                            >
+                              <Box
+                                sx={{
+                                  alignItems: "center",
+                                  color: "#222",
+                                  display: "flex",
+                                }}
+                              >
+                                <Typography sx={{ fontSize: "14px" }}>
+                                  Miễn phí vận chuyển
+                                </Typography>
                               </Box>
                             </Box>
-                            <Box className="H5IRYN">
+                            <Box
+                              sx={{
+                                justifySelf: "center",
+                                gridColumn: "1",
+                                gridRow: "2",
+                              }}
+                            >
                               <img
                                 alt="icon shipped locally"
-                                className="i9sDsG"
                                 src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/baa823ac1c58392c2031.svg"
+                                style={{
+                                  height: "20px",
+                                  width: "20px",
+                                  marginLeft: "5px",
+                                  marginRight: "5px",
+                                  marginTop: "8px",
+                                }}
                               />
                             </Box>
-                            <Box className="flex flex-column JLop8B">
-                              <Box className="flex items-center C0ngbq">
-                                <Box className="Zg6PS1">Vận chuyển tới</Box>
-                                <Box className="flex items-center oTmzEO">
-                                  <Box className="flex items-center">
-                                    <Box className="my0ZcO">
-                                      <Button className="flex items-center">
-                                        <Typography className="awxJLd">
+                            <Stack
+                              direction={"column"}
+                              alignItems={"start"}
+                              justifyContent={"start"}
+                              sx={{
+                                gridColumn: "2",
+                                gridRow: "2",
+                                marginLeft: "7px",
+                              }}
+                            >
+                              <Stack
+                                direction={"row"}
+                                alignItems={"center"}
+                                justifyContent={"start"}
+                                sx={{
+                                  marginBottom: "10px",
+                                }}
+                              >
+                                <Typography
+                                  sx={{
+                                    color: "#636363",
+                                    marginRight: "10px",
+                                    textTransform: "capitalize",
+                                    width: "110px",
+                                    fontSize: "14px",
+                                  }}
+                                >
+                                  Vận chuyển tới
+                                </Typography>
+                                <Stack
+                                  direction={"row"}
+                                  alignItems={"center"}
+                                  justifyContent={"start"}
+                                  sx={{
+                                    position: "relative",
+                                  }}
+                                >
+                                  <Stack
+                                    direction={"row"}
+                                    alignItems={"center"}
+                                    justifyContent={"start"}
+                                  >
+                                    <Box
+                                      sx={{
+                                        cursor: "pointer",
+                                        position: "relative",
+                                        userSelect: "none",
+                                      }}
+                                    >
+                                      <Button
+                                        sx={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          backgroundColor: "transparent",
+                                          border: "0",
+                                          cursor: "pointer",
+                                          textTransform: "none",
+                                          overflow: "visible",
+                                          color: "inherit",
+                                          font: "inherit",
+                                          margin: "0",
+                                        }}
+                                      >
+                                        <Typography
+                                          sx={{
+                                            color: "#000",
+                                            fontWeight: "500",
+                                            fontSize: "14px",
+                                          }}
+                                        >
                                           Phường Tân An, Thành Phố Buôn Ma Thuột
                                         </Typography>
                                         <img
                                           alt="icon arrow down"
-                                          className="RhLDj0"
                                           src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/c98ab2426710d89c9f14.svg"
+                                          style={{
+                                            height: ".625rem",
+                                            width: ".625rem",
+                                            marginLeft: "5px",
+                                            border: "0",
+                                            pointerEvents: "none",
+                                            overflowClipMargin: "content-box",
+                                            overflow: "clip",
+                                            verticalAlign: "middle",
+                                          }}
                                         />
                                       </Button>
                                     </Box>
-                                  </Box>
-                                </Box>
-                              </Box>
-                              <Box className="BWGW5I">
-                                <Box className="Zg6PS1">phí vận chuyển</Box>
+                                  </Stack>
+                                </Stack>
+                              </Stack>
+                              <Stack
+                                direction={"row"}
+                                alignItems={"center"}
+                                justifyContent={"start"}
+                              >
+                                <Typography
+                                  sx={{
+                                    color: "#636363",
+                                    marginRight: "10px",
+                                    textTransform: "capitalize",
+                                    width: "110px",
+                                    fontSize: "14px",
+                                  }}
+                                >
+                                  phí vận chuyển
+                                </Typography>
                                 <Box>
-                                  <Box
+                                  <Stack
+                                    direction={"row"}
                                     className="shopee-drawer"
                                     id="pc-drawer-id-0"
+                                    sx={{
+                                      outline: "0",
+                                      overflow: "visible",
+                                      position: "relative",
+                                    }}
                                   >
-                                    <Box className="flex items-center PZGOkt">
+                                    <Stack
+                                      direction={"row"}
+                                      alignItems={"center"}
+                                      justifyContent={"start"}
+                                      sx={{
+                                        color: "#222",
+                                        cursor: "pointer",
+                                        userSelect: "none",
+                                      }}
+                                    >
                                       ₫0
                                       <img
                                         alt="icon arrow down"
-                                        className="eTGwg9"
                                         src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/c98ab2426710d89c9f14.svg"
+                                        style={{
+                                          height: "12px",
+                                          width: "12px",
+                                          marginLeft: "5px",
+                                          border: "0",
+                                          pointerEvents: "none",
+                                          overflowClipMargin: "content-box",
+                                          overflow: "clip",
+                                          verticalAlign: "middle",
+                                        }}
                                       />
-                                    </Box>
-                                  </Box>
+                                    </Stack>
+                                  </Stack>
                                 </Box>
-                              </Box>
-                            </Box>
+                              </Stack>
+                            </Stack>
                           </Box>
                         </Box>
                       </section>
-                      <Box className="flex KIoPj6 W5LiQM">
-                        <Box className="flex flex-column">
-                          <section className="flex items-center OaFP0p">
-                            <h3 className="Dagtcd">Số lượng</h3>
-                            <Box className="flex items-center">
+                      <Stack
+                        direction={"row"}
+                        alignItems={"center"}
+                        justifyContent={"start"}
+                        sx={{
+                          // marginBottom: "25px",
+                          marginBottom: "0",
+                          paddingBottom: "15px",
+                          color: "#222",
+                          marginLeft: "-4px",
+                          marginTop: "-4px",
+                          padding: "4px",
+                        }}
+                      >
+                        <Stack
+                          direction={"column"}
+                          alignItems={"start"}
+                          justifyContent={"start"}
+                        >
+                          <section
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              alignItems: "center",
+                              justifyContent: "start",
+                              color: "#757575",
+                              marginTop: "16px",
+                              paddingBottom: "15px",
+                            }}
+                          >
+                            <Typography
+                              component={"h3"}
+                              sx={{
+                                ...productDetailH3Style,
+                                textAlign: "left",
+                                fontSize: "14px",
+                              }}
+                            >
+                              Số lượng
+                            </Typography>
+                            <Stack
+                              direction={"row"}
+                              alignItems={"center"}
+                              justifyContent={"start"}
+                            >
                               <Box sx={{ marginRight: "15px" }}>
-                                <Box className="_9m0o30 shopee-input-quantity">
+                                <Stack
+                                  direction={"row"}
+                                  alignItems={"center"}
+                                  justifyContent={"start"}
+                                  className="shopee-input-quantity"
+                                  sx={{
+                                    background: "#fff",
+                                  }}
+                                >
                                   <Button
                                     aria-label="Decrease"
-                                    className="suQW3X"
+                                    sx={{
+                                      ...shopeeAddSubtractButtonStyle,
+                                      minWidth: "32px",
+                                      borderRadius: "0",
+                                    }}
                                   >
-                                    <svg
-                                      enable-background="new 0 0 10 10"
-                                      viewBox="0 0 10 10"
-                                      x="0"
-                                      y="0"
-                                      className="shopee-svg-icon"
+                                    <Box
+                                      sx={{
+                                        ...shopeeAddSubtractIconStyle,
+                                      }}
                                     >
-                                      <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5"></polygon>
-                                    </svg>
+                                      <SubtractQuantity />
+                                    </Box>
                                   </Button>
                                   <input
-                                    className="suQW3X u00pLG"
-                                    // role="spinButton"
-                                    // aria-live="assertive"
-                                    // aria-valuenow="1"
-                                    // value="1"
+                                    // role="spin-button"
+                                    // ariaLive="assertive"
+                                    // ariaValuenow="1"
+                                    value="1"
+                                    style={{
+                                      boxSizing: "border-box",
+                                      cursor: "text",
+                                      fontSize: "16px",
+                                      fontWeight: "400",
+                                      height: "32px",
+                                      textAlign: "center",
+                                      width: "50px",
+                                      alignItems: "center",
+                                      background: "transparent",
+                                      border: "1px solid rgba(0, 0, 0, .09)",
+                                      borderLeft: "0",
+                                      borderRight: "0",
+                                      borderRadius: "0",
+                                      // border: "0",
+                                      // borderRadius: "2px",
+                                      // cursor: "pointer",
+                                      // fontSize: ".875rem",
+                                      // fontWeight: "300",
+                                      // height: "32px",
+                                      // width: "32px",
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      letterSpacing: "0",
+                                      lineHeight: "1",
+                                      outline: "none",
+                                      color: "rgba(0, 0, 0, .8)",
+                                      transition:
+                                        "background-color .1s cubic-bezier(.4,0,.6,1)",
+                                    }}
                                   />
                                   <Typography
                                     aria-live="polite"
-                                    className="Bf9ap6"
+                                    sx={productDetailH2Style}
                                   >
                                     Số lượng 1
                                   </Typography>
                                   <Button
                                     aria-label="Increase"
-                                    className="suQW3X"
+                                    sx={{
+                                      ...shopeeAddSubtractButtonStyle,
+                                      minWidth: "32px",
+                                      borderRadius: "0",
+                                    }}
                                   >
-                                    <svg
-                                      enable-background="new 0 0 10 10"
-                                      viewBox="0 0 10 10"
-                                      x="0"
-                                      y="0"
-                                      className="shopee-svg-icon icon-plus-sign"
+                                    <Box
+                                      sx={{
+                                        ...shopeeAddSubtractIconStyle,
+                                      }}
                                     >
-                                      <polygon points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5"></polygon>
-                                    </svg>
+                                      <AddQuantity />
+                                    </Box>
                                   </Button>
-                                </Box>
+                                </Stack>
                               </Box>
-                              <Box>60 sản phẩm có sẵn</Box>
-                            </Box>
+                              <Typography sx={{ fontSize: "14px" }}>
+                                60 sản phẩm có sẵn
+                              </Typography>
+                            </Stack>
                           </section>
-                        </Box>
-                      </Box>
-                    </Box>
+                        </Stack>
+                      </Stack>
+                    </Stack>
                   </Box>
                   <Box sx={{ marginTop: "15px" }}>
-                    <Box className="fnrLi4 high-Button-section">
-                      <Box className="bwPwYa high-end-Button-group">
+                    <Box
+                      className="high-Button-section"
+                      sx={{ paddingLeft: "20px" }}
+                    >
+                      <Stack
+                        direction={"row"}
+                        alignItems={"center"}
+                        justifyContent={"start"}
+                        className="high-end-Button-group"
+                      >
                         <Button
-                          className="btn btn-tinted btn--l YuENex a_JvBi"
+                          className="btn btn-tinted btn--l"
                           aria-disabled="false"
+                          sx={{
+                            // flexDirection: "row",
+                            // background: "rgba(255, 87, 34, .1)",
+                            // background: "rgba(208, 1, 27, .08",
+                            // boxShadow: "0 1px 1px 0 rgba(0, 0, 0, .03)",
+                            // outline: "0",
+                            // overflow: "visible",
+                            // fontSize: "16px",
+                            ...shopeeBtn,
+                            ...shopeeBtnSizeL,
+                            ...shopeeBtnTinted,
+                            fontSize: "14px !important",
+                            minWidth: "180px !important",
+                          }}
                         >
                           <img
                             alt="icon-add-to-cart"
-                            className="_kL9Hf"
                             src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/b96050554b3be4feea08.svg"
+                            style={{
+                              height: "20px",
+                              marginRight: "10px",
+                              width: "20px",
+                              border: "0",
+                              overflowClipMargin: "content-box",
+                              overflow: "clip",
+                            }}
                           />
-                          <Typography>thêm vào giỏ hàng</Typography>
+                          <Typography sx={{ fontSize: "14px" }}>
+                            thêm vào giỏ hàng
+                          </Typography>
                         </Button>
                         <Button
-                          className="btn btn-solid-primary btn--l YuENex"
+                          className="btn btn-solid-primary btn--l"
                           aria-disabled="false"
+                          sx={{
+                            ...shopeeBtn,
+                            ...shopeeBtnSizeL,
+                            ...shopeeBtnSolidPrimary,
+                            fontSize: "14px !important",
+                            minWidth: "180px !important",
+                          }}
                         >
                           Mua ngay
                         </Button>
-                      </Box>
+                      </Stack>
                     </Box>
                   </Box>
                   <Box
@@ -534,146 +1571,489 @@ function ProductDetailBody() {
                       borderTop: "1px solid rgba(0, 0, 0, 0.05)",
                     }}
                   >
-                    <Box className="gIL8h3">
-                      <Box>
-                        <Box className="fqmTt_">
-                          <Box className="Nm4HEX">
-                            <Box
-                              className="shopee-drawer _7dS96"
+                    <Stack
+                      direction={"column"}
+                      alignItems={"start"}
+                      justifyContent={"start"}
+                      sx={{
+                        margin: "25px 15px",
+                        rowGap: "15px",
+                      }}
+                    >
+                      <Box sx={{ width: "100%" }}>
+                        <Stack
+                          direction={"row"}
+                          alignItems={"center"}
+                          justifyContent={"space-between"}
+                          sx={{
+                            display: "grid",
+                            gridTemplateColumns: "1fr 1fr 1fr",
+                            gridGap: "4px",
+                            background: "#fff",
+                            gap: "4px",
+                          }}
+                        >
+                          <Stack
+                            direction={"row"}
+                            alignItems={"center"}
+                            justifyContent={"start"}
+                            sx={{ ...PoliciesSpecialOffers, width: "100%" }}
+                          >
+                            <Stack
+                              direction={"row"}
+                              alignItems={"center"}
+                              justifyContent={"start"}
+                              className="shopee-drawer"
                               id="pc-drawer-id-1"
+                              sx={shopeeDrawerProductDetail}
                             >
-                              <Box className="XklnWA flex items-center">
-                                <img
-                                  className="oZtSFx"
-                                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/2bcf834c40468ebcb90b.svg"
-                                />
-                                <Box className="YzLslW">
+                              <Stack
+                                direction={"row"}
+                                alignItems={"center"}
+                                justifyContent={"start"}
+                                sx={shopeeDrawerProductDetailItem}
+                              >
+                                <Box sx={shopeeDrawerProductDetailItemImage}>
+                                  <img
+                                    src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/2bcf834c40468ebcb90b.svg"
+                                    height="18px"
+                                    width="18px"
+                                  />
+                                </Box>
+                                <Typography
+                                  sx={shopeeDrawerProductDetailItemText}
+                                >
                                   Đổi ý miễn phí 15 ngày
-                                </Box>
-                              </Box>
-                            </Box>
-                          </Box>
-                          <Box className="Nm4HEX">
-                            <Box
-                              className="shopee-drawer _7dS96"
+                                </Typography>
+                              </Stack>
+                            </Stack>
+                          </Stack>
+                          <Stack
+                            direction={"row"}
+                            alignItems={"center"}
+                            justifyContent={"center"}
+                            sx={{ ...PoliciesSpecialOffers, width: "100%" }}
+                          >
+                            <Stack
+                              direction={"row"}
+                              alignItems={"center"}
+                              justifyContent={"center"}
+                              className="shopee-drawer"
                               id="pc-drawer-id-2"
+                              sx={shopeeDrawerProductDetail}
                             >
-                              <Box className="XklnWA flex items-center">
-                                <img
-                                  className="oZtSFx"
-                                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/511aca04cc3ba9234ab0.png"
-                                />
-                                <Box className="YzLslW">
+                              <Stack
+                                direction={"row"}
+                                alignItems={"center"}
+                                justifyContent={"center"}
+                                sx={shopeeDrawerProductDetailItem}
+                              >
+                                <Box sx={shopeeDrawerProductDetailItemImage}>
+                                  <img
+                                    src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/511aca04cc3ba9234ab0.png"
+                                    height="18px"
+                                    width="18px"
+                                  />
+                                </Box>
+                                <Typography
+                                  sx={shopeeDrawerProductDetailItemText}
+                                >
                                   Hàng chính hãng 100%
-                                </Box>
-                              </Box>
-                            </Box>
-                          </Box>
-                          <Box className="Nm4HEX">
-                            <Box
-                              className="shopee-drawer _7dS96"
+                                </Typography>
+                              </Stack>
+                            </Stack>
+                          </Stack>
+                          <Stack
+                            direction={"row"}
+                            alignItems={"center"}
+                            justifyContent={"end"}
+                            sx={{ ...PoliciesSpecialOffers, width: "100%" }}
+                          >
+                            <Stack
+                              direction={"row"}
+                              alignItems={"center"}
+                              justifyContent={"end"}
+                              className="shopee-drawer"
                               id="pc-drawer-id-3"
+                              sx={shopeeDrawerProductDetail}
                             >
-                              <Box className="XklnWA flex items-center">
-                                <img
-                                  className="oZtSFx"
-                                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/16ead7e0a68c3cff9f32.png"
-                                />
-                                <Box className="YzLslW">
-                                  Miễn phí vận chuyển
+                              <Stack
+                                direction={"row"}
+                                alignItems={"center"}
+                                justifyContent={"end"}
+                                sx={shopeeDrawerProductDetailItem}
+                              >
+                                <Box sx={shopeeDrawerProductDetailItemImage}>
+                                  <img
+                                    src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/16ead7e0a68c3cff9f32.png"
+                                    height="18px"
+                                    width="18px"
+                                  />
                                 </Box>
-                              </Box>
-                            </Box>
-                          </Box>
-                        </Box>
+                                <Typography
+                                  sx={shopeeDrawerProductDetailItemText}
+                                >
+                                  Miễn phí vận chuyển
+                                </Typography>
+                              </Stack>
+                            </Stack>
+                          </Stack>
+                        </Stack>
                       </Box>
-                    </Box>
+                    </Stack>
                   </Box>
-                </Box>
+                </Stack>
               </section>
             </section>
-            <section className="r74CsV page-product__shop">
-              <h2 className="Bf9ap6">Shop Information Section</h2>
-              <Box className="uLQaPg">
+            <section
+              className="page-product__shop"
+              style={{
+                background: "#fff",
+                borderRadius: ".125rem",
+                boxShadow: "0 1px 1px 0 rgba(0, 0, 0, .05)",
+                marginTop: ".9375rem",
+                overflow: "hidden",
+                // padding: ".625rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                // overflow: "visible",
+                padding: "25px",
+              }}
+            >
+              <Typography component={"h2"} sx={productDetailH2Style}>
+                Shop Information Section
+              </Typography>
+              <Stack
+                direction={"row"}
+                alignItems={"center"}
+                justifyContent={"space-between"}
+                sx={{
+                  borderRight: "1px solid rgba(0, 0, 0, .05)",
+                  boxSizing: "border-box",
+                  maxWidth: "440px",
+                  paddingRight: "25px",
+                }}
+              >
                 <Link
-                  className="lG5Xxv"
                   href="/nhanam59?categoryId=100643&amp;entryPoint=ShopByPDP&amp;itemId=6205418939&amp;upstream=dd"
+                  sx={{
+                    flexShrink: "0",
+                    marginRight: "20px",
+                    outline: "0",
+                    overflow: "visible",
+                    position: "relative",
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    backgroundColor: "initial",
+                  }}
                 >
-                  <Box className="H0wYar y8f_ga">
-                    <Box className="nkvGdS">
+                  <Box
+                    sx={{
+                      position: "relative",
+                      display: "inline-block",
+                      height: "80px",
+                      width: "80px",
+                      border: "1px solid rgba(0, 0, 0, .09)",
+                      borderRadius: "50%",
+                      boxSizing: "border-box",
+                      // height: "1.875rem",
+                      // width: "1.875rem",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        backgroundColor: "#f5f5f5",
+                        borderRadius: "50%",
+                        overflow: "hidden",
+                        paddingTop: "100%",
+                        width: "100%",
+                        position: "relative",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          stroke: "#c6c6c6",
+                          fontSize: "1.5rem",
+                          fontWeight: "400",
+                          left: "50%",
+                          lineHeight: "2rem",
+                          top: "50%",
+                          transform: "translate(-50%, -50%)",
+                        }}
+                      >
+                        <img
+                          alt="icon head shot"
+                          src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/1e1b08f78a2608ccffa9.svg"
+                          height="24px"
+                          width="24px"
+                        />
+                      </Box>
+                    </Box>
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        left: "0",
+                        top: "0",
+                        display: "block",
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "50%",
+                      }}
+                    >
                       <img
-                        alt="icon head shot"
-                        className="Bk2cVc"
-                        src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/1e1b08f78a2608ccffa9.svg"
+                        alt="click here to visit shop"
+                        src="https://down-vn.img.susercontent.com/file/vn-11134216-7r98o-lkz0yba84r1974_tn"
+                        height="100%"
+                        width="100%"
+                        style={{
+                          borderRadius: "50%",
+                        }}
                       />
                     </Box>
-                    <img
-                      alt="click here to visit shop"
-                      className="Qm507c"
-                      src="https://down-vn.img.susercontent.com/file/vn-11134216-7r98o-lkz0yba84r1974_tn"
-                    />
                   </Box>
-                  <Box className="aUEg4L">
-                    <Box className="official-shop-new-badge">
+                  <Box
+                    sx={{
+                      bottom: "0",
+                      position: "absolute",
+                      textAlign: "center",
+                      width: "100%",
+                    }}
+                  >
+                    <Stack
+                      direction={"row"}
+                      alignItems={"center"}
+                      justifyContent={"center"}
+                      className="official-shop-new-badge"
+                      sx={{ whiteSpace: "normal" }}
+                    >
                       <img
                         alt="mall shop badge"
                         src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/483071c49603aa7163a7.png"
                         loading="lazy"
-                        width="64"
-                        height="16"
+                        width="64px"
+                        height="16px"
                       />
-                    </Box>
+                    </Stack>
                   </Box>
                 </Link>
-                <Box className="PYEGyz">
-                  <Box className="fV3TIn">Nhã Nam (Hiệu sách Nhã Nam)</Box>
-                  <Box className="mMlpiZ">
-                    <Box className="Fsv0YO">Online 9 phút trước</Box>
-                  </Box>
-                  <Box className="NyRGTK">
-                    <Button className="btn btn-tinted btn--s btn--inline wq_EQj">
-                      <Typography className="EXxJrT"></Typography>
-                      <Typography>Chat ngay</Typography>
+                <Stack
+                  direction={"column"}
+                  alignItems={"start"}
+                  justifyContent={"space-between"}
+                  sx={{
+                    flexGrow: "1",
+                    overflow: "hidden",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: "rgba(0, 0, 0, .87)",
+                      fontSize: "16px",
+                      fontWeight: "400",
+                      margin: "0",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    Nhã Nam (Hiệu sách Nhã Nam)
+                  </Typography>
+                  <Stack
+                    alignItems={"center"}
+                    sx={{
+                      color: "#757575",
+                      fontSize: "14px",
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        color: "rgba(0, 0, 0, .54)",
+                        fontSize: "14px",
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      Online 9 phút trước
+                    </Typography>
+                  </Stack>
+                  <Stack
+                    direction={"row"}
+                    alignItems={"center"}
+                    justifyContent={"space-between"}
+                    sx={{
+                      marginTop: "8px",
+                    }}
+                  >
+                    <Button
+                      className="btn btn-tinted btn--s btn--inline"
+                      sx={{
+                        ...shopeeBtn,
+                        ...shopeeBtnSizeS,
+                        ...shopeeBtnInline,
+                        ...shopeeBtnTinted,
+                        marginRight: "10px",
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          backgroundImage:
+                            "url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/cca4d4ed5534d55ee735.svg)",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                          display: "inline-block",
+                          flexShrink: "0",
+                          height: "14px",
+                          marginRight: "5px",
+                          width: "14px",
+                          textTransform: "capitalize",
+                        }}
+                      ></Typography>
+                      <Typography
+                        sx={{
+                          fontSize: "14px",
+                        }}
+                      >
+                        Chat ngay
+                      </Typography>
                     </Button>
-                    <Link
-                      className="btn btn-light btn--s btn--inline btn-light--link Z6yFUs"
-                      href="/nhanam59?categoryId=100643&amp;entryPoint=ShopByPDP&amp;itemId=6205418939&amp;upstream=dd"
+                    <Button
+                      className="btn btn-light btn--s btn--inline btn-light--link"
+                      // href="/nhanam59?categoryId=100643&amp;entryPoint=ShopByPDP&amp;itemId=6205418939&amp;upstream=dd"
+                      sx={{
+                        ...shopeeBtn,
+                        ...shopeeBtnInline,
+                        ...shopeeBtnLight,
+                        ...shopeeBtnLightLink,
+                      }}
                     >
                       <img
                         alt="icon shop"
-                        className="esfDPs"
                         src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/192a8dfc1c23525d396b.svg"
+                        style={{
+                          display: "inline-block",
+                          flexShrink: "0",
+                          height: "14px",
+                          marginRight: "5px",
+                          width: "14px",
+                          border: "0",
+                          overflowClipMargin: "content-box",
+                          overflow: "clip",
+                        }}
                       />
-                      <Typography>xem shop</Typography>
-                    </Link>
-                  </Box>
-                </Box>
-              </Box>
-              <Box className="NGzCXN">
-                <Box className="YnZi6x">
-                  <label className="ffHYws">Đánh giá</label>
-                  <Typography className="Cs6w3G">116,3k</Typography>
-                </Box>
-                <Box className="YnZi6x">
-                  <label className="ffHYws">tỉ lệ phản hồi</label>
-                  <Typography className="Cs6w3G">78%</Typography>
-                </Box>
-                <Box className="YnZi6x">
-                  <label className="ffHYws">tham gia</label>
-                  <Typography className="Cs6w3G">5 năm trước</Typography>
-                </Box>
-                <Link className="YnZi6x aArpoe" href="/nhanam59#product_list">
-                  <label className="ffHYws">Sản phẩm</label>
-                  <Typography className="Cs6w3G">2,6k</Typography>
+                      <Typography
+                        sx={{
+                          fontSize: "14px",
+                        }}
+                      >
+                        xem shop
+                      </Typography>
+                    </Button>
+                  </Stack>
+                </Stack>
+              </Stack>
+              <Box
+                // direction={"row"}
+                // alignItems={"center"}
+                // justifyContent={"space-between"}
+                sx={{
+                  flexGrow: "1",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(3, auto)",
+                  gridGap: "20px 50px",
+                  color: "rgba(0, 0, 0, .4)",
+                  gap: "20px 50px",
+                  paddingLeft: "25px",
+                }}
+              >
+                <Stack
+                  direction={"row"}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                  sx={shopeeOperationalInformationBox}
+                >
+                  <Typography sx={{ ...shopeeOperationalInformationLabel }}>
+                    Đánh giá
+                  </Typography>
+                  <Typography sx={{ ...shopeeOperationalInformationText }}>
+                    116,3k
+                  </Typography>
+                </Stack>
+                <Stack
+                  direction={"row"}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                  sx={shopeeOperationalInformationBox}
+                >
+                  <Typography sx={{ ...shopeeOperationalInformationLabel }}>
+                    tỉ lệ phản hồi
+                  </Typography>
+                  <Typography sx={{ ...shopeeOperationalInformationText }}>
+                    78%
+                  </Typography>
+                </Stack>
+                <Stack
+                  direction={"row"}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                  sx={shopeeOperationalInformationBox}
+                >
+                  <Typography sx={{ ...shopeeOperationalInformationLabel }}>
+                    tham gia
+                  </Typography>
+                  <Typography sx={{ ...shopeeOperationalInformationText }}>
+                    5 năm trước
+                  </Typography>
+                </Stack>
+                <Link
+                  sx={{
+                    ...shopeeOperationalInformationBox,
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    textDecoration: "none",
+                  }}
+                  href="/nhanam59#product_list"
+                >
+                  <Typography sx={{ ...shopeeOperationalInformationLabel }}>
+                    Sản phẩm
+                  </Typography>
+                  <Typography sx={{ ...shopeeOperationalInformationText }}>
+                    2,6k
+                  </Typography>
                 </Link>
-                <Box className="YnZi6x">
-                  <label className="ffHYws">thời gian phản hồi</label>
-                  <Typography className="Cs6w3G">trong vài giờ</Typography>
-                </Box>
-                <Box className="YnZi6x">
-                  <label className="ffHYws">Người theo dõi</label>
-                  <Typography className="Cs6w3G">314k</Typography>
-                </Box>
+                <Stack
+                  direction={"row"}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                  sx={shopeeOperationalInformationBox}
+                >
+                  <Typography sx={{ ...shopeeOperationalInformationLabel }}>
+                    thời gian phản hồi
+                  </Typography>
+                  <Typography sx={{ ...shopeeOperationalInformationText }}>
+                    trong vài giờ
+                  </Typography>
+                </Stack>
+                <Stack
+                  direction={"row"}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                  sx={shopeeOperationalInformationBox}
+                >
+                  <Typography sx={{ ...shopeeOperationalInformationLabel }}>
+                    Người theo dõi
+                  </Typography>
+                  <Typography sx={{ ...shopeeOperationalInformationText }}>
+                    314k
+                  </Typography>
+                </Stack>
               </Box>
             </section>
           </Box>
@@ -699,6 +2079,9 @@ function ProductDetailBody() {
         }}
       >
         <Stack
+          direction={"row"}
+          alignItems={"center"}
+          justifyContent={"center"}
           sx={{
             margin: "0 auto",
             width: "75rem",
@@ -709,9 +2092,19 @@ function ProductDetailBody() {
             // margin: "0 -.3125rem",
             overflow: "hidden",
             alignItems: "center",
+            fontSize: "14px",
           }}
         >
-          <Box sx={productDetailFreeShippingReturnPolicy}>
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"start"}
+            sx={{
+              ...productDetailFreeShippingReturnPolicy,
+              width: "100%",
+              justifyItems: "start",
+            }}
+          >
             <Box sx={productDetailFreeShippingReturnPolicyImage}>
               <img
                 src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/6c502a2641457578b0d5.png"
@@ -719,16 +2112,32 @@ function ProductDetailBody() {
                 width="50px"
               />
             </Box>
-            <Box sx={{ maxWidth: "17.1875rem" }}>
-              <Typography sx={{ margin: "0" }}>
+            <Box
+              sx={{
+                maxWidth: "17.1875rem",
+                textAlign: "left",
+              }}
+            >
+              <Typography sx={{ margin: "0", fontSize: "14px" }}>
                 7 ngày miễn phí trả hàng
               </Typography>
-              <Typography sx={{ margin: "0" }}>
+              <Typography
+                sx={{ margin: "0", textAlign: "left", fontSize: "14px" }}
+              >
                 Trả hàng miễn phí trong 7 ngày
               </Typography>
             </Box>
-          </Box>
-          <Box sx={productDetailFreeShippingReturnPolicy}>
+          </Stack>
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"center"}
+            sx={{
+              ...productDetailFreeShippingReturnPolicy,
+              width: "100%",
+              justifyItems: "center",
+            }}
+          >
             <Box sx={productDetailFreeShippingReturnPolicyImage}>
               <img
                 src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/511aca04cc3ba9234ab0.png"
@@ -736,14 +2145,29 @@ function ProductDetailBody() {
                 width="50px"
               />
             </Box>
-            <Box sx={{ maxWidth: "17.1875rem" }}>
-              <Typography sx={{ margin: "0" }}>Hàng chính hãng 100%</Typography>
-              <Typography sx={{ margin: "0" }}>
+            <Box sx={{ maxWidth: "17.1875rem", textAlign: "left" }}>
+              <Typography
+                sx={{ margin: "0", textAlign: "left", fontSize: "14px" }}
+              >
+                Hàng chính hãng 100%
+              </Typography>
+              <Typography
+                sx={{ margin: "0", textAlign: "left", fontSize: "14px" }}
+              >
                 Đảm bảo hàng chính hãng hoặc hoàn tiền gấp đôi
               </Typography>
             </Box>
-          </Box>
-          <Box sx={productDetailFreeShippingReturnPolicy}>
+          </Stack>
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"end"}
+            sx={{
+              ...productDetailFreeShippingReturnPolicy,
+              width: "100%",
+              justifyItems: "end",
+            }}
+          >
             <Box sx={productDetailFreeShippingReturnPolicyImage}>
               <img
                 src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/16ead7e0a68c3cff9f32.png"
@@ -751,13 +2175,19 @@ function ProductDetailBody() {
                 width="50px"
               />
             </Box>
-            <Box sx={{ maxWidth: "17.1875rem" }}>
-              <Typography sx={{ margin: "0" }}>Miễn phí vận chuyển</Typography>
-              <Typography sx={{ margin: "0" }}>
+            <Box sx={{ maxWidth: "17.1875rem", textAlign: "left" }}>
+              <Typography
+                sx={{ margin: "0", textAlign: "left", fontSize: "14px" }}
+              >
+                Miễn phí vận chuyển
+              </Typography>
+              <Typography
+                sx={{ margin: "0", textAlign: "left", fontSize: "14px" }}
+              >
                 Giao hàng miễn phí toàn quốc
               </Typography>
             </Box>
-          </Box>
+          </Stack>
         </Stack>
       </Box>
     </Box>

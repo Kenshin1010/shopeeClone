@@ -401,7 +401,7 @@ function RegisterFooter() {
                     flexWrap: "wrap",
                   }}
                 >
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -413,7 +413,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -425,7 +425,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -437,7 +437,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -449,7 +449,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -461,7 +461,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -473,7 +473,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -485,7 +485,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -515,7 +515,7 @@ function RegisterFooter() {
                     flexWrap: "wrap",
                   }}
                 >
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -527,7 +527,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -539,7 +539,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -551,7 +551,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -563,7 +563,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -575,7 +575,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -587,7 +587,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -599,7 +599,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -611,7 +611,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -623,7 +623,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
@@ -635,7 +635,7 @@ function RegisterFooter() {
                       />
                     </Link>
                   </ListItem>
-                  <ListItem sx={{ flexBasis: "33.3333%", ...listItemClases }}>
+                  <ListItem sx={{ flexBasis: "30%", ...listItemClases }}>
                     <Link
                       target="_blank"
                       rel="noopener noreferrer"
