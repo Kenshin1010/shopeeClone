@@ -6,7 +6,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import ArrowRight from "../../HomePage/components/jsx-icon/ArrowRight";
 import AddQuantity from "./jsx-icon/AddQuantity";
 import Heart from "./jsx-icon/Heart";
@@ -82,6 +82,21 @@ function ProductDetailBody() {
       Sách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya (Higashino Keigo)
     </Typography>,
   ];
+
+  const videoEl = useRef<HTMLVideoElement>(null);
+
+  const attemptPlay = () => {
+    videoEl &&
+      videoEl.current &&
+      videoEl.current.play().catch((error: Error) => {
+        console.error("Error attempting to play", error);
+      });
+  };
+
+  useEffect(() => {
+    attemptPlay();
+  }, []);
+
   const productDetailFreeShippingReturnPolicy = {
     // display: "flex",
     // flexDirection: "row",
@@ -518,10 +533,10 @@ function ProductDetailBody() {
   };
 
   return (
-    <Box className="ProductDetailBody">
+    <Box className="ProductDetailBody" sx={{ backgroundColor: "#fafafa" }}>
       <Box
         sx={{
-          marginTop: "125px",
+          marginTop: "119px",
           transition: "margin-top .3s cubic-bezier(.4,0,.2,1)",
         }}
       >
@@ -545,7 +560,7 @@ function ProductDetailBody() {
               width: "1200px",
             }}
           >
-            <Stack spacing={1} sx={{ marginTop: "calc(119px+1.25rem)" }}>
+            <Stack spacing={1} sx={{ paddingTop: "1.25rem" }}>
               <Breadcrumbs
                 sx={{
                   display: "flex",
@@ -642,10 +657,15 @@ function ProductDetailBody() {
                           </Box>
                           <Box
                             component={"video"}
-                            autoPlay
+                            autoPlay={true}
+                            playsInline
+                            loop
+                            muted
+                            controls
                             sx={{
                               maxHeight: "100%",
                               width: "100%",
+                              margin: "auto",
                               display: "inline-block",
                               verticalAlign: "initial",
                               objectFit: "contain",
@@ -653,9 +673,9 @@ function ProductDetailBody() {
                               overflow: "clip",
                             }}
                             poster="https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lmedrzmd9k2ncf_tn"
-                            // webkit-playsinline="webkit-playsinline"
                             src="https://cvf.shopee.vn/file/60dea3c1f5d8d22555d23feb2423954a"
                             data-video="0"
+                            ref={videoEl}
                           ></Box>
                         </Stack>
                         <Box
@@ -1957,10 +1977,9 @@ function ProductDetailBody() {
                   </Stack>
                 </Stack>
               </Stack>
-              <Box
-                // direction={"row"}
-                // alignItems={"center"}
-                // justifyContent={"space-between"}
+              <Stack
+                direction={"row"}
+                alignItems={"center"}
                 sx={{
                   flexGrow: "1",
                   display: "grid",
@@ -2054,7 +2073,7 @@ function ProductDetailBody() {
                     314k
                   </Typography>
                 </Stack>
-              </Box>
+              </Stack>
             </section>
           </Box>
         </Box>
