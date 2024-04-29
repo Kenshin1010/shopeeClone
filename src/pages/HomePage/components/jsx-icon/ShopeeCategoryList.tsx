@@ -1,12 +1,6 @@
-import React from "react";
-
 export default function ShopeeCategoryList() {
   return (
-    <svg
-      viewBox="0 0 12 10"  
-      width= "1em"
-      height= "1em"
-    >
+    <svg viewBox="0 0 12 10" width="1em" height="1em">
       <g fill-rule="evenodd" stroke="none" stroke-width="1">
         <g transform="translate(-373 -208)">
           <g transform="translate(155 191)">

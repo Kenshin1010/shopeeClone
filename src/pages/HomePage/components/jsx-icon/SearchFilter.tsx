@@ -1,13 +1,6 @@
-import React from "react";
-
 function SearchFilter() {
   return (
-    <svg
-      enable-background="new 0 0 15 15"
-      viewBox="0 0 15 15"
-      x="0"
-      y="0"
-    >
+    <svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0">
       <g>
         <polyline
           fill="none"

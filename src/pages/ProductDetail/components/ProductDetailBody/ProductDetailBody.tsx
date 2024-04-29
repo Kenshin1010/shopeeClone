@@ -7,11 +7,11 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect, useRef } from "react";
-import ArrowRight from "../../HomePage/components/jsx-icon/ArrowRight";
-import AddQuantity from "./jsx-icon/AddQuantity";
-import Heart from "./jsx-icon/Heart";
-import StardustIconShopee from "./jsx-icon/StardustIconShopee";
-import SubtractQuantity from "./jsx-icon/Subtract\bQuantity";
+import ArrowRight from "../../../HomePage/components/jsx-icon/ArrowRight";
+import AddQuantity from "../../jsx-icon/AddQuantity";
+import Heart from "../../jsx-icon/Heart";
+import StardustIconShopee from "../../jsx-icon/StardustIconShopee";
+import SubtractQuantity from "../../jsx-icon/SubtractQuantity";
 
 function ProductDetailBody() {
   const productDetailLinkShop = {
@@ -1068,8 +1068,8 @@ function ProductDetailBody() {
                           aria-live="polite"
                           style={{
                             display: "flex",
-                            flexDirection: "row",
-                            alignItems: "center",
+                            flexDirection: "column",
+                            alignItems: "start",
                             justifyContent: "start",
                           }}
                         >
@@ -1084,9 +1084,10 @@ function ProductDetailBody() {
                             alignItems={"center"}
                             justifyContent={"start"}
                             sx={{
-                              flexBasis: "625px",
+                              // flexBasis: "625px",
                               flexWrap: "wrap",
                               minHeight: "2.25rem",
+                              lineHeight: "2.25rem",
                               width: "625px",
                             }}
                           >
@@ -1133,6 +1134,54 @@ function ProductDetailBody() {
                               </Box>
                             </Stack>
                           </Stack>
+                          <Link
+                            href="/flash_sale?fromItem=6205418939&amp;promotionId=782533564640800"
+                            sx={{
+                              color: "#555",
+                              display: "flex",
+                              alignItems: "center",
+                              marginTop: "10px",
+                              cursor: "pointer",
+                              textDecoration: "none",
+                              backgroundColor: "initial",
+                              lineHeight: "21px",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                backgroundImage:
+                                  "url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/a2db3c5da61ea3283d59.svg)",
+                                backgroundPosition: "0",
+                                backgroundRepeat: "no-repeat",
+                                backgroundSize: "contain",
+                                display: "inline-block",
+                                height: "21px",
+                                width: "110px",
+                              }}
+                            ></Typography>
+                            <Box
+                              sx={{
+                                flex: "0 1 auto",
+                                marginLeft: "10px",
+                                minWidth: "0",
+                              }}
+                            >
+                              BẮT ĐẦU SAU 02:00, 29 Th04
+                            </Box>
+                            <img
+                              alt="icon arrow right"
+                              src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/productdetailspage/966fbe37fe1c72e3f2dd.svg"
+                              style={{
+                                flex: "0 1 auto",
+                                marginLeft: "10px",
+                                minWidth: "0",
+                                color: "#555",
+                                height: "10px",
+                                verticalAlign: "middle",
+                                width: "10px",
+                              }}
+                            />
+                          </Link>
                         </section>
                       </Stack>
                     </Stack>

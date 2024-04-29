@@ -1,5 +1,3 @@
-import React from "react";
-
 function PuzzlePieceFirst() {
   return (
     <svg viewBox="-0.5 -0.5 4 16">

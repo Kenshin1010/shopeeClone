@@ -1,5 +1,3 @@
-import React from "react";
-
 function Transport() {
   return (
     <svg width="16" height="10" fill="none" viewBox="0 0 16 10">

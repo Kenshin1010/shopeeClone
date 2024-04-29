@@ -1,5 +1,3 @@
-import React from "react";
-
 function RatingStar() {
   return (
     <svg viewBox="0 0 30 30" className="ckFEIU">

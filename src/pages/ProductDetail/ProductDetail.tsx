@@ -1,7 +1,6 @@
-import React from "react";
 import HomeNav from "../HomePage/components/HomeNav";
 import RegisterFooter from "../Register/components/RegisterFooter";
-import ProductDetailBody from "./components/ProductDetailBody";
+import ProductDetailBody from "./components/ProductDetailBody/ProductDetailBody";
 
 function ProductDetail() {
   return (

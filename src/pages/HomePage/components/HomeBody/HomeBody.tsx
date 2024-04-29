@@ -1,8 +1,7 @@
-import React from 'react'
-import HomeSliderImage from './components/HomeSliderImage'
-import HomeShopeeMall from './components/HomeShopeeMall'
-import HomeCuratedCollections from './components/HomeCuratedCollections'
-import HomeProducts from './components/HomeProducts'
+import HomeCuratedCollections from "./components/HomeCuratedCollections";
+import HomeProducts from "./components/HomeProducts";
+import HomeShopeeMall from "./components/HomeShopeeMall";
+import HomeSliderImage from "./components/HomeSliderImage";
 
 function HomeBody() {
   return (
@@ -12,7 +11,7 @@ function HomeBody() {
       <HomeCuratedCollections />
       <HomeProducts />
     </div>
-  )
+  );
 }
 
-export default HomeBody
+export default HomeBody;

@@ -1,5 +1,3 @@
-import React from "react";
-
 function ArrowLeftSmall() {
   return (
     <svg viewBox="0 0 7 11" className="shopee-svg-icon icon-arrow-left-small">

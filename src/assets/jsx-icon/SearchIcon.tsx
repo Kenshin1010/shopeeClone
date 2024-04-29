@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SearchIcon() {
   return (
     <svg height="19" viewBox="0 0 19 19" width="19">
