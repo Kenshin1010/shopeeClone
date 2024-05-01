@@ -1,12 +1,12 @@
 import {
+  Box,
   Container,
   Grid,
-  Typography,
   Link,
-  Box,
   List,
   ListItem,
   Stack,
+  Typography,
 } from "@mui/material";
 import { useMemo } from "react";
 
@@ -749,7 +749,12 @@ function RegisterFooter() {
                             style={{
                               backgroundColor: "#fff",
                               borderRadius: "2px",
-                              boxShadow: "0 1px 1px rgba(0,0,0,.2)",
+                              transition:
+                                "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+                              boxShadow:
+                                "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
+                              // boxShadow: "0 1px 1px rgba(0,0,0,.2)",
+
                               height: "88px",
                               marginRight: ".75rem",
                               padding: ".25rem",
