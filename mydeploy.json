@@ -1,0 +1,22 @@
+{
+  "mode": "webhook",
+  "url": "https://kenshin1010.github.io/shopeeClone/",
+  "localdir": "/Users/tuananh/Desktop/CODE/projects/shopee",
+  "branch": "master",
+  "hook": {
+    "postchanged": "cmd for changed"
+  },
+  "port": "3001",
+  "rules": [
+    {
+      "type": "tag",
+      "value": "[vV]\\d+",
+      "env": ["NODE_ENV=development"]
+    },
+    {
+      "type": "commit",
+      "value": "#[\\s\\S]*?deploy\\s*[\\s\\S]*?77",
+      "env": ["NODE_ENV=development"]
+    }
+  ]
+}

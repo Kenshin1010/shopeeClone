@@ -1,0 +1,26 @@
+{
+    "mode": "pullwatch",
+    "url": "your url of git use http",
+    "localdir": "/path/of/your/local/project",
+    "interval": 3000,
+    "hook": {
+        "postchanged": "cmd for changed"
+    },
+    "branch": "master",
+    "rules": [
+        {
+            "type": "tag",
+            "value": "[vV]\\d+",
+            "env": [
+                "NODE_ENV=test"
+            ]
+        },
+        {
+            "type": "commit",
+            "value": "#[\\s\\S]*?deploy\\s*[\\s\\S]*?77",
+            "env": [
+                "NODE_ENV=test"
+            ]
+        }
+    ]
+}
