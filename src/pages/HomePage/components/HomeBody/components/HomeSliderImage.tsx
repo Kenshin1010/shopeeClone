@@ -9,23 +9,23 @@ const slideImages = [
     caption: "Slide 1",
   },
   {
-    url: "src/assets/images/slide_2.png",
+    url: "/src/assets/images/slide_2.png",
     caption: "Slide 2",
   },
   {
-    url: "src/assets/images/slide_3.png",
+    url: "/src/assets/images/slide_3.png",
     caption: "Slide 3",
   },
   {
-    url: "src/assets/images/slide_4.png",
+    url: "/src/assets/images/slide_4.png",
     caption: "Slide 4",
   },
   {
-    url: "src/assets/images/slide_5.png",
+    url: "/src/assets/images/slide_5.png",
     caption: "Slide 5",
   },
   {
-    url: "src/assets/images/slide_6.png",
+    url: "/src/assets/images/slide_6.png",
     caption: "Slide 6",
   },
 ];
