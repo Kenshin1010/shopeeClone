@@ -1,61 +1,28 @@
-import { Box, Breadcrumbs, Link, Stack, Typography } from "@mui/material";
-import React from "react";
-import Logo from "../../../assets/jsx-icon/Logo";
-import ArrowRightNav from "../jsx-icon/ArrowRightNav";
-import { styled, alpha } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import InputBase from "@mui/material/InputBase";
-import Badge from "@mui/material/Badge";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import {
+  Box,
+  Breadcrumbs,
+  Divider,
+  Link,
+  Stack,
+  Typography,
+} from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import AppBar from "@mui/material/AppBar";
+import Badge from "@mui/material/Badge";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Toolbar from "@mui/material/Toolbar";
+import React from "react";
+import Logo from "../../../assets/jsx-icon/Logo";
+import NotificationIcon from "../../../assets/jsx-icon/NotificationIcon";
+import ArrowRightNav from "../jsx-icon/ArrowRightNav";
+import DropDownButton from "../jsx-icon/DropDownButton";
+import EducationIcon from "../jsx-icon/EducationIcon";
 
 function ProductNewNav() {
   const routerLinkActive = {
@@ -203,10 +170,14 @@ function ProductNewNav() {
     </Menu>
   );
 
+  const IconButtonStyle = {
+    borderRadius: "0",
+  };
+
   return (
     <div className="ProductNewNav">
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" sx={{ bgcolor: "#fff", color: "#333" }}>
           <Toolbar>
             <IconButton
               size="large"
@@ -215,111 +186,125 @@ function ProductNewNav() {
               aria-label="open drawer"
               sx={{ mr: 2 }}
             >
-              <MenuIcon />
+              {/* <MenuIcon /> */}
+              <Box data-v-ec4eabc4="" className="logo-box">
+                <Link data-v-ec4eabc4="" href="/" className="header-logo only">
+                  <Logo />
+                </Link>
+              </Box>
             </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "none", sm: "block" } }}
+            <Stack
+              className="content-box"
+              spacing={1}
+              sx={{ paddingTop: "1.25rem" }}
             >
-              MUI
-            </Typography>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
+              <Breadcrumbs
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  minWidth: "296px",
+                  maxWidth: "10000px",
+                  //   height: "1rem",
+                  //   lineHeight: "16px",
+                  //   whiteSpace: "nowrap",
+                }}
+                separator={
+                  <i>
+                    <ArrowRightNav />
+                  </i>
+                }
+                aria-label="breadcrumb"
+              >
+                {breadcrumbs}
+              </Breadcrumbs>
+            </Stack>
             <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <IconButton
-                size="large"
-                aria-label="show 4 new mails"
-                color="inherit"
+            <Stack
+              className="header-right"
+              direction="row"
+              divider={<Divider orientation="vertical" flexItem />}
+              spacing={2}
+            >
+              <Box
+                className="header-action"
+                sx={{ display: { xs: "none", md: "flex" } }}
               >
-                <Badge badgeContent={4} color="error">
-                  <MailIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
-                size="large"
-                aria-label="show 17 new notifications"
-                color="inherit"
-              >
-                <Badge badgeContent={17} color="error">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-            </Box>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </Box>
+                <IconButton size="large" sx={IconButtonStyle}>
+                  <DropDownButton />
+                </IconButton>
+                <IconButton size="large" sx={IconButtonStyle}>
+                  <EducationIcon />
+                </IconButton>
+                <IconButton
+                  size="large"
+                  aria-label="show 20 new notifications"
+                  sx={{ color: "#333", ...IconButtonStyle }}
+                >
+                  <Badge badgeContent={20} color="error">
+                    <NotificationIcon />
+                  </Badge>
+                </IconButton>
+                <Box
+                  className="action-splitter"
+                  sx={{
+                    width: "1px",
+                    // minWidth: "1px",
+                    height: "18px",
+                    backgroundColor: "#e5e5e5",
+                    transform: "translateY(18px)",
+                    margin: "0 8px",
+                    padding: "0",
+                    // margin: "0",
+                    font: "inherit",
+                    verticalAlign: "baseline",
+                    border: "0",
+                  }}
+                ></Box>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  sx={{ color: "#333", ...IconButtonStyle }}
+                >
+                  <Stack direction="row" spacing={2}>
+                    <Avatar
+                      alt="akaliko1010"
+                      src="https://cf.shopee.vn/file/ad0e2127b3dd95fc45994ec1f29c0e2d"
+                    />
+                    <Box
+                      sx={{
+                        maxWidth: "9.375rem",
+                        overflow: "hidden",
+                        paddingLeft: ".3125rem",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      akaliko1010
+                    </Box>
+                  </Stack>
+                </IconButton>
+              </Box>
+              <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit"
+                >
+                  <MoreIcon />
+                </IconButton>
+              </Box>
+            </Stack>
           </Toolbar>
         </AppBar>
         {renderMobileMenu}
         {renderMenu}
       </Box>
-      <Stack
-        direction={"row"}
-        alignItems={"center"}
-        justifyContent={"start"}
-        className="header-content"
-      >
-        <Box data-v-ec4eabc4="" className="logo-box">
-          <Link data-v-ec4eabc4="" href="/" className="header-logo only">
-            <Logo />
-          </Link>
-        </Box>
-        <Stack
-          className="content-box"
-          spacing={1}
-          sx={{ paddingTop: "1.25rem" }}
-        >
-          <Breadcrumbs
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              minWidth: "296px",
-              maxWidth: "10000px",
-              //   height: "1rem",
-              //   lineHeight: "16px",
-              //   whiteSpace: "nowrap",
-            }}
-            separator={
-              <i>
-                <ArrowRightNav />
-              </i>
-            }
-            aria-label="breadcrumb"
-          >
-            {breadcrumbs}
-          </Breadcrumbs>
-        </Stack>
-      </Stack>
     </div>
   );
 }
