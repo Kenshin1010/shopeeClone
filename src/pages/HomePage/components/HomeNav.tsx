@@ -637,7 +637,14 @@ function HomeNav() {
               </Box>
             </ListItem>
             <ListItem sx={getListItemNavbarLinkStyles}>
-              <Link href="/buyer/login" sx={getClassStardustPopoverStyles}>
+              <Link
+                href="/buyer/login"
+                sx={{
+                  ...getClassStardustPopoverStyles,
+                  textDecoration: "none",
+                  color: "rgba(255, 255, 255, 0.7)",
+                }}
+              >
                 <Box role="button" sx={getClassStardustPopoverTargetStyles}>
                   <Box
                     sx={{

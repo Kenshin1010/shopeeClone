@@ -399,7 +399,7 @@ function HomeProducts() {
     padding: "0",
     minWidth: "2.5rem",
     textAlign: "center",
-    height: "1.875rem",
+    // height: "1.875rem",
     fontSize: "1.25rem",
     marginLeft: ".9375rem",
     marginRight: ".9375rem",
