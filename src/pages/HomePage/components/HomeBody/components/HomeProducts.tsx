@@ -2685,7 +2685,7 @@ function HomeProducts() {
                                     className="product-name"
                                     sx={{ ...productNameStyle }}
                                   >
-                                    SSách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya
+                                    Sách - Điều Kỳ Diệu Của Tiệm Tạp Hóa Namiya
                                     (Higashino Keigo)
                                   </ListItemText>
                                 </Box>

@@ -1,4 +1,4 @@
-import ProductNewBody from "./components/ProductNewBody";
+import ProductNewBody from "./components/ProductNewBody/ProductNewBody";
 import ProductNewNav from "./components/ProductNewNav";
 
 function ProductNew() {
