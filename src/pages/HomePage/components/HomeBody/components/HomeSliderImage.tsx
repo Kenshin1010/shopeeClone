@@ -5,7 +5,7 @@ import "react-slideshow-image/dist/styles.css";
 
 const slideImages = [
   {
-    url: "src/assets/images/slide_1.png",
+    url: "https://cf.shopee.vn/file/856d76a2fb06e2fbf00a82d2e37151d9",
     caption: "Slide 1",
   },
   {

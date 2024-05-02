@@ -685,7 +685,7 @@ function HomeNav() {
                           overflowClipMargin: "content-box",
                           overflow: "clip",
                         }}
-                        src="src/assets/images/avatar.jpeg"
+                        src="https://down-vn.img.susercontent.com/file/ad0e2127b3dd95fc45994ec1f29c0e2d_tn"
                         alt="Avatar"
                       />
                     </Box>
