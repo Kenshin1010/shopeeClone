@@ -3,6 +3,7 @@ import NavTabPanel from "./components/NavTabPanel";
 import ButtonGroupBottom from "./components/ButtonGroupBottom";
 import BasicInformation from "./components/BasicInformation";
 import CheckBoxIcon from "../../../../../../assets/jsx-icon/CheckBoxIcon";
+import CheckedIcon from "../../../../../../assets/jsx-icon/CheckedIcon";
 
 function ProductNewBodyRight() {
   return (
@@ -63,6 +64,7 @@ function ProductNewBodyRight() {
 
       <Paper>
         <CheckBoxIcon />
+        <CheckedIcon />
       </Paper>
     </div>
   );

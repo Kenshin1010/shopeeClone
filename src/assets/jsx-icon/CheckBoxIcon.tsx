@@ -1,18 +1,27 @@
-import { Checkbox } from "pretty-checkbox-react";
-import { Check } from "react-feather";
+import { Box } from "@mui/material";
 
 function CheckBoxIcon() {
-  // return <Check />;
   return (
-    <>
-      <Check />
-      <Checkbox
-        animation="smooth"
-        icon={<Check className="svg" data-type="svg" />}
-      >
-        Smooth
-      </Checkbox>
-    </>
+    <Box
+      sx={{
+        margin: "0",
+        boxSizing: "border-box",
+        appearance: "none",
+        backgroundColor: "#fff",
+        border: "1px solid rgba(0, 0, 0, .26)",
+        borderRadius: "2px",
+        boxShadow: "inset 0 1px 0 0 rgba(0, 0, 0, .05)",
+        display: "flex",
+        flexShrink: "0",
+        justifyContent: "center",
+        textAlign: "center",
+        cursor: "pointer",
+        userSelect: "none",
+        lineHeight: ".6875rem",
+        width: ".8125rem",
+        height: ".8125rem",
+      }}
+    ></Box>
   );
 }
 
