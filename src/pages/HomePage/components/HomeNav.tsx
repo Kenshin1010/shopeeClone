@@ -487,7 +487,7 @@ function HomeNav() {
           >
             <Box sx={{ paddingRight: ".375rem", shopeeDrawerBoxStyles }}>
               <Link
-                href="//banhang.shopee.vn"
+                href="/portal/product/new"
                 target="_blank"
                 rel="noopener noreferrer"
                 underline="none"
@@ -637,7 +637,7 @@ function HomeNav() {
               </Box>
             </ListItem>
             <ListItem sx={getListItemNavbarLinkStyles}>
-              <Box sx={getClassStardustPopoverStyles}>
+              <Link href="/buyer/login" sx={getClassStardustPopoverStyles}>
                 <Box role="button" sx={getClassStardustPopoverTargetStyles}>
                   <Box
                     sx={{
@@ -701,7 +701,7 @@ function HomeNav() {
                     </Box>
                   </Box>
                 </Box>
-              </Box>
+              </Link>
             </ListItem>
           </List>
         </Toolbar>

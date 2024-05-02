@@ -20,8 +20,9 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import ArrowDownIcon from "../../../../../assets/jsx-icon/ArrowDownIcon";
+import VideoPlayIcon from "../../../../../assets/jsx-icon/VideoPlayIcon";
 import ArrowLeft from "../../jsx-icon/ArrowLeft";
 import ArrowLeftSmall from "../../jsx-icon/ArrowLeftSmall";
 import ArrowRight from "../../jsx-icon/ArrowRight";
@@ -36,62 +37,49 @@ import RatingStarColored from "../../jsx-icon/RatingStarColored";
 import SearchFilter from "../../jsx-icon/SearchFilter";
 import ShopeeCategoryList from "../../jsx-icon/ShopeeCategoryList";
 import Transport from "../../jsx-icon/Transport";
-import VideoPlayIcon from "../../../../../assets/jsx-icon/VideoPlayIcon";
 
 function HomeProducts() {
-  const shopeeCategoryListBoxLinkStyle = useMemo(
-    () => ({
-      //   alignItems: "center",
-      position: "relative",
-      textOverflow: "ellipsis",
-      //   overflow: "hidden",
-      maxHeight: "3rem",
-      padding: ".5rem .625rem .5rem .75rem",
-      lineHeight: "1rem",
-      wordWrap: "break-word",
-      textAlign: "left",
-    }),
-    []
-  );
+  const shopeeCategoryListBoxLinkStyle = {
+    //   alignItems: "center",
+    position: "relative",
+    textOverflow: "ellipsis",
+    //   overflow: "hidden",
+    maxHeight: "3rem",
+    padding: ".5rem .625rem .5rem .75rem",
+    lineHeight: "1rem",
+    wordWrap: "break-word",
+    textAlign: "left",
+  };
 
-  const shopeeCategoryList = useMemo(
-    () => ({
-      color: "rgba(0, 0, 0, .8)",
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center",
-    }),
-    []
-  );
+  const shopeeCategoryList = {
+    color: "rgba(0, 0, 0, .8)",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  };
 
-  const shopeeCategoryListLink = useMemo(
-    () => ({
-      textDecoration: "none",
-      fontWeight: "700",
-      fontSize: ".875rem",
-      color: "rgba(0, 0, 0, .87)",
-    }),
-    []
-  );
+  const shopeeCategoryListLink = {
+    textDecoration: "none",
+    fontWeight: "700",
+    fontSize: ".875rem",
+    color: "rgba(0, 0, 0, .87)",
+  };
 
-  const iconDownArrowRightFilledStyle = useMemo(
-    () => ({
-      opacity: "1",
-      position: "absolute",
-      left: "0",
-      width: "7px",
-      height: "7px",
-      marginTop: "4px",
-      // opacity: "0",
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center",
-      // display: "none",
-    }),
-    []
-  );
+  const iconDownArrowRightFilledStyle = {
+    opacity: "1",
+    position: "absolute",
+    left: "0",
+    width: "7px",
+    height: "7px",
+    marginTop: "4px",
+    // opacity: "0",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    // display: "none",
+  };
 
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -99,87 +87,69 @@ function HomeProducts() {
     setIsExpanded(!isExpanded);
   };
 
-  const shopeeFilterGroupBoxStyle = useMemo(
-    () => ({
-      padding: "1.25rem 0",
-      borderBottom: "1px solid rgba(0, 0, 0, .09)",
-    }),
-    []
-  );
+  const shopeeFilterGroupBoxStyle = {
+    padding: "1.25rem 0",
+    borderBottom: "1px solid rgba(0, 0, 0, .09)",
+  };
 
-  const shopeeFilterGroupHeaderStyle = useMemo(
-    () => ({
-      marginBottom: ".625rem",
-      fontWeight: "500",
-      textAlign: "left",
-    }),
-    []
-  );
+  const shopeeFilterGroupHeaderStyle = {
+    marginBottom: ".625rem",
+    fontWeight: "500",
+    textAlign: "left",
+  };
 
-  const shopeeFilterGroupBodyStyle = useMemo(
-    () => ({
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-    }),
-    []
-  );
+  const shopeeFilterGroupBodyStyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+  };
 
-  const shopeeFilterStyle = useMemo(
-    () => ({
-      alignItems: "flex-start",
-      padding: ".5rem 0",
-    }),
-    []
-  );
+  const shopeeFilterStyle = {
+    alignItems: "flex-start",
+    padding: ".5rem 0",
+  };
 
-  const shopeeFilterCheckBoxStyle = useMemo(
-    () => ({
-      display: "flex",
-      alignItems: "flex-start",
-      justifyContent: "flex-start",
-      flexWrap: "wrap",
-      overflow: "hidden",
-      color: "rgba(0, 0, 0, .8)",
-    }),
-    []
-  );
+  const shopeeFilterCheckBoxStyle = {
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    flexWrap: "wrap",
+    overflow: "hidden",
+    color: "rgba(0, 0, 0, .8)",
+  };
 
-  const shopeeCheckBoxControlStyle = useMemo(
-    () => ({
-      display: "flex",
-      flexDirection: "row",
-      //   alignItems: "end",
-      alignItems: "center",
-      justifyContent: "start",
-      cursor: "pointer",
-      userSelect: "none",
-      "& .MuiTypography-root": {
-        fontSize: ".875rem",
-      },
-      "& .MuiSvgIcon-root": {
-        fontSize: "13px",
-        color: "#ee4d2d",
-        marginTop: ".0625rem",
-        justifyContent: "center",
-        boxSizing: "border-box",
-        // backgroundColor: "#fff",
-        textAlign: "center",
-        // width: ".8125rem",
-        // height: ".8125rem",
-        // lineHeight: ".6875rem",
-        // border: "1px solid rgba(0, 0, 0, .26)",
-        borderRadius: "2px",
-        // flexShrink: "0",
-        marginRight: ".625rem",
-        // boxShadow: "inset 0 1px 0 0 rgba(0,0,0,.05)",
-      },
-      "&.Mui-checked": {
-        color: "#ee4d2d",
-      },
-    }),
-    []
-  );
+  const shopeeCheckBoxControlStyle = {
+    display: "flex",
+    flexDirection: "row",
+    //   alignItems: "end",
+    alignItems: "center",
+    justifyContent: "start",
+    cursor: "pointer",
+    userSelect: "none",
+    "& .MuiTypography-root": {
+      fontSize: ".875rem",
+    },
+    "& .MuiSvgIcon-root": {
+      fontSize: "13px",
+      color: "#ee4d2d",
+      marginTop: ".0625rem",
+      justifyContent: "center",
+      boxSizing: "border-box",
+      // backgroundColor: "#fff",
+      textAlign: "center",
+      // width: ".8125rem",
+      // height: ".8125rem",
+      // lineHeight: ".6875rem",
+      // border: "1px solid rgba(0, 0, 0, .26)",
+      borderRadius: "2px",
+      // flexShrink: "0",
+      marginRight: ".625rem",
+      // boxShadow: "inset 0 1px 0 0 rgba(0,0,0,.05)",
+    },
+    "&.Mui-checked": {
+      color: "#ee4d2d",
+    },
+  };
 
   // const shopeeCheckboxBoxStyle = useMemo(
   //   () => ({
@@ -200,30 +170,27 @@ function HomeProducts() {
   //   []
   // );
 
-  const shopeePriceRangeFilterTextFieldStyle = useMemo(
-    () => ({
-      "& .MuiInputBase-input": {
-        width: "5rem",
-        fontSize: ".75rem",
-        // width: "4.375rem",
-        height: "1.875rem",
-        lineHeight: "normal",
-        backgroundColor: "#fff",
-        outline: "none",
-        boxSizing: "border-box",
-        padding: "4px 0 5px",
-        paddingLeft: ".3125rem",
-        // fontSize: ".8125rem",
-        boxShadow: "inset 0 1px 0 0 rgba(0,0,0,.05)",
-      },
+  const shopeePriceRangeFilterTextFieldStyle = {
+    "& .MuiInputBase-input": {
+      width: "5rem",
+      fontSize: ".75rem",
+      // width: "4.375rem",
+      height: "1.875rem",
+      lineHeight: "normal",
+      backgroundColor: "#fff",
+      outline: "none",
+      boxSizing: "border-box",
+      padding: "4px 0 5px",
+      paddingLeft: ".3125rem",
+      // fontSize: ".8125rem",
+      boxShadow: "inset 0 1px 0 0 rgba(0,0,0,.05)",
+    },
 
-      "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-        border: "1px solid rgba(0, 0, 0, .26)",
-        borderRadius: ".125rem",
-      },
-    }),
-    []
-  );
+    "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+      border: "1px solid rgba(0, 0, 0, .26)",
+      borderRadius: ".125rem",
+    },
+  };
 
   const shopeeButtonSolidStyle = {
     outline: "none",
@@ -560,85 +527,70 @@ function HomeProducts() {
     maxWidth: "70%",
   };
 
-  const TypeTextMallStyle = useMemo(
-    () => ({
-      height: "1rem",
-      fontSize: ".75rem",
-      lineHeight: ".875rem",
-      paddingLeft: ".25rem",
-      paddingRight: ".25rem",
-    }),
-    []
-  );
+  const TypeTextMallStyle = {
+    height: "1rem",
+    fontSize: ".75rem",
+    lineHeight: ".875rem",
+    paddingLeft: ".25rem",
+    paddingRight: ".25rem",
+  };
 
-  const TypeTextOrderProcessingStyle = useMemo(
-    () => ({
-      height: "auto",
-      fontSize: ".75rem",
-      lineHeight: ".875rem",
-      padding: ".1875rem .25rem",
-    }),
-    []
-  );
+  const TypeTextOrderProcessingStyle = {
+    height: "auto",
+    fontSize: ".75rem",
+    lineHeight: ".875rem",
+    padding: ".1875rem .25rem",
+  };
 
-  const TypeTextFavouriteStyle = useMemo(
-    () => ({
-      padding: "0 .25rem",
-      height: "auto !important",
-      textAlign: "center",
-      color: "#fff",
-      fontSize: ".75rem",
-      lineHeight: ".875rem",
-      width: "100%",
-      overflow: "hidden",
-      textOverflow: "ellipsis",
-    }),
-    []
-  );
+  const TypeTextFavouriteStyle = {
+    padding: "0 .25rem",
+    height: "auto !important",
+    textAlign: "center",
+    color: "#fff",
+    fontSize: ".75rem",
+    lineHeight: ".875rem",
+    width: "100%",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+  };
 
-  const TypeTextFavouritePlusStyle = useMemo(
-    () => ({
-      padding: "0 .25rem",
-      height: "1rem",
-      textAlign: "center",
-      color: "#fff",
-      fontSize: ".75rem",
-      lineHeight: ".875rem",
-      width: "100%",
-      overflow: "hidden",
-      textOverflow: "ellipsis",
-    }),
-    []
-  );
+  const TypeTextFavouritePlusStyle = {
+    padding: "0 .25rem",
+    height: "1rem",
+    textAlign: "center",
+    color: "#fff",
+    fontSize: ".75rem",
+    lineHeight: ".875rem",
+    width: "100%",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+  };
 
-  const TypeTextPositionStyle = useMemo(
-    () => ({
-      position: "relative",
-      display: "flex",
-      alignItems: "center",
-      // height: ".9375rem",
-      // fontSize: ".5625rem",
-      // lineHeight: ".6875rem",
-      fontWeight: "500",
-      padding: "0 4px",
-      borderTopRightRadius: ".125rem",
-      borderBottomRightRadius: ".125rem",
-      background: "currentColor",
-      left: "-.1875rem",
-      "&:before": {
-        content: '""',
-        display: "inline-block",
-        position: "absolute",
-        left: "0",
-        bottom: "-.1875rem",
-        borderTop: ".1875rem solid",
-        borderLeft: ".1875rem solid transparent",
-        filter: "brightness(60%)",
-        // zIndex: "999",
-      },
-    }),
-    []
-  );
+  const TypeTextPositionStyle = {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    // height: ".9375rem",
+    // fontSize: ".5625rem",
+    // lineHeight: ".6875rem",
+    fontWeight: "500",
+    padding: "0 4px",
+    borderTopRightRadius: ".125rem",
+    borderBottomRightRadius: ".125rem",
+    background: "currentColor",
+    left: "-.1875rem",
+    "&:before": {
+      content: '""',
+      display: "inline-block",
+      position: "absolute",
+      left: "0",
+      bottom: "-.1875rem",
+      borderTop: ".1875rem solid",
+      borderLeft: ".1875rem solid transparent",
+      filter: "brightness(60%)",
+      // zIndex: "999",
+    },
+  };
 
   const BoxClearAfterImageMallStyle = {
     backgroundImage:
@@ -2603,8 +2555,9 @@ function HomeProducts() {
                       }}
                     >
                       <Link
-                        data-sqe="link"
-                        href="/Sách-Điều-Kỳ-Diệu-Của-Tiệm-Tạp-Hóa-Namiya-(Higashino-Keigo)-i.175767544.6205418939?sp_atk=93b5be50-e25c-4c71-a2db-35d6b4001fb7&amp;xptdk=93b5be50-e25c-4c71-a2db-35d6b4001fb7"
+                        // data-sqe="link"
+                        href="/detail"
+                        // href="/Sách-Điều-Kỳ-Diệu-Của-Tiệm-Tạp-Hóa-Namiya-(Higashino-Keigo)-i.175767544.6205418939?sp_atk=93b5be50-e25c-4c71-a2db-35d6b4001fb7&amp;xptdk=93b5be50-e25c-4c71-a2db-35d6b4001fb7"
                         sx={{ ...LinkProductStyle }}
                       >
                         <Box sx={{ height: "100%" }}>
