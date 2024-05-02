@@ -8,9 +8,9 @@ import {
   Typography,
 } from "@mui/material";
 
-function BasicInfomation() {
+function BasicInformation() {
   return (
-    <div className="BasicInfomation">
+    <div className="BasicInformation">
       <Box className="product-detail-panel product-basic-info">
         <Box className="panel-header">
           <Box className="panel-title">
@@ -1016,4 +1016,4 @@ function BasicInfomation() {
   );
 }
 
-export default BasicInfomation;
+export default BasicInformation;

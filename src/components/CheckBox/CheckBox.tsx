@@ -8,11 +8,11 @@ import {
 } from "@mui/material";
 
 import color from "@theme/Colors";
-import CheckedIcon from "@assets/jsx-icon/CheckedIcon";
-import CheckBoxIcon from "@assets/jsx-icon/CheckBoxIcon";
+import CheckBoxIcon from "../../assets/jsx-icon/CheckBoxIcon";
+import CheckedIcon from "../../assets/jsx-icon/CheckedIcon";
 
-const icon = <CheckBoxIcon fontSize="small" />;
-const checkedIcon = <CheckedIcon fontSize="small" />;
+const icon = <CheckBoxIcon />;
+const checkedIcon = <CheckedIcon />;
 
 type Props<T> = {
   listData: T[];

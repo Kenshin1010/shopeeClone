@@ -1,7 +1,8 @@
 import { Box, Paper } from "@mui/material";
 import NavTabPanel from "./components/NavTabPanel";
 import ButtonGroupBottom from "./components/ButtonGroupBottom";
-import BasicInfomation from "./components/BasicInfomation";
+import BasicInformation from "./components/BasicInformation";
+import CheckBoxIcon from "../../../../../../assets/jsx-icon/CheckBoxIcon";
 
 function ProductNewBodyRight() {
   return (
@@ -11,7 +12,7 @@ function ProductNewBodyRight() {
       </Paper>
       <Paper>
         <section className="product-edit__section">
-          <BasicInfomation />
+          <BasicInformation />
         </section>
       </Paper>
       <Paper>
@@ -58,6 +59,10 @@ function ProductNewBodyRight() {
       </Paper>
       <Paper>
         <ButtonGroupBottom />
+      </Paper>
+
+      <Paper>
+        <CheckBoxIcon />
       </Paper>
     </div>
   );
