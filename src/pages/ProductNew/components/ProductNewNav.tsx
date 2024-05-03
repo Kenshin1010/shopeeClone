@@ -178,7 +178,7 @@ function ProductNewNav() {
   };
 
   return (
-    <div className="ProductNewNav">
+    <div className="ProductNewNav" style={{ position: "static" }}>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" sx={{ bgcolor: "#fff", color: "#333" }}>
           <Toolbar>
@@ -187,7 +187,7 @@ function ProductNewNav() {
               edge="start"
               color="inherit"
               aria-label="open drawer"
-              sx={{ mr: 2 }}
+              sx={{ mr: 2, width: "60px", height: "60px" }}
             >
               {/* <MenuIcon /> */}
               <Box data-v-ec4eabc4="" className="logo-box">
@@ -264,7 +264,7 @@ function ProductNewNav() {
                     // minWidth: "1px",
                     height: "18px",
                     backgroundColor: "#e5e5e5",
-                    transform: "translateY(22px)",
+                    transform: "translateY(18px)",
                     margin: "0 8px",
                     padding: "0",
                     // margin: "0",
@@ -284,19 +284,31 @@ function ProductNewNav() {
                 >
                   <Stack direction="row" spacing={2}>
                     <Avatar
+                      sx={{
+                        "&.MuiAvatar-root": {
+                          width: "32px",
+                          height: "32px",
+                        },
+                      }}
                       alt="akaliko1010"
                       src="https://cf.shopee.vn/file/ad0e2127b3dd95fc45994ec1f29c0e2d"
                     />
-                    <Box
+                    <Stack
+                      direction={"row"}
+                      alignItems={"center"}
+                      justifyContent={"end"}
                       sx={{
                         maxWidth: "9.375rem",
                         overflow: "hidden",
                         paddingLeft: ".3125rem",
                         textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                        fontSize: "14px",
+                        lineHeight: "1.2",
                       }}
                     >
                       akaliko1010
-                    </Box>
+                    </Stack>
                   </Stack>
                 </IconButton>
               </Box>

@@ -2,7 +2,6 @@
 // import reactLogo from "./assets/react.svg";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import ChatBox from "./components/ChatBox/ChatBox";
 // import { Button } from "@mui/material";
 import Cart from "./pages/Cart/Cart";
 import HomePage from "./pages/HomePage/HomePage";
@@ -74,7 +73,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <ChatBox />
+      {/* <ChatBox /> */}
     </div>
   );
 }

@@ -4,17 +4,82 @@ import {
   Input,
   List,
   ListItem,
+  Stack,
   SvgIcon,
   Typography,
 } from "@mui/material";
 
 function BasicInformation() {
+  const productEditSection = {
+    marginTop: "0",
+  };
+
+  const productDetailPanel = {
+    overflow: "hidden",
+    padding: "24px 24px 0",
+    background: "#fff",
+    boxShadow: "0 1px 4px rgba(0, 0, 0, .12)",
+    borderRadius: "6px",
+  };
+  const panelTitle = {
+    fontSize: "20px",
+    fontWeight: "500",
+    lineHeight: "22px",
+    color: "#333",
+  };
+
+  const editRow = {
+    marginBottom: "24px",
+    flexWrap: "wrap",
+  };
+
+  const editLabel = {
+    position: "relative",
+    minHeight: "40px",
+    textAlign: "right",
+    color: "#333",
+    flexBasis: "144px",
+    width: "144px",
+    maxWidth: "144px",
+    marginRight: "16px",
+  };
+
+  const mandatory = {
+    color: "#ee4d2d",
+    display: "inline-block",
+    fontSize: "14px",
+  };
+
+  const mandatoryIcon = {
+    marginRight: "3px",
+    verticalAlign: "middle",
+  };
+
+  const editMain = {
+    flex: "1",
+    maxWidth: "calc(100% - 144px - 16px)",
+  };
+
+  const popoverWrap = {
+    width: "100%",
+    height: "100%",
+  };
+
+  const productEditFormItemContent = {
+    position: "relative",
+    lineHeight: "22px",
+  };
   return (
-    <div className="BasicInformation">
-      <Box className="product-detail-panel product-basic-info">
-        <Box className="panel-header">
+    <div className="BasicInformation" style={{ ...productEditSection }}>
+      <Box
+        className="product-detail-panel product-basic-info"
+        sx={{ ...productDetailPanel }}
+      >
+        <Box className="panel-header" sx={{ marginBottom: "24px" }}>
           <Box className="panel-title">
-            <Box className="basic-info-title">Thông tin cơ bản</Box>
+            <Box className="basic-info-title" sx={{ ...panelTitle }}>
+              Thông tin cơ bản
+            </Box>
           </Box>
         </Box>
         <Box className="panel-content-wrapper">
@@ -22,12 +87,23 @@ function BasicInformation() {
             <Box className="container">
               <Box>
                 <Box className="edit-row image-offset">
-                  <Box className="edit-label edit-title">
-                    <Box className="mandatory">
-                      <Typography className="mandatory-icon">*</Typography>
+                  <Stack
+                    direction={"row"}
+                    alignItems={"center"}
+                    justifyContent={"flex-end"}
+                    sx={{ ...editLabel }}
+                    className="edit-label edit-title"
+                  >
+                    <Box className="mandatory" sx={{ ...mandatory }}>
+                      <Typography
+                        className="mandatory-icon"
+                        sx={{ ...mandatoryIcon }}
+                      >
+                        *
+                      </Typography>
                     </Box>
                     <Typography>Hình ảnh sản phẩm</Typography>
-                  </Box>
+                  </Stack>
                   <Box
                     className="edit-main"
                     data-product-edit-field-unique-id="images"
@@ -403,13 +479,28 @@ function BasicInformation() {
                   </Box>
                 </Box>
                 <Box className="edit-row image-offset">
-                  <Box className="edit-label edit-title">
-                    <Box className="mandatory">
-                      <Typography className="mandatory-icon">*</Typography>
+                  <Stack
+                    direction={"row"}
+                    alignItems={"center"}
+                    justifyContent={"flex-end"}
+                    sx={{ ...editLabel }}
+                    className="edit-label edit-title"
+                  >
+                    <Box className="mandatory" sx={{ ...mandatory }}>
+                      <Typography
+                        className="mandatory-icon"
+                        sx={{ ...mandatoryIcon }}
+                      >
+                        *
+                      </Typography>
                     </Box>
                     <Typography>Ảnh bìa</Typography>
-                  </Box>
-                  <Box className="edit-main" sx={{ display: "flex" }}>
+                  </Stack>
+                  <Box
+                    className="edit-main"
+                    sx={{ ...editMain }}
+                    sx={{ display: "flex" }}
+                  >
                     <Box
                       className="image-manager-wrapper"
                       // use-mms="true"
@@ -766,10 +857,20 @@ function BasicInformation() {
                 className="product-video-manager edit-row"
                 data-product-edit-field-unique-id="video"
               >
-                <Box className="edit-label edit-title">
+                <Stack
+                  direction={"row"}
+                  alignItems={"center"}
+                  justifyContent={"flex-end"}
+                  sx={{ ...editLabel }}
+                  className="edit-label edit-title"
+                >
                   <Box>Video sản phẩm</Box>
-                </Box>
-                <Box className="edit-main" sx={{ display: "flex" }}>
+                </Stack>
+                <Box
+                  className="edit-main"
+                  sx={{ ...editMain }}
+                  sx={{ display: "flex" }}
+                >
                   <Box className="video-manager">
                     <Box className="main">
                       <Box
@@ -826,22 +927,44 @@ function BasicInformation() {
                   </Box>
                 </Box>
               </Box>
-              <Box className="edit-row">
-                <Box className="edit-label edit-title">
-                  <Box className="mandatory">
-                    <Typography className="mandatory-icon">*</Typography>
+              <Stack
+                direction={"row"}
+                alignItems={"flex-start"}
+                justifyContent={"flex-start"}
+                className="edit-row"
+                sx={{
+                  ...editRow,
+                }}
+              >
+                <Stack
+                  direction={"row"}
+                  alignItems={"center"}
+                  justifyContent={"flex-end"}
+                  sx={{ ...editLabel }}
+                  className="edit-label edit-title"
+                >
+                  <Box className="mandatory" sx={{ ...mandatory }}>
+                    <Typography
+                      className="mandatory-icon"
+                      sx={{ ...mandatoryIcon }}
+                    >
+                      *
+                    </Typography>
                   </Box>
                   <Typography>Tên sản phẩm</Typography>
-                </Box>
-                <Box className="edit-main">
-                  <Box className="popover-wrap">
+                </Stack>
+                <Box className="edit-main" sx={{ ...editMain }}>
+                  <Box className="popover-wrap" sx={{ ...popoverWrap }}>
                     <Box
                       className="custom-len-calc-input product-edit-form-item"
                       // size="large"
                       // placeholder="Tên sản phẩm + Thương hiệu + Model + Thông số kỹ thuật"
                       // data-product-edit-field-unique-id="name"
                     >
-                      <Box className="product-edit-form-item-content">
+                      <Box
+                        className="product-edit-form-item-content"
+                        sx={{ ...productEditFormItemContent }}
+                      >
                         <Box className="shopee-input">
                           <Box className="shopee-input__inner shopee-input__inner--large">
                             <Input
@@ -867,17 +990,34 @@ function BasicInformation() {
                     </Box>
                   </Box>
                 </Box>
-              </Box>
-              <Box
-                // data-auto-scroll-key="shouldAutoSetCategory"
+              </Stack>
+              <Stack
+                direction={"row"}
+                alignItems={"flex-start"}
+                justifyContent={"flex-start"}
                 className="edit-row is-last-edit-row"
+                sx={{
+                  ...editRow,
+                }}
+                // data-auto-scroll-key="shouldAutoSetCategory"
               >
-                <Box className="edit-label edit-row-left">
-                  <Box className="mandatory">
-                    <Typography className="mandatory-icon">*</Typography>
+                <Stack
+                  direction={"row"}
+                  alignItems={"center"}
+                  justifyContent={"flex-end"}
+                  sx={{ ...editLabel }}
+                  className="edit-label edit-row-left"
+                >
+                  <Box className="mandatory" sx={{ ...mandatory }}>
+                    <Typography
+                      className="mandatory-icon"
+                      sx={{ ...mandatoryIcon }}
+                    >
+                      *
+                    </Typography>
                   </Box>
                   <Typography>Ngành hàng</Typography>
-                </Box>
+                </Stack>
                 <Box
                   className="degrade-wrap edit-row-right-full"
                   sx={{ display: "block" }}
@@ -888,8 +1028,11 @@ function BasicInformation() {
                       // data-product-edit-field-unique-id="category"
                     >
                       <Box className="product-edit-form-item">
-                        <Box className="product-edit-form-item-content">
-                          <Box className="popover-wrap">
+                        <Box
+                          className="product-edit-form-item-content"
+                          sx={{ ...productEditFormItemContent }}
+                        >
+                          <Box className="popover-wrap" sx={{ ...popoverWrap }}>
                             <Box className="product-category-box-inner">
                               <Box className="product-category-text">
                                 <Typography className="product-category-placeholder">
@@ -915,15 +1058,34 @@ function BasicInformation() {
                   </Box>
                   <Box className="apply-suggestion-alert"></Box>
                 </Box>
-              </Box>
-              <Box className="edit-row description-wrap">
-                <Box className="edit-label edit-title">
-                  <Box className="mandatory">
-                    <Typography className="mandatory-icon">*</Typography>
+              </Stack>
+              <Stack
+                className="edit-row description-wrap"
+                direction={"row"}
+                alignItems={"flex-start"}
+                justifyContent={"flex-start"}
+                sx={{
+                  ...editRow,
+                }}
+              >
+                <Stack
+                  direction={"row"}
+                  alignItems={"center"}
+                  justifyContent={"flex-end"}
+                  sx={{ ...editLabel }}
+                  className="edit-label edit-title"
+                >
+                  <Box className="mandatory" sx={{ ...mandatory }}>
+                    <Typography
+                      className="mandatory-icon"
+                      sx={{ ...mandatoryIcon }}
+                    >
+                      *
+                    </Typography>
                   </Box>
                   <Typography>Mô tả sản phẩm</Typography>
-                </Box>
-                <Box className="edit-main">
+                </Stack>
+                <Box className="edit-main" sx={{ ...editMain }}>
                   <Box className="product-description">
                     <Typography
                       className="async-component"
@@ -944,6 +1106,7 @@ function BasicInformation() {
                             <Box
                               data-ls-upload-cmpt=""
                               className="product-edit-form-item-content"
+                              sx={{ ...productEditFormItemContent }}
                             >
                               <Box
                                 className="shopee-input shopee-input__area"
@@ -1007,7 +1170,7 @@ function BasicInformation() {
                     </Box>
                   </Box>
                 </Box>
-              </Box>
+              </Stack>
             </Box>
           </Box>
         </Box>

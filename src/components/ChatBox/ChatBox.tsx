@@ -1,8 +1,10 @@
-import { Button, Stack, SxProps, Theme } from "@mui/material";
+import { Button, ButtonGroup, Stack, SxProps, Theme } from "@mui/material";
+import { useLocation } from "react-router-dom";
 import ChatIcon from "../../assets/jsx-icon/ChatIcon";
 import PathIcon from "../../assets/jsx-icon/PathIcon";
 
 function ChatBox() {
+  const location = useLocation();
   return (
     <Stack
       direction={"row"}
@@ -39,16 +41,20 @@ function ChatBox() {
       >
         1
       </Box> */}
-      <Button
-        variant="text"
-        startIcon={<PathIcon />}
-        sx={styleChatBox}
-      ></Button>
-      <Button
-        variant="text"
-        startIcon={<ChatIcon />}
-        sx={styleChatBox}
-      ></Button>
+      {location.pathname !== "/portal/product/new" && (
+        <ButtonGroup>
+          <Button
+            variant="text"
+            startIcon={<PathIcon />}
+            sx={styleChatBox}
+          ></Button>
+          <Button
+            variant="text"
+            startIcon={<ChatIcon />}
+            sx={styleChatBox}
+          ></Button>
+        </ButtonGroup>
+      )}
     </Stack>
   );
 }
