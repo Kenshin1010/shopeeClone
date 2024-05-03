@@ -1,12 +1,12 @@
-import HomeNav from "../HomePage/components/HomeNav";
+import HomeNav from "../HomePage/components/HomeNav/HomeNav";
 import RegisterFooter from "../Register/components/RegisterFooter";
-import CardBody from "./components/CardBody";
+import CartBody from "./components/CartBody";
 
 function Cart() {
   return (
     <div className="Cart">
       <HomeNav />
-      <CardBody />
+      <CartBody />
       <RegisterFooter />
     </div>
   );

@@ -1,6 +1,6 @@
 import RegisterFooter from "../Register/components/RegisterFooter";
 import HomeBody from "./components/HomeBody/HomeBody";
-import HomeNav from "./components/HomeNav";
+import HomeNav from "./components/HomeNav/HomeNav";
 
 function HomePage() {
   return (
