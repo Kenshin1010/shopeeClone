@@ -26,11 +26,14 @@ import EducationIcon from "../jsx-icon/EducationIcon";
 
 function ProductNewNav() {
   const routerLinkActive = {
-    color: "#05a",
+    color: "#999",
+    transition: "color .2s ease-in-out",
     fontSize: "18px",
     textDecoration: "none",
     whiteSpace: "nowrap",
     cursor: "pointer",
+    fontWeight: "400",
+    height: "100%",
   };
   function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     event.preventDefault();
@@ -196,7 +199,11 @@ function ProductNewNav() {
             <Stack
               className="content-box"
               spacing={1}
-              sx={{ paddingTop: "1.25rem" }}
+              sx={
+                {
+                  // paddingTop: "1.25rem"
+                }
+              }
             >
               <Breadcrumbs
                 sx={{
@@ -209,7 +216,13 @@ function ProductNewNav() {
                   //   whiteSpace: "nowrap",
                 }}
                 separator={
-                  <i>
+                  <i
+                    style={{
+                      color: "#b7b7b7",
+                      display: "inline-block",
+                      transform: "translateY(10%)",
+                    }}
+                  >
                     <ArrowRightNav />
                   </i>
                 }
@@ -251,7 +264,7 @@ function ProductNewNav() {
                     // minWidth: "1px",
                     height: "18px",
                     backgroundColor: "#e5e5e5",
-                    transform: "translateY(18px)",
+                    transform: "translateY(22px)",
                     margin: "0 8px",
                     padding: "0",
                     // margin: "0",
