@@ -7,9 +7,9 @@ import {
   Typography,
 } from "@mui/material";
 
-import color from "@theme/Colors";
 import CheckBoxIcon from "../../assets/jsx-icon/CheckBoxIcon";
 import CheckedIcon from "../../assets/jsx-icon/CheckedIcon";
+import color from "../../theme/Colors";
 
 const icon = <CheckBoxIcon />;
 const checkedIcon = <CheckedIcon />;

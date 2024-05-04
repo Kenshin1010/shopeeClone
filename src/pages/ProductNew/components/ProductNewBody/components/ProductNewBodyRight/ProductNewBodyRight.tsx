@@ -1,5 +1,5 @@
 import { Box, Paper } from "@mui/material";
-import BasicInformation from "./components/BasicInformation";
+import BasicInformation from "./components/BasicInformation/BasicInformation";
 import ButtonGroupBottom from "./components/ButtonGroupBottom";
 import NavTabPanel from "./components/NavTabPanel";
 

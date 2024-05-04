@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  FormLabel,
   Input,
   List,
   ListItem,
@@ -8,6 +9,7 @@ import {
   SvgIcon,
   Typography,
 } from "@mui/material";
+import { useState } from "react";
 
 function BasicInformation() {
   const productEditSection = {
@@ -28,6 +30,10 @@ function BasicInformation() {
     color: "#333",
   };
 
+  const panelContentWrapper = {
+    marginBottom: "24px",
+  };
+
   const editRow = {
     marginBottom: "24px",
     flexWrap: "wrap",
@@ -38,10 +44,15 @@ function BasicInformation() {
     minHeight: "40px",
     textAlign: "right",
     color: "#333",
+  };
+
+  const editTitle = {
     flexBasis: "144px",
     width: "144px",
     maxWidth: "144px",
     marginRight: "16px",
+    fontSize: "14px",
+    textAlign: "right",
   };
 
   const mandatory = {
@@ -69,6 +80,97 @@ function BasicInformation() {
     position: "relative",
     lineHeight: "22px",
   };
+
+  const radioWrapper = {
+    width: "auto",
+    marginTop: "-4px",
+  };
+
+  const shopeeRadioGroup = {
+    // display: "inline-block",
+    fontSize: "0",
+    marginRight: "24px",
+  };
+
+  const shopeeRadio = {
+    color: "#333",
+    cursor: "pointer",
+    // display: "inline-block",
+    fontSize: "0",
+    userSelect: "none",
+    textDecoration: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  };
+
+  const shopeeRadioIndicator = {
+    backgroundColor: "#ee4d2d",
+    borderColor: "#ee4d2d",
+    border: "1px solid #e5e5e5",
+    borderRadius: "50%",
+    boxSizing: "border-box",
+    display: "inline-block",
+    height: "16px",
+    marginRight: "8px",
+    position: "relative",
+    transition: "border-color .2s ease-in-out",
+    verticalAlign: "middle",
+    width: "16px",
+    "&:before": {
+      transform: "scale(1)",
+      backgroundColor: "#fff",
+      borderRadius: "50%",
+      content: "''",
+      height: "6px",
+      left: "4px",
+      position: "absolute",
+      top: "4px",
+      // transform: "scale(0)",
+      transition: "transform .2s",
+      width: "6px",
+    },
+  };
+
+  const shopeeRadioLabel = {
+    display: "inline-block",
+    fontSize: "14px",
+    verticalAlign: "middle",
+  };
+
+  const promotionRemarkContentListItem = {
+    listStyleType: "disc",
+    "&:marker": {
+      unicodeBidi: "isolate",
+      fontVariantNumeric: "tabular-nums",
+      textTransform: "none",
+      textIndent: "0px !important",
+      textAlign: "start !important",
+      textAlignLast: "start !important",
+    },
+  };
+
+  const [imagePreviews, setImagePreviews] = useState([]);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+
+    Promise.all(
+      files.map((file) => {
+        return new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+
+          reader.onload = (e) => resolve(e.target?.result as string);
+          reader.onerror = (e) => reject(e);
+
+          reader.readAsDataURL(file);
+        });
+      })
+    ).then((imageDataUrls) => {
+      setImagePreviews(imageDataUrls as []);
+    });
+  };
+
   return (
     <div className="BasicInformation" style={{ ...productEditSection }}>
       <Box
@@ -82,17 +184,30 @@ function BasicInformation() {
             </Box>
           </Box>
         </Box>
-        <Box className="panel-content-wrapper">
+        <Box className="panel-content-wrapper" sx={{ ...panelContentWrapper }}>
           <Box className="panel-content">
             <Box className="container">
-              <Box>
-                <Box className="edit-row image-offset">
+              {/* <FormProductImages /> */}
+              <Stack
+                direction={"row"}
+                alignItems={"flex-start"}
+                justifyContent={"flex-start"}
+                className="product-image-manager edit-row"
+                sx={{ ...editRow }}
+              >
+                <Stack
+                  direction={"row"}
+                  alignItems={"start"}
+                  justifyContent={"flex-end"}
+                  className="edit-row image-offset"
+                  sx={{ ...editRow }}
+                >
                   <Stack
                     direction={"row"}
-                    alignItems={"center"}
+                    alignItems={"start"}
                     justifyContent={"flex-end"}
-                    sx={{ ...editLabel }}
                     className="edit-label edit-title"
+                    sx={{ ...editLabel, ...editTitle }}
                   >
                     <Box className="mandatory" sx={{ ...mandatory }}>
                       <Typography
@@ -102,44 +217,113 @@ function BasicInformation() {
                         *
                       </Typography>
                     </Box>
-                    <Typography>Hình ảnh sản phẩm</Typography>
+                    <Typography sx={{ ...editTitle, marginRight: "0" }}>
+                      Hình ảnh sản phẩm
+                    </Typography>
                   </Stack>
-                  <Box
+                  <Stack
+                    direction={"column"}
+                    alignItems={"start"}
+                    justifyContent={"flex-start"}
                     className="edit-main"
                     data-product-edit-field-unique-id="images"
+                    sx={{ ...editMain }}
                   >
-                    <Box
+                    <Stack
+                      direction={"row"}
+                      alignItems={"center"}
+                      justifyContent={"flex-start"}
                       data-auto-correct-key="images"
                       sx={{ lineHeight: "40px", display: "flex" }}
                     >
-                      <Box className="popover-wrap radio-wrapper">
-                        <Box className="shopee-tooltip shopee-popover shopee-popover--dark">
-                          <Box className="shopee-popover__ref">
-                            <Box className="shopee-radio-group shopee-radio-group--normal shopee-radio-group--solid">
-                              <label className="shopee-radio">
+                      <Stack
+                        direction={"row"}
+                        alignItems={"center"}
+                        justifyContent={"flex-start"}
+                        className="popover-wrap radio-wrapper"
+                        sx={{ ...popoverWrap, ...radioWrapper }}
+                      >
+                        <Stack
+                          direction={"row"}
+                          alignItems={"center"}
+                          justifyContent={"flex-start"}
+                          className="shopee-tooltip shopee-popover shopee-popover--dark"
+                          sx={{ ...popoverWrap }}
+                        >
+                          <Stack
+                            direction={"row"}
+                            alignItems={"center"}
+                            justifyContent={"flex-start"}
+                            className="shopee-popover__ref"
+                            sx={{ ...popoverWrap }}
+                          >
+                            <Stack
+                              direction={"row"}
+                              alignItems={"center"}
+                              justifyItems={"flex-start"}
+                              className="shopee-radio-group shopee-radio-group--normal shopee-radio-group--solid"
+                              sx={{ ...shopeeRadioGroup }}
+                            >
+                              <FormLabel
+                                className="shopee-radio"
+                                sx={{ ...shopeeRadio }}
+                              >
                                 <Input
                                   type="radio"
                                   className="shopee-radio__input"
                                   value="1"
+                                  sx={{
+                                    ...shopeeRadio,
+                                    "&:before, &:after, &:hover": {
+                                      border: "none",
+                                    },
+                                    "&.MuiInputBase-input": {
+                                      border: "none",
+                                    },
+                                  }}
                                 />
-                                <Typography className="shopee-radio__indicator"></Typography>
-                                <Typography className="shopee-radio__label">
+                                <Typography
+                                  className="shopee-radio__indicator"
+                                  sx={{ ...shopeeRadioIndicator }}
+                                ></Typography>
+                                <Typography
+                                  className="shopee-radio__label"
+                                  sx={{ ...shopeeRadioLabel }}
+                                >
                                   Hình ảnh tỷ lệ 1:1
                                 </Typography>
-                              </label>
-                              <label className="shopee-radio">
+                              </FormLabel>
+                              <FormLabel
+                                className="shopee-radio"
+                                sx={{ ...shopeeRadio }}
+                              >
                                 <Input
                                   type="radio"
                                   className="shopee-radio__input"
                                   value="2"
+                                  sx={{
+                                    ...shopeeRadio,
+                                    "&:before, &:after, &:hover": {
+                                      border: "none",
+                                    },
+                                    "&.MuiInputBase-input": {
+                                      border: "none",
+                                    },
+                                  }}
                                 />
-                                <Typography className="shopee-radio__indicator"></Typography>
-                                <Typography className="shopee-radio__label">
+                                <Typography
+                                  className="shopee-radio__indicator"
+                                  sx={{ ...shopeeRadioIndicator }}
+                                ></Typography>
+                                <Typography
+                                  className="shopee-radio__label"
+                                  sx={{ ...shopeeRadioLabel }}
+                                >
                                   Hình ảnh tỷ lệ 3:4
                                 </Typography>
-                              </label>
-                            </Box>
-                          </Box>
+                              </FormLabel>
+                            </Stack>
+                          </Stack>
                           <Box
                             className="shopee-popper shopee-popover__popper shopee-popover__popper--dark shopee-tooltip__popper"
                             sx={{ display: "none", maxWidth: "280px" }}
@@ -148,8 +332,8 @@ function BasicInformation() {
                               Không thể thay đổi trong quá trình xử lý hình ảnh
                             </Box>
                           </Box>
-                        </Box>
-                      </Box>
+                        </Stack>
+                      </Stack>
                       <Button
                         type="button"
                         className="shopee-button shopee-button--link shopee-button--normal"
@@ -157,7 +341,7 @@ function BasicInformation() {
                       >
                         <Typography> View Example </Typography>
                       </Button>
-                    </Box>
+                    </Stack>
                     <Box
                       className="image-manager-wrapper"
                       // use-mms="true"
@@ -192,14 +376,26 @@ function BasicInformation() {
                                     // aspect="1"
                                   >
                                     <Box className="shopee-upload-wrapper shopee-upload-dragger">
-                                      <Input
+                                      <input
                                         type="file"
                                         name="file"
-                                        // accept="image/*"
-                                        // multiple="multiple"
+                                        accept="image/*"
+                                        multiple
                                         // aspect="1"
                                         className="shopee-upload__input"
+                                        onChange={handleFileChange}
                                       />
+                                      <div>
+                                        {imagePreviews.map(
+                                          (imagePreview, index) => (
+                                            <img
+                                              key={index}
+                                              src={imagePreview}
+                                              alt={`Image preview ${index}`}
+                                            />
+                                          )
+                                        )}
+                                      </div>
                                       <Box className="shopee-image-manager__upload__content">
                                         <Box className="shopee-image-manager__upload__content__icon">
                                           <SvgIcon className="shopee-icon">
@@ -476,15 +672,23 @@ function BasicInformation() {
                         </Box>
                       </Box>
                     </Box>
-                  </Box>
-                </Box>
-                <Box className="edit-row image-offset">
+                  </Stack>
+                </Stack>
+                <Stack
+                  direction={"row"}
+                  alignItems={"flex-start"}
+                  justifyContent={"flex-start"}
+                  sx={{
+                    ...editRow,
+                  }}
+                  className="edit-row image-offset"
+                >
                   <Stack
                     direction={"row"}
-                    alignItems={"center"}
+                    alignItems={"flex-start"}
                     justifyContent={"flex-end"}
-                    sx={{ ...editLabel }}
                     className="edit-label edit-title"
+                    sx={{ ...editLabel, ...editTitle }}
                   >
                     <Box className="mandatory" sx={{ ...mandatory }}>
                       <Typography
@@ -494,12 +698,16 @@ function BasicInformation() {
                         *
                       </Typography>
                     </Box>
-                    <Typography>Ảnh bìa</Typography>
+                    <Typography sx={{ ...editTitle, marginRight: "0" }}>
+                      Ảnh bìa
+                    </Typography>
                   </Stack>
-                  <Box
+                  <Stack
+                    direction={"row"}
+                    alignItems={"flex-start"}
+                    justifyContent={"flex-start"}
                     className="edit-main"
                     sx={{ ...editMain }}
-                    sx={{ display: "flex" }}
                   >
                     <Box
                       className="image-manager-wrapper"
@@ -841,8 +1049,10 @@ function BasicInformation() {
                     <Box className="promotion-image-remark">
                       <Box className="promotion-image-remark-content">
                         <List>
-                          <ListItem>Tải lên hình ảnh 1:1.</ListItem>
-                          <ListItem>
+                          <ListItem sx={{ ...promotionRemarkContentListItem }}>
+                            Tải lên hình ảnh 1:1.
+                          </ListItem>
+                          <ListItem sx={{ ...promotionRemarkContentListItem }}>
                             Ảnh bìa sẽ được hiển thị tại các trang Kết quả tìm
                             kiếm, Gợi ý hôm nay,... Việc sử dụng ảnh bìa đẹp sẽ
                             thu hút thêm lượt truy cập vào sản phẩm của bạn
@@ -850,27 +1060,27 @@ function BasicInformation() {
                         </List>
                       </Box>
                     </Box>
-                  </Box>
-                </Box>
-              </Box>
-              <Box
+                  </Stack>
+                </Stack>
+              </Stack>
+              <Stack
+                direction={"row"}
+                alignItems={"flex-start"}
+                justifyContent={"flex-start"}
                 className="product-video-manager edit-row"
                 data-product-edit-field-unique-id="video"
+                sx={{ ...editRow }}
               >
                 <Stack
                   direction={"row"}
                   alignItems={"center"}
                   justifyContent={"flex-end"}
-                  sx={{ ...editLabel }}
                   className="edit-label edit-title"
+                  sx={{ ...editLabel, ...editTitle }}
                 >
-                  <Box>Video sản phẩm</Box>
+                  <Box sx={{ ...editTitle }}>Video sản phẩm</Box>
                 </Stack>
-                <Box
-                  className="edit-main"
-                  sx={{ ...editMain }}
-                  sx={{ display: "flex" }}
-                >
+                <Stack className="edit-main" sx={{ ...editMain }}>
                   <Box className="video-manager">
                     <Box className="main">
                       <Box
@@ -925,8 +1135,8 @@ function BasicInformation() {
                       </List>
                     </Box>
                   </Box>
-                </Box>
-              </Box>
+                </Stack>
+              </Stack>
               <Stack
                 direction={"row"}
                 alignItems={"flex-start"}
@@ -938,10 +1148,10 @@ function BasicInformation() {
               >
                 <Stack
                   direction={"row"}
-                  alignItems={"center"}
+                  alignItems={"flex-start"}
                   justifyContent={"flex-end"}
-                  sx={{ ...editLabel }}
                   className="edit-label edit-title"
+                  sx={{ ...editLabel, ...editTitle }}
                 >
                   <Box className="mandatory" sx={{ ...mandatory }}>
                     <Typography
@@ -951,7 +1161,9 @@ function BasicInformation() {
                       *
                     </Typography>
                   </Box>
-                  <Typography>Tên sản phẩm</Typography>
+                  <Typography sx={{ ...editTitle, marginRight: "0" }}>
+                    Tên sản phẩm
+                  </Typography>
                 </Stack>
                 <Box className="edit-main" sx={{ ...editMain }}>
                   <Box className="popover-wrap" sx={{ ...popoverWrap }}>
@@ -1003,7 +1215,7 @@ function BasicInformation() {
               >
                 <Stack
                   direction={"row"}
-                  alignItems={"center"}
+                  alignItems={"flex-start"}
                   justifyContent={"flex-end"}
                   sx={{ ...editLabel }}
                   className="edit-label edit-row-left"
@@ -1016,7 +1228,9 @@ function BasicInformation() {
                       *
                     </Typography>
                   </Box>
-                  <Typography>Ngành hàng</Typography>
+                  <Typography sx={{ ...editTitle, marginRight: "0" }}>
+                    Ngành hàng
+                  </Typography>
                 </Stack>
                 <Box
                   className="degrade-wrap edit-row-right-full"
@@ -1070,10 +1284,10 @@ function BasicInformation() {
               >
                 <Stack
                   direction={"row"}
-                  alignItems={"center"}
+                  alignItems={"flex-start"}
                   justifyContent={"flex-end"}
-                  sx={{ ...editLabel }}
                   className="edit-label edit-title"
+                  sx={{ ...editLabel, ...editTitle }}
                 >
                   <Box className="mandatory" sx={{ ...mandatory }}>
                     <Typography
@@ -1083,7 +1297,9 @@ function BasicInformation() {
                       *
                     </Typography>
                   </Box>
-                  <Typography>Mô tả sản phẩm</Typography>
+                  <Typography sx={{ ...editTitle, marginRight: "0" }}>
+                    Mô tả sản phẩm
+                  </Typography>
                 </Stack>
                 <Box className="edit-main" sx={{ ...editMain }}>
                   <Box className="product-description">
