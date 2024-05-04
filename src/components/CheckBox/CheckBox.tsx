@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Autocomplete,
   Box,
@@ -29,6 +28,7 @@ type Props<T> = {
 
 export default function CheckBox<T>(props: Props<T>) {
   const handleInput = (e: any, value: T[]) => {
+    console.log(e);
     props.setFilter(value);
   };
 

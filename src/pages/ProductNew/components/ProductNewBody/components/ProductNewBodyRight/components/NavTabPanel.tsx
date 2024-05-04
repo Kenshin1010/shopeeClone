@@ -8,6 +8,7 @@ export default function TabsWrappedLabel() {
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
+    console.log(event);
   };
 
   const shopeeTabNavText = {
