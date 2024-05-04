@@ -42,7 +42,8 @@
     "scss": "^0.2.4",
     "tailwindcss": "^3.4.3",
     "vite-plugin-image-optimizer": "^1.1.7",
-    "vite-plugin-image-presets": "^0.3.4"
+    "vite-plugin-image-presets": "^0.3.4",
+    "vite-plugin-minify": "^1.5.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
