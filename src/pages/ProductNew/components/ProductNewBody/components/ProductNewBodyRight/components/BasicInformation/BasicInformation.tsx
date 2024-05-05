@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import ShopeeImageUploadIcon from "./jsx-icon/ShopeeImageUploadIcon";
+import ShopeeIconZoom from "./jsx-icon/ShopeeIconZoom";
+import ShopeeIconOthers from "./jsx-icon/ShopeeIconOthers";
 
 function BasicInformation() {
   const productEditSection = {
@@ -158,7 +160,11 @@ function BasicInformation() {
     opacity: ".8",
   };
 
-  const shopeePopperPopper = {
+  const shopeePopover = {
+    display: "inline-block",
+  };
+
+  const shopeePopoverPopper = {
     wordWrap: "break-word",
     border: "1px solid transparent",
     borderRadius: "3px",
@@ -169,11 +175,16 @@ function BasicInformation() {
     zIndex: "1",
   };
 
-  const shopeePopperContent = {
+  const shopeePopoverContent = {
     backgroundColor: "inherit",
     borderRadius: "4px",
     // padding: "12px 16px",
     padding: "4px 8px",
+  };
+
+  const shopeePopoverRef = {
+    width: "100%",
+    height: "100%",
   };
 
   const shopeeButton = {
@@ -329,6 +340,124 @@ function BasicInformation() {
     fontSize: "12px",
   };
 
+  const shopeeModalMask = {
+    backgroundColor: "rgba(0, 0, 0, .4)",
+    bottom: "0",
+    left: "0",
+    overflow: "hidden",
+    position: "fixed",
+    right: "0",
+    top: "0",
+  };
+
+  const shopeeModalContainer = {
+    alignItems: "center",
+    bottom: "40px",
+    display: "flex",
+    justifyContent: "center",
+    left: "0",
+    position: "absolute",
+    right: "0",
+    top: "40px",
+  };
+
+  const shopeeModalBox = {
+    display: "inline-flex",
+    maxHeight: "100%",
+    padding: "0 24px",
+    position: "relative",
+    transformOrigin: "top",
+  };
+
+  const shopeeModalContent = {
+    width: "auto",
+    overflow: "hidden",
+    backgroundColor: "#fff",
+    borderRadius: "3px",
+    boxShadow: "0 1px 8px 0 rgba(0, 0, 0, .12)",
+    display: "flex",
+    flexDirection: "column",
+    maxHeight: "100%",
+    overflowY: "auto",
+    // width: "400px",
+  };
+
+  const shopeeModalHeader = {
+    flexShrink: "0",
+    minHeight: "24px",
+    padding: "24px",
+  };
+
+  const imageCropperHeader = {
+    fontSize: "20px",
+    lineHeight: "1",
+    color: "#333",
+  };
+
+  const shopeeModalBody = {
+    flexGrow: "1",
+    fontSize: "14px",
+    minHeight: "32px",
+    overflow: "auto",
+    padding: "0 24px",
+  };
+
+  const imageCropperContent = {
+    display: "flex",
+    paddingTop: "14px",
+    position: "relative",
+  };
+
+  const panelLeft = {
+    position: "relative",
+  };
+
+  const imageContainer = {
+    textAlign: "center",
+  };
+
+  const imageStyle = {
+    maxWidth: "100%",
+  };
+
+  const actionsBar = {
+    marginTop: "16px",
+  };
+
+  const actionsLeft = {
+    height: "32px",
+  };
+
+  const zoom = {
+    position: "relative",
+    width: "88px",
+    height: "100%",
+    borderRadius: "4px",
+    overflow: "hidden",
+  };
+
+  const tooltip = {
+    height: "100%",
+    marginLeft: "16px",
+  };
+
+  const iconStyle = {
+    backgroundColor: "#f6f6f6",
+    borderRadius: "4px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "32px",
+    width: "32px",
+    cursor: "pointer",
+  };
+
+  const iconZoom = {
+    width: "16px",
+    height: "16px",
+    color: "#333",
+  };
+
   const [imagePreviews, setImagePreviews] = useState([]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -434,7 +563,7 @@ function BasicInformation() {
                             alignItems={"center"}
                             justifyContent={"flex-start"}
                             className="shopee-popover__ref"
-                            sx={{ ...popoverWrap }}
+                            sx={{ ...shopeePopoverRef }}
                           >
                             <Stack
                               direction={"row"}
@@ -509,12 +638,12 @@ function BasicInformation() {
                               display: "none",
                               maxWidth: "280px",
                               ...shopeePopper,
-                              ...shopeePopperPopper,
+                              ...shopeePopoverPopper,
                             }}
                           >
                             <Box
                               className="shopee-popover__content"
-                              sx={shopeePopperContent}
+                              sx={shopeePopoverContent}
                             >
                               Không thể thay đổi trong quá trình xử lý hình ảnh
                             </Box>
@@ -671,47 +800,109 @@ function BasicInformation() {
                         >
                           <Box
                             className="shopee-modal__mask"
-                            sx={{ display: "none", zIndex: "1000002" }}
+                            sx={{
+                              display: "none",
+                              zIndex: "1000002",
+                              ...shopeeModalMask,
+                            }}
                           >
-                            <Box className="shopee-modal__container">
+                            <Box
+                              className="shopee-modal__container"
+                              sx={{ ...shopeeModalContainer }}
+                            >
                               <Box
                                 className="shopee-modal__box"
-                                sx={{ display: "none" }}
+                                sx={{
+                                  ...shopeeModalBox,
+                                  display: "none",
+                                }}
                               >
-                                <Box className="shopee-modal__content shopee-modal__content--normal">
-                                  <Box className="shopee-modal__header">
-                                    <Box className="image-cropper-header">
+                                <Box
+                                  className="shopee-modal__content shopee-modal__content--normal"
+                                  sx={{ ...shopeeModalContent }}
+                                >
+                                  <Box
+                                    className="shopee-modal__header"
+                                    sx={{ ...shopeeModalHeader }}
+                                  >
+                                    <Box
+                                      className="image-cropper-header"
+                                      sx={{ ...imageCropperHeader }}
+                                    >
                                       Chỉnh sửa hình ảnh sản phẩm
                                     </Box>
                                   </Box>
                                   <Box
                                     className="shopee-modal__body"
-                                    sx={{ position: "relative" }}
+                                    sx={{
+                                      ...shopeeModalBody,
+                                      position: "relative",
+                                    }}
                                   >
-                                    <Box className="image-cropper-content">
-                                      <Box className="panel-left">
+                                    <Box
+                                      className="image-cropper-content"
+                                      sx={{ ...imageCropperContent }}
+                                    >
+                                      <Box
+                                        className="panel-left"
+                                        sx={{ ...panelLeft }}
+                                      >
                                         <Box
                                           className="image-container"
                                           sx={{
+                                            ...imageContainer,
                                             width: "400px",
                                             height: "400px",
                                           }}
                                         >
-                                          <img alt="" className="image" />
+                                          <img
+                                            alt=""
+                                            className="image"
+                                            style={imageStyle}
+                                          />
                                         </Box>
-                                        <Box className="actions-bar">
-                                          <Box className="actions-left">
-                                            <Box className="zoom">
-                                              <Box className="shopee-tooltip tooltip shopee-popover shopee-popover--dark">
-                                                <Box className="shopee-popover__ref">
-                                                  <Box className="icon disabled">
-                                                    <SvgIcon className="icon-zoom shopee-icon">
-                                                      <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 16 16"
-                                                      >
-                                                        <path d="M2.307 13.448a7.878 7.878 0 1111.525-.412l2.003 2.003a.563.563 0 11-.796.796l-2.003-2.003a7.878 7.878 0 01-10.729-.384zm10.675-1.15a6.753 6.753 0 10-.684.684l.366-.318.318-.366zM5.064 7.315h5.627a.563.563 0 010 1.125H5.064a.563.563 0 110-1.125z"></path>
-                                                      </svg>
+                                        <Stack
+                                          direction={"row"}
+                                          alignItems={"center"}
+                                          justifyContent={"space-between"}
+                                          className="actions-bar"
+                                          sx={{ ...actionsBar }}
+                                        >
+                                          <Stack
+                                            direction={"row"}
+                                            alignContent={"center"}
+                                            className="actions-left"
+                                            sx={{ ...actionsLeft }}
+                                          >
+                                            <Stack
+                                              direction={"row"}
+                                              alignItems={"center"}
+                                              className="zoom"
+                                              sx={{ ...zoom }}
+                                            >
+                                              <Box
+                                                className="shopee-tooltip tooltip shopee-popover shopee-popover--dark"
+                                                sx={{
+                                                  ...tooltip,
+                                                  ...shopeePopover,
+                                                }}
+                                              >
+                                                <Box
+                                                  className="shopee-popover__ref"
+                                                  sx={{ ...shopeePopoverRef }}
+                                                >
+                                                  <Box
+                                                    className="icon disabled"
+                                                    sx={{ ...iconStyle }}
+                                                  >
+                                                    <SvgIcon
+                                                      className="icon-zoom shopee-icon"
+                                                      sx={{
+                                                        ...shopeeIcon,
+                                                        ...iconZoom,
+                                                      }}
+                                                    >
+                                                      <ShopeeIconZoom />
                                                     </SvgIcon>
                                                   </Box>
                                                 </Box>
@@ -720,68 +911,115 @@ function BasicInformation() {
                                                   sx={{
                                                     display: "none",
                                                     maxWidth: "280px",
+                                                    ...shopeePopper,
+                                                    ...shopeePopoverPopper,
                                                   }}
                                                 >
-                                                  <Box className="shopee-popover__content">
+                                                  <Box
+                                                    className="shopee-popover__content"
+                                                    sx={{
+                                                      ...shopeePopoverContent,
+                                                    }}
+                                                  >
                                                     Thu nhỏ
                                                   </Box>
                                                 </Box>
                                               </Box>
-                                              <Box className="shopee-tooltip tooltip shopee-popover shopee-popover--dark">
-                                                <Box className="shopee-popover__ref">
-                                                  <Box className="icon">
-                                                    <SvgIcon className="icon-zoom shopee-icon">
-                                                      <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 16 16"
-                                                      >
-                                                        <path d="M2.307 13.448a7.878 7.878 0 1111.525-.412l2.003 2.003a.563.563 0 11-.796.796l-2.003-2.003a7.878 7.878 0 01-10.729-.384zm10.675-1.15a6.753 6.753 0 10-.684.684l.366-.318.318-.366zM7.315 7.315v-2.25a.563.563 0 011.125 0v2.25h2.251a.563.563 0 010 1.125h-2.25v2.251a.563.563 0 01-1.126 0v-2.25h-2.25a.563.563 0 110-1.126h2.25z"></path>
-                                                      </svg>
+                                              <Box
+                                                className="shopee-tooltip tooltip shopee-popover shopee-popover--dark"
+                                                sx={{
+                                                  ...tooltip,
+                                                  ...shopeePopover,
+                                                }}
+                                              >
+                                                <Box
+                                                  className="shopee-popover__ref"
+                                                  sx={{ ...shopeePopoverRef }}
+                                                >
+                                                  <Box
+                                                    className="icon"
+                                                    sx={{ ...iconStyle }}
+                                                  >
+                                                    <SvgIcon
+                                                      className="icon-zoom shopee-icon"
+                                                      sx={{
+                                                        ...iconZoom,
+                                                        ...shopeeIcon,
+                                                      }}
+                                                    >
+                                                      <ShopeeIconZoom />
                                                     </SvgIcon>
                                                   </Box>
                                                 </Box>
                                                 <Box
                                                   className="shopee-popper shopee-popover__popper shopee-popover__popper--dark shopee-tooltip__popper"
                                                   sx={{
+                                                    ...shopeePopper,
+                                                    ...shopeePopoverPopper,
                                                     display: "none",
                                                     maxWidth: "280px",
                                                   }}
                                                 >
-                                                  <Box className="shopee-popover__content">
+                                                  <Box
+                                                    className="shopee-popover__content"
+                                                    sx={{
+                                                      ...shopeePopoverContent,
+                                                    }}
+                                                  >
                                                     Phóng to
                                                   </Box>
                                                 </Box>
                                               </Box>
-                                            </Box>
-                                            <Box className="shopee-tooltip tooltip shopee-popover shopee-popover--dark">
-                                              <Box className="shopee-popover__ref">
-                                                <Box className="icon">
-                                                  <SvgIcon className="icon-others shopee-icon">
-                                                    <svg
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                      viewBox="0 0 15 17"
-                                                    >
-                                                      <path
-                                                        fill-rule="nonzero"
-                                                        d="M5 7h8a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2zm0 1a1 1 0 00-1 1v6a1 1 0 001 1h8a1 1 0 001-1V9a1 1 0 00-1-1H5zm3.127-5.52l-.715-.652a.5.5 0 01.674-.739l1.666 1.52a.5.5 0 01-.015.752l-1.666 1.4a.5.5 0 11-.644-.765l.616-.517c-3.988-.047-6.21 1.48-6.828 4.618a.5.5 0 01-.981-.194C.957 4.231 3.643 2.411 8.127 2.48z"
-                                                      ></path>
-                                                    </svg>
+                                            </Stack>
+                                            <Box
+                                              className="shopee-tooltip tooltip shopee-popover shopee-popover--dark"
+                                              sx={{
+                                                ...tooltip,
+                                                ...shopeePopover,
+                                              }}
+                                            >
+                                              <Box
+                                                className="shopee-popover__ref"
+                                                sx={{ ...shopeePopoverRef }}
+                                              >
+                                                <Box
+                                                  className="icon"
+                                                  sx={{ ...iconStyle }}
+                                                >
+                                                  <SvgIcon
+                                                    className="icon-others shopee-icon"
+                                                    sx={{ ...iconZoom }}
+                                                  >
+                                                    <ShopeeIconOthers />
                                                   </SvgIcon>
                                                 </Box>
                                               </Box>
                                               <Box
                                                 className="shopee-popper shopee-popover__popper shopee-popover__popper--dark shopee-tooltip__popper"
                                                 sx={{
+                                                  ...shopeePopper,
+                                                  ...shopeePopover,
                                                   display: "none",
                                                   maxWidth: "280px",
                                                 }}
                                               >
-                                                <Box className="shopee-popover__content">
+                                                <Box
+                                                  className="shopee-popover__content"
+                                                  sx={{
+                                                    ...shopeePopoverContent,
+                                                  }}
+                                                >
                                                   Xoay phải 90°
                                                 </Box>
                                               </Box>
                                             </Box>
-                                            <Box className="shopee-tooltip tooltip shopee-popover shopee-popover--dark">
+                                            <Box
+                                              className="shopee-tooltip tooltip shopee-popover shopee-popover--dark"
+                                              sx={{
+                                                ...tooltip,
+                                                ...shopeePopover,
+                                              }}
+                                            >
                                               <Box className="shopee-popover__ref">
                                                 <Box className="icon">
                                                   <SvgIcon className="icon-others shopee-icon">
@@ -837,7 +1075,7 @@ function BasicInformation() {
                                                 </Box>
                                               </Box>
                                             </Box>
-                                          </Box>
+                                          </Stack>
                                           <Box className="actions-right">
                                             <Button
                                               type="button"
@@ -849,7 +1087,7 @@ function BasicInformation() {
                                               </Typography>
                                             </Button>
                                           </Box>
-                                        </Box>
+                                        </Stack>
                                         <Box className="mask">
                                           <Box className="mask-loading">
                                             <img
