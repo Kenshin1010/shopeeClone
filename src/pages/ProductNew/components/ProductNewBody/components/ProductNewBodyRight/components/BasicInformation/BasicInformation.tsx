@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Container,
   FormLabel,
   Input,
   List,
@@ -10,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import ShopeeImageUploadIcon from "./jsx-icon/ShopeeImageUploadIcon";
 
 function BasicInformation() {
   const productEditSection = {
@@ -148,6 +150,183 @@ function BasicInformation() {
       textAlign: "start !important",
       textAlignLast: "start !important",
     },
+  };
+
+  const shopeePopper = {
+    backgroundColor: "#000",
+    color: "#fff",
+    opacity: ".8",
+  };
+
+  const shopeePopperPopper = {
+    wordWrap: "break-word",
+    border: "1px solid transparent",
+    borderRadius: "3px",
+    boxShadow: "0 0 16px 0 rgba(0, 0, 0, .1), 0 8px 16px 0 rgba(0, 0, 0, .06)",
+    fontSize: "14px",
+    lineHeight: "18px",
+    minWidth: "80px",
+    zIndex: "1",
+  };
+
+  const shopeePopperContent = {
+    backgroundColor: "inherit",
+    borderRadius: "4px",
+    // padding: "12px 16px",
+    padding: "4px 8px",
+  };
+
+  const shopeeButton = {
+    position: "relative",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    appearance: "none",
+    minWidth: "72px",
+    height: "32px",
+    padding: "0 16px",
+    backgroundColor: "#fff",
+    border: "1px solid #e5e5e5",
+    borderRadius: "4px",
+    boxSizing: "border-box",
+    color: "#333",
+    cursor: "pointer",
+    fontFamily: "inherit",
+    fontSize: "14px",
+    fontWeight: "500",
+    outline: "none",
+    textDecoration: "none",
+    transition: "all .2s ease-in-out",
+    userSelect: "none",
+    verticalAlign: "middle",
+    whiteSpace: "nowrap",
+  };
+
+  const shopeeButtonLink = {
+    backgroundColor: "transparent",
+    borderColor: "transparent",
+    color: "#2673dd",
+    fontWeight: "400",
+    height: "unset",
+    minWidth: "unset",
+    padding: "0",
+    textTransform: "none",
+    "&:hover": {
+      color: "#0046ab",
+      backgroundColor: "transparent",
+    },
+  };
+
+  const shopeeImageManager = {
+    display: "inline-block",
+    width: "auto !important",
+    position: "relative",
+    color: "#1791f2",
+  };
+
+  const container = {
+    display: "flex",
+    flexWrap: "wrap",
+  };
+
+  const shopeeImageManagerItembox = {
+    flex: "0 0 80px",
+    margin: "0 16px 16px 0",
+    borderRadius: "4px",
+  };
+
+  const shopeeImageManagerContent = {
+    cursor: "move",
+    position: "relative",
+    height: "100%",
+    paddingTop: "100%",
+    borderRadius: "2px",
+  };
+
+  const shopeeImageManagerUpload = {
+    position: "absolute",
+    height: "100%",
+    width: "100%",
+    top: "0",
+    left: "0",
+    right: "0",
+    zIndex: "2",
+    cursor: "pointer",
+    border: "1px dashed #d8d8d8",
+    borderRadius: "4px",
+    transition: "color .25s ease, border-color .25s ease",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
+  const shopeeFileUpload = {
+    width: "100%",
+    height: "100%",
+    border: "1px solid transparent",
+  };
+
+  const shopeeUpload = {
+    height: "100%",
+  };
+
+  const shopeeUploadWrapper = {
+    padding: "0",
+    border: "0",
+    background: "#fff",
+    cursor: "pointer",
+    display: "inline-block",
+    outline: "none",
+    textAlign: "center",
+  };
+
+  const shopeeUploadDragger = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    border: "none",
+    background: "#fafafa",
+    // border: "1px dashed #d8d8d8",
+    borderRadius: "4px",
+    overflow: "hidden",
+    // padding: "32px",
+    position: "relative",
+    transition: "border-color .2s ease-in-out",
+  };
+
+  const shopeeUploadInput = {
+    display: "none",
+  };
+
+  const shopeeImageManagerUploadContent = {
+    color: "#ee4d2d",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignContent: "center",
+    padding: "0 2px",
+  };
+
+  const shopeeImageManagerUploadContentIcon = {
+    height: "23px",
+  };
+
+  const shopeeIcon = {
+    width: "23px",
+    height: "23px",
+    // width: "40px",
+    // height: "40px",
+    fill: "currentColor",
+    display: "inline-block",
+    lineHeight: "0",
+  };
+
+  const shopeeImageManagerUploadContentText = {
+    lineHeight: "14px",
+    fontSize: "12px",
   };
 
   const [imagePreviews, setImagePreviews] = useState([]);
@@ -326,9 +505,17 @@ function BasicInformation() {
                           </Stack>
                           <Box
                             className="shopee-popper shopee-popover__popper shopee-popover__popper--dark shopee-tooltip__popper"
-                            sx={{ display: "none", maxWidth: "280px" }}
+                            sx={{
+                              display: "none",
+                              maxWidth: "280px",
+                              ...shopeePopper,
+                              ...shopeePopperPopper,
+                            }}
                           >
-                            <Box className="shopee-popover__content">
+                            <Box
+                              className="shopee-popover__content"
+                              sx={shopeePopperContent}
+                            >
                               Không thể thay đổi trong quá trình xử lý hình ảnh
                             </Box>
                           </Box>
@@ -337,25 +524,58 @@ function BasicInformation() {
                       <Button
                         type="button"
                         className="shopee-button shopee-button--link shopee-button--normal"
-                        sx={{ marginLeft: "16px" }}
+                        sx={{
+                          marginLeft: "16px",
+                          "&:before": {
+                            borderRadius: "inherit",
+                            bottom: "-1px",
+                            content: "''",
+                            left: "-1px",
+                            position: "absolute",
+                            right: "-1px",
+                            top: "-1px",
+                          },
+                          ...shopeeButton,
+                          ...shopeeButtonLink,
+                        }}
                       >
-                        <Typography> View Example </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: "14px",
+                            lineHeight: "1",
+                            verticalAlign: "middle",
+                          }}
+                        >
+                          {" "}
+                          View Example{" "}
+                        </Typography>
                       </Button>
                     </Stack>
                     <Box
                       className="image-manager-wrapper"
-                      // use-mms="true"
-                      // images-info=""
-                      // max-upload-file-num="9"
-                      // min-upload-file-num="1"
-                      // image-min-size="1,1"
-                      // product-id="0"
-                      // max-file-size="2097152"
-                      // allowed-file-extensions="jpg,jpeg,png"
-                      // allowed-mime-types="image/jpg,image/jpeg,image/png"
+                      // useMms={"true"}
+                      // imagesInfo=""
+                      // maxUploadFileNum="9"
+                      // minUploadFileNum="1"
+                      // imageMinSize="1,1"
+                      // productId="0"
+                      // maxFileSize="2097152"
+                      // allowedFileExtensions="jpg,jpeg,png"
+                      // allowedMimeTypes="image/jpg,image/jpeg,image/png"
                     >
-                      <Box className="shopee-image-manager" sx={{}}>
-                        <Box className="container">
+                      <Box
+                        className="shopee-image-manager"
+                        sx={{ ...shopeeImageManager }}
+                      >
+                        <Container
+                          className="container"
+                          sx={{
+                            ...container,
+                            "&.MuiContainer-root": {
+                              padding: "0",
+                            },
+                          }}
+                        >
                           <Box
                             className="shopee-image-manager__itembox"
                             sx={{
@@ -363,19 +583,34 @@ function BasicInformation() {
                               maxWidth: "80px",
                               height: "80px",
                               maxHeight: "80px",
+                              ...shopeeImageManagerItembox,
                             }}
                           >
-                            <Box className="shopee-image-manager__content">
-                              <Box className="shopee-image-manager__upload">
+                            <Box
+                              className="shopee-image-manager__content"
+                              sx={{ ...shopeeImageManagerContent }}
+                            >
+                              <Box
+                                className="shopee-image-manager__upload"
+                                sx={{ ...shopeeImageManagerUpload }}
+                              >
                                 <Box
                                   className="shopee-file-upload"
-                                  //   accept="image/*"
+                                  // accept="image/*"
+                                  sx={{ ...shopeeFileUpload }}
                                 >
                                   <Box
                                     className="shopee-upload"
                                     // aspect="1"
+                                    sx={{ ...shopeeUpload }}
                                   >
-                                    <Box className="shopee-upload-wrapper shopee-upload-dragger">
+                                    <Box
+                                      className="shopee-upload-wrapper shopee-upload-dragger"
+                                      sx={{
+                                        ...shopeeUploadWrapper,
+                                        ...shopeeUploadDragger,
+                                      }}
+                                    >
                                       <input
                                         type="file"
                                         name="file"
@@ -384,6 +619,7 @@ function BasicInformation() {
                                         // aspect="1"
                                         className="shopee-upload__input"
                                         onChange={handleFileChange}
+                                        style={shopeeUploadInput}
                                       />
                                       <div>
                                         {imagePreviews.map(
@@ -396,19 +632,29 @@ function BasicInformation() {
                                           )
                                         )}
                                       </div>
-                                      <Box className="shopee-image-manager__upload__content">
-                                        <Box className="shopee-image-manager__upload__content__icon">
-                                          <SvgIcon className="shopee-icon">
-                                            <svg
-                                              viewBox="0 0 23 21"
-                                              xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <path d="M18.5 0A1.5 1.5 0 0120 1.5V12c-.49-.07-1.01-.07-1.5 0V1.5H2v12.65l3.395-3.408a.75.75 0 01.958-.087l.104.087L7.89 12.18l3.687-5.21a.75.75 0 01.96-.086l.103.087 3.391 3.405c.81.813.433 2.28-.398 3.07A5.235 5.235 0 0014.053 18H2a1.5 1.5 0 01-1.5-1.5v-15A1.5 1.5 0 012 0h16.5z"></path>
-                                              <path d="M6.5 4.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM18.5 14.25a.75.75 0 011.5 0v2.25h2.25a.75.75 0 010 1.5H20v2.25a.75.75 0 01-1.5 0V18h-2.25a.75.75 0 010-1.5h2.25v-2.25z"></path>
-                                            </svg>
+                                      <Box
+                                        className="shopee-image-manager__upload__content"
+                                        sx={shopeeImageManagerUploadContent}
+                                      >
+                                        <Box
+                                          className="shopee-image-manager__upload__content__icon"
+                                          sx={
+                                            shopeeImageManagerUploadContentIcon
+                                          }
+                                        >
+                                          <SvgIcon
+                                            className="shopee-icon"
+                                            sx={shopeeIcon}
+                                          >
+                                            <ShopeeImageUploadIcon />
                                           </SvgIcon>
                                         </Box>
-                                        <Box className="shopee-image-manager__upload__content__text">
+                                        <Box
+                                          className="shopee-image-manager__upload__content__text"
+                                          sx={
+                                            shopeeImageManagerUploadContentText
+                                          }
+                                        >
                                           Thêm hình ảnh (0/9)
                                         </Box>
                                       </Box>
@@ -418,7 +664,7 @@ function BasicInformation() {
                               </Box>
                             </Box>
                           </Box>
-                        </Box>
+                        </Container>
                         <Box
                           className="shopee-modal image-cropper-modal"
                           // close-inside=""
@@ -624,7 +870,19 @@ function BasicInformation() {
                                             height: "120px",
                                           }}
                                         >
-                                          <Box className="preview-image"></Box>
+                                          `{" "}
+                                          <Box className="preview-image">
+                                            {/* {imagePreviews.map(
+                                              (imagePreview, index) => (
+                                                <img
+                                                  key={index}
+                                                  src={imagePreview}
+                                                  alt={`Image preview ${index}`}
+                                                />
+                                              )
+                                            )} */}
+                                          </Box>
+                                          `
                                         </Box>
                                       </Box>
                                     </Box>
