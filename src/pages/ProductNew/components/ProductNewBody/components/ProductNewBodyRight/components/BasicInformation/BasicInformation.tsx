@@ -1020,7 +1020,10 @@ function BasicInformation() {
                                                 ...shopeePopover,
                                               }}
                                             >
-                                              <Box className="shopee-popover__ref">
+                                              <Box
+                                                className="shopee-popover__ref"
+                                                sx={{ ...shopeePopoverRef }}
+                                              >
                                                 <Box className="icon">
                                                   <SvgIcon className="icon-others shopee-icon">
                                                     <svg
